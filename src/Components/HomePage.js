@@ -79,7 +79,7 @@ const Home = styled.div`
       display: flex;
       align-items: center;
       margin: 0 0 15px 160px;
-      font-size: 14px;
+      font-size: 16px;
 
       &:last-child {
         font-weight: 600;
@@ -110,10 +110,12 @@ const Home = styled.div`
       box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
       border: 1px solid #ccc;
       color: rgba(0, 0, 0, 0.8);
-      background: #fff;
+      background: #0067b8;
+      color: #fff;
       border-radius: 4px;
       transition: 0.4s;
       text-decoration: none;
+      margin: 0 0 0 25px;
 
       &:hover {
         transition: 0.4s;
@@ -200,7 +202,7 @@ const Home = styled.div`
         height: 150px;
         overflow: auto;
         padding: 30px 50px 50px 50px;
-        font-size: 16px;
+        font-size: 18px;
         line-height: 1.5;
         &::-webkit-scrollbar {
           display: none;
@@ -261,8 +263,7 @@ const HomePage = ({}) => {
                 return (
                   <div key={t} className="text-block">
                     <img
-                      width={30}
-                      height={30}
+                      width={40}
                       style={{ margin: "0 10px 0 0" }}
                       src={require("../images/checkMark.png")}
                       alt="checkMark"
@@ -307,27 +308,33 @@ const HomePage = ({}) => {
                   }}
                 >
                   {[
-                    "MS Dynamics CRM Developer",
-                    "MS Dynamics CRM Consultant",
-                  ].map((t) => {
+                    {
+                      title: "MS Dynamics CRM Developer",
+                      patch: "/UDS/CRMDeveloper",
+                    },
+                    {
+                      title: "MS Dynamics CRM Consultant",
+                      patch: "/UDS/CRMConsultant",
+                    },
+                  ].map(({ patch, title }) => {
                     return (
-                      <div key={t} className="education-box">
+                      <div key={title} className="education-box">
                         <div className="animation" />
-                        <div className="education-title">{t}</div>
+                        <div className="education-title">{title}</div>
+                        <Link
+                          to={patch}
+                          onClick={() => {
+                            dispatch(setActivePage(patch));
+                            window.scrollTo(0, 0);
+                          }}
+                          className="detail-btn"
+                        >
+                          Детальніше
+                        </Link>
                       </div>
                     );
                   })}
                 </div>
-                <Link
-                  to="/UDS/educations"
-                  onClick={() => {
-                    dispatch(setActivePage("/UDS/educations"));
-                    window.scrollTo(0, 0);
-                  }}
-                  className="detail-btn"
-                >
-                  Детальніше
-                </Link>
               </div>
             </div>
           </div>

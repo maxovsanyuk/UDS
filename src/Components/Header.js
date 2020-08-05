@@ -96,7 +96,8 @@ const HeaderBox = styled.div`
 
 const pages = [
   { name: "Головна", patch: "/UDS" },
-  { name: "Про навчання", patch: "/UDS/educations" },
+  { name: "CRM Developer", patch: "/UDS/CRMDeveloper" },
+  { name: "CRM Consultant", patch: "/UDS/CRMConsultant" },
   { name: "Галерея", patch: "/UDS/gallery" },
   { name: "Блог", patch: "/UDS/blog" },
   {

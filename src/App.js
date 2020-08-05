@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import HomePage from "./Components/HomePage";
 import GalleryPage from "./Components/GalleryPage";
-import EducationsPage from "./Components/EducationsPage";
+import CRMDeveloper from "./Components/CRMDeveloper";
+import CRMConsultant from "./Components/CRMConsultant";
 import BlogPage from "./Components/BlogPage";
 import ContactsPage from "./Components/ContactsPage";
 
@@ -39,7 +40,8 @@ const App = ({}) => {
         <Route exact path="/UDS/gallery" component={GalleryPage} />
         <Route exact path="/UDS/blog" component={BlogPage} />
         <Route exact path="/UDS/contacts" component={ContactsPage} />
-        <Route exact path="/UDS/educations" component={EducationsPage} />
+        <Route exact path="/UDS/CRMDeveloper" component={CRMDeveloper} />
+        <Route exact path="/UDS/CRMConsultant" component={CRMConsultant} />
         {blogLinks.map(({ patch, component }) => {
           return <Route key={patch} exact path={patch} component={component} />;
         })}

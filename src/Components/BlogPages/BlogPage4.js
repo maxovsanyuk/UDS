@@ -8,6 +8,7 @@ const Blog = styled.div`
   width: 100%;
   flex-direction: column;
   align-items: center;
+  font-size: 18px;
 
   .blog-cont {
     width: 1400px;

@@ -20,6 +20,7 @@ const Blog = styled.div`
 
   .blog-cont {
     width: 1400px;
+    font-size: 18px;
   }
 `;
 
@@ -54,7 +55,7 @@ const ImgCard = styled.div`
     text-align: center;
     position: absolute;
     bottom: 0;
-    height: 50px;
+    height: 60px;
     width: 100%;
     background: #b9dbf4;
     color: #262626;
