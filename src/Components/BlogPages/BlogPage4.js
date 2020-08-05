@@ -101,6 +101,7 @@ const BlogPage4 = ({}) => {
               >
                 <img
                   width={340}
+                  height={340}
                   style={{ margin: "0 20px 20px 0" }}
                   src={require("../../images/blog_images/ira.jpg")}
                   alt="img"
@@ -210,7 +211,8 @@ const BlogPage4 = ({}) => {
               >
                 <img
                   width={340}
-                  style={{ margin: "0 20px 20px 0" }}
+                  height={340}
+                  style={{ margin: "0 20px 20px 0", backgroundSize: "contain" }}
                   src={require("../../images/blog_images/tania.jpg")}
                   alt="img"
                 />
@@ -313,7 +315,8 @@ const BlogPage4 = ({}) => {
               >
                 <img
                   width={340}
-                  style={{ margin: "0 20px 20px 0" }}
+                  height={340}
+                  style={{ margin: "0 20px 20px 0", backgroundSize: "contain" }}
                   src={require("../../images/blog_images/Nina.jpg")}
                   alt="img"
                 />
