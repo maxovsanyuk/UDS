@@ -101,7 +101,7 @@ const pages = [
   { name: "Блог", patch: "/UDS/blog" },
   {
     name: "Старт курсу",
-    patch: "/contacts",
+    patch: "/UDS/contacts",
     bgColor: "aliceblue",
     showLogo: true,
   },
