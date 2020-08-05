@@ -319,7 +319,7 @@ const HomePage = ({}) => {
                   })}
                 </div>
                 <Link
-                  to="/educations"
+                  to="/USS/educations"
                   onClick={() => {
                     dispatch(setActivePage("/UDS/educations"));
                     window.scrollTo(0, 0);
