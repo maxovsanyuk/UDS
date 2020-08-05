@@ -46,7 +46,7 @@ const App = ({}) => {
         <Route
           render={() => {
             return (
-              <Link to="/">
+              <Link to="/UDS">
                 <Error404>
                   <img src={require("./images/404.gif")} alt="404" />
                 </Error404>
