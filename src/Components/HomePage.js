@@ -321,7 +321,7 @@ const HomePage = ({}) => {
                 <Link
                   to="/educations"
                   onClick={() => {
-                    dispatch(setActivePage("/educations"));
+                    dispatch(setActivePage("/UDS/educations"));
                     window.scrollTo(0, 0);
                   }}
                   className="detail-btn"

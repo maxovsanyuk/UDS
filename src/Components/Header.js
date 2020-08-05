@@ -95,10 +95,10 @@ const HeaderBox = styled.div`
 `;
 
 const pages = [
-  { name: "Головна", patch: "/" },
-  { name: "Про навчання", patch: "/educations" },
-  { name: "Галерея", patch: "/gallery" },
-  { name: "Блог", patch: "/blog" },
+  { name: "Головна", patch: "/UDS" },
+  { name: "Про навчання", patch: "/UDS/educations" },
+  { name: "Галерея", patch: "/UDS/gallery" },
+  { name: "Блог", patch: "/UDS/blog" },
   {
     name: "Старт курсу",
     patch: "/contacts",
@@ -125,7 +125,7 @@ const Header = () => {
   return (
     <HeaderBox fixed={offset > 800}>
       <div className="links-cont">
-        <Link to="/" onClick={() => dispatch(setActivePage("/"))}>
+        <Link to="/UDS" onClick={() => dispatch(setActivePage("/UDS"))}>
           <img
             className="logo"
             src={require("../images/Logo_School.png")}

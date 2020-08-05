@@ -81,27 +81,27 @@ const ImgCard = styled.div`
 
 const blogLinks = [
   {
-    patch: "/blog/1",
+    patch: "/UDS/blog/1",
     imgPatch: img1,
     text: "Тимбилбинг. Идеи для воплощения",
   },
   {
-    patch: "/blog/2",
+    patch: "/UDS/blog/2",
     imgPatch: img2,
     text: "New finalists of our CRM courses",
   },
   {
-    patch: "/blog/3",
+    patch: "/UDS/blog/3",
     imgPatch: img3,
     text: "The finalists of the «Microsoft Dynamics CRM Developer»",
   },
   {
-    patch: "/blog/4",
+    patch: "/UDS/blog/4",
     imgPatch: img4,
     text: "Женщины в ИТ: с чего начать свой путь",
   },
   {
-    patch: "/blog/5",
+    patch: "/UDS/blog/5",
     imgPatch: img5,
     text: "«Microsoft Dynamics CRM Developer» training course",
   },
