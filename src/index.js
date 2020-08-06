@@ -8,13 +8,7 @@ import { rootReducer } from "./redux/reducers/index";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
-const store = createStore(
-  rootReducer,
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
-);
+const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <React.StrictMode>
