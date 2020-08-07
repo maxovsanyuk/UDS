@@ -136,8 +136,9 @@ const Modal = styled.div`
   .modal-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-direction: column;
-    padding: 20px 20px 40px 20px;
+    padding: 20px;
     width: 700px;
     min-height: 480px;
     background: #fff;
@@ -230,7 +231,13 @@ const CRMDeveloper = ({}) => {
               Курс MS Dynamics CRM Developer
             </h2>
 
-            <div style={{ width: "100%", lineHeight: 1.5 }}>
+            <div
+              style={{
+                width: "calc(100% - 30px)",
+                padding: "0 15px",
+                lineHeight: 1.5,
+              }}
+            >
               Якщо ти маєш теоретичну підготовку в сфері IT та навички
               програмування на C# .NET у тебе є можливість почати свою кар’єру в
               якості MS Dynamics CRM Developer
@@ -412,9 +419,9 @@ const CRMDeveloper = ({}) => {
             >
               X
             </span>
-            <h3 className="title">Реєстраційна форма</h3>
             <Form
               disableText
+              title="Реєстраційна форма"
               isSendingForm={isSendingForm}
               isFile
               sendEmail={(e) => sendEmail(e, templateId)}

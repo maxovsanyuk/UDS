@@ -37,15 +37,16 @@ const GalleryCont = styled.div`
   }
 
   .ReactGridGallery_tile-viewport {
+    min-height: 320px !important;
     & img {
-      height: 445px !important;
-      width: 445px !important;
+      min-height: 100% !important;
+      width: 100% !important;
     }
   }
 
-  .ReactGridGallery_tile-viewport {
-    height: 445px !important;
-    width: 445px !important;
+  .ReactGridGallery_tile {
+    width: calc(25% - 20px) !important;
+    min-height: 320px !important;
   }
 `;
 

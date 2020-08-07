@@ -32,7 +32,7 @@ const BlogPage4 = ({}) => {
       <div style={{ position: "relative" }}>
         <img
           height={300}
-          src={require("../../images/gallery/3.jpg")}
+          src={require("../../images/blog_images/imgpsh_fullsize_anim.jpeg")}
           alt="img"
           style={{
             position: "absolute",
@@ -45,7 +45,7 @@ const BlogPage4 = ({}) => {
           style={{
             width: "100%",
             height: "300px",
-            background: `url(${require("../../images/gallery/3.jpg")})`,
+            background: `url(${require("../../images/blog_images/girls.png")})`,
             filter: "grayscale(50%) blur(2px) opacity(50%)",
           }}
         />
@@ -97,21 +97,13 @@ const BlogPage4 = ({}) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  minWidth: "300px",
+                  height: "300px",
+                  margin: "0 20px 20px 0",
+                  background: `url(${require("../../images/blog_images/ira.jpg")}) no-repeat center`,
+                  backgroundSize: "cover",
                 }}
-              >
-                <img
-                  width={340}
-                  height={340}
-                  style={{ margin: "0 20px 20px 0" }}
-                  src={require("../../images/blog_images/ira.jpg")}
-                  alt="img"
-                />
-                {/*<img*/}
-                {/*  src={require("../../images/basic.jpeg")}*/}
-                {/*  alt="img"*/}
-                {/*  height={300}*/}
-                {/*/>*/}
-              </div>
+              />
               <div>
                 <b>Ирина, 36 лет – Consultant CRM</b>
                 <br />
@@ -207,16 +199,13 @@ const BlogPage4 = ({}) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  minWidth: "300px",
+                  height: "300px",
+                  margin: "0 20px 20px 0",
+                  background: `url(${require("../../images/blog_images/tania.jpg")}) no-repeat center`,
+                  backgroundSize: "cover",
                 }}
-              >
-                <img
-                  width={340}
-                  height={340}
-                  style={{ margin: "0 20px 20px 0", backgroundSize: "contain" }}
-                  src={require("../../images/blog_images/tania.jpg")}
-                  alt="img"
-                />
-              </div>
+              />
               <div>
                 <b>Татьяна, 26 лет – Developer</b>
                 <br />
@@ -311,16 +300,14 @@ const BlogPage4 = ({}) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  minWidth: "300px",
+                  height: "300px",
+                  margin: "0 20px 20px 0",
+                  background: `url(${require("../../images/blog_images/Nina.jpg")}) no-repeat center`,
+                  backgroundSize: "cover",
                 }}
-              >
-                <img
-                  width={340}
-                  height={340}
-                  style={{ margin: "0 20px 20px 0", backgroundSize: "contain" }}
-                  src={require("../../images/blog_images/Nina.jpg")}
-                  alt="img"
-                />
-              </div>
+              />
+
               <div>
                 <b>Нина, 33 лет – Project manager</b>
                 <br />

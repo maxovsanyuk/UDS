@@ -31,11 +31,9 @@ const SimpleSlider = ({ style, settings, imgList, imgPath }) => {
     ...settings,
 
     style: {
-      width: "50%",
-      minWidth: "320px",
-      maxWidth: "800px",
-      height: "300px",
-      background: "#ccc",
+      // width: "50%",
+      minWidth: "600px",
+      maxWidth: "1000px",
       borderRadius: "4px",
       boxShadow: "0 0px 5px rgba(0, 0, 0, 0.1)",
       ...style,
@@ -47,9 +45,12 @@ const SimpleSlider = ({ style, settings, imgList, imgPath }) => {
       <Slider {...sliderSettings}>
         {[1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 14].map((e) => {
           return (
-            <div key={e}>
-              <img src={require(`../images/sliderImgs/${e}.jpg`)} alt={e} />
-            </div>
+            <img
+              style={{ width: "100%" }}
+              src={require(`../images/sliderImgs/${e}.jpg`)}
+              alt={e}
+              key={e}
+            />
           );
         })}
       </Slider>

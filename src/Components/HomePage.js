@@ -358,13 +358,15 @@ const HomePage = ({}) => {
               }}
             >
               <h2 className="title">Навчальна платформа</h2>
-              <img
-                className="new-programm"
-                src={require("../images/New.png")}
-                alt="new-programm"
-                width={520}
-                height={340}
-              />
+              <a href="https://dynamics.microsoft.com/ru-ru/">
+                <img
+                  className="new-programm"
+                  src={require("../images/New.png")}
+                  alt="new-programm"
+                  width={520}
+                  height={340}
+                />
+              </a>
             </div>
           </div>
 
@@ -444,7 +446,7 @@ const HomePage = ({}) => {
               Наше співробітництво з UDS
             </h2>
             <SimpleSlider
-              style={{ height: "325px", width: "575px", margin: "50px 0" }}
+              style={{ height: "100%", width: "100%", margin: "50px 0" }}
             />
           </div>
 

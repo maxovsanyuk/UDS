@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import img1 from "../images/teambuilding.jpg";
 import img2 from "../images/gallery/6.jpeg";
 import img3 from "../images/gallery/5.jpeg";
-import img4 from "../images/gallery/3.jpg";
+import img4 from "../images/blog_images/imgpsh_fullsize_anim.jpeg";
 import img5 from "../images/gallery/9.jpg";
 import { setActivePage } from "../redux/actions/app_action";
 import { useDispatch } from "react-redux";
@@ -26,9 +26,8 @@ const Blog = styled.div`
 
 const ImgCard = styled.div`
   display: flex;
-  width: 30.4%;
-  min-width: 445px;
-  min-height: 445px;
+  min-width: calc(25% - 20px);
+  min-height: 320px;
   margin: 10px;
   transition: 0.5s;
   background: ${({ imgPatch }) => `url(${imgPatch}) no-repeat center`};
@@ -142,12 +141,15 @@ const BlogPage = ({}) => {
           >
             {blogLinks.map(({ imgPatch, patch, text }) => {
               return (
-                <Link to={patch} onClick={() => dispatch(setActivePage(null))}>
-                  <ImgCard imgPatch={imgPatch}>
+                <ImgCard imgPatch={imgPatch}>
+                  <Link
+                    to={patch}
+                    onClick={() => dispatch(setActivePage(null))}
+                  >
                     <div className="detail-btn">Детальніше</div>
                     <div className="text">{text}</div>
-                  </ImgCard>
-                </Link>
+                  </Link>
+                </ImgCard>
               );
             })}
           </div>

@@ -5,10 +5,11 @@ import get from "lodash/get";
 
 const FormCont = styled.form`
   width: 400px;
-  margin: 0 auto 40px auto;
   background: white;
   padding: 20px 25px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  position: relative;
 
   input,
   textarea {
@@ -60,7 +61,14 @@ const FormCont = styled.form`
   }
 `;
 
-const Form = ({ isSendingForm, sendEmail, disableText, isFile }) => {
+const Form = ({
+  isSendingForm,
+  sendEmail,
+  disableText,
+  isFile,
+  title,
+  withLogo,
+}) => {
   const { register } = useForm();
   const [formState, setFormState] = useState({});
 
@@ -80,6 +88,20 @@ const Form = ({ isSendingForm, sendEmail, disableText, isFile }) => {
       className="contact-form"
       onSubmit={sendEmail}
     >
+      <h2
+        style={{ color: "#0067b8", textAlign: "center", margin: "0 0 30px 0" }}
+      >
+        {title}
+      </h2>
+      {withLogo && (
+        <img
+          src={require("../images/Logo_School.png")}
+          width={50}
+          alt="logo"
+          style={{ position: "absolute", top: "15px", left: "15px" }}
+        />
+      )}
+
       <label>name</label>
       <input
         type="text"
