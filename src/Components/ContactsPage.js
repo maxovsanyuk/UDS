@@ -12,7 +12,7 @@ const Contacts = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 305px);
+  height: calc(100vh - 295px);
 `;
 
 const ContactsPage = () => {

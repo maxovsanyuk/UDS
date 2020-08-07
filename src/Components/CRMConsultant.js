@@ -201,9 +201,9 @@ const CRMConsultant = ({}) => {
     >
       {(matches) => (
         <>
-          {matches.small && <p>I am small!</p>}
-          {matches.medium && <p>I am medium!</p>}
-          {matches.large && <p>I am large!</p>}
+          {/*{matches.small && <p>I am small!</p>}*/}
+          {/*{matches.medium && <p>I am medium!</p>}*/}
+          {/*{matches.large && <p>I am large!</p>}*/}
           <Header />
 
           <Educations>
