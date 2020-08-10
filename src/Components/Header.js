@@ -178,6 +178,8 @@ const Header = () => {
 
   console.log(activePage, "activePage");
 
+  document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -209,7 +211,6 @@ const Header = () => {
                 isOpen={isMenuOpen}
                 menuClicked={() => {
                   setIsMtnuOpen(!isMenuOpen);
-                  document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
                 }}
                 width={36}
                 height={30}
