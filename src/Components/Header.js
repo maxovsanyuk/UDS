@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setActivePage } from "../redux/actions/app_action";
+import Media from "react-media";
+import HamburgerMenu from "react-hamburger-menu";
 
 const HeaderBox = styled.div`
   display: flex;
@@ -71,6 +73,7 @@ const HeaderBox = styled.div`
       color: #262626;
       font-size: 13px;
       transition: 0.2s;
+      text-align: center;
     }
     .anable-hover-color {
       &:hover {
@@ -94,6 +97,62 @@ const HeaderBox = styled.div`
   }
 `;
 
+const Menu = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  position: relative;
+  width: 100vw;
+  max-height: 80px;
+
+  .logo {
+    margin: 5px;
+  }
+
+  .menu-items {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #0067b8;
+    animation: border 0.3s ease-in-out 0s 1 normal forwards;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    z-index: 20;
+  }
+
+  .page {
+    font-size: 42px;
+    text-align: center;
+    padding: 20px 0;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    transition: 0.4s;
+    color: #fff;
+    &:hover {
+      transition: 0.4s;
+      background: #fff;
+      color: #0067b8;
+    }
+  }
+
+  .menu-btn {
+    margin: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  @keyframes appearingMenu {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+`;
+
 const pages = [
   { name: "Головна", patch: "/UDS" },
   { name: "CRM Developer", patch: "/UDS/CRMDeveloper" },
@@ -105,11 +164,13 @@ const pages = [
     patch: "/UDS/contacts",
     bgColor: "aliceblue",
     showLogo: true,
+    hideBorder: true,
   },
 ];
 
 const Header = () => {
   const [offset, setOffset] = useState(0);
+  const [isMenuOpen, setIsMtnuOpen] = useState(false);
   const state = useSelector((state) => state.app);
   const { activePage } = state;
 
@@ -124,47 +185,104 @@ const Header = () => {
   }, []);
 
   return (
-    <HeaderBox fixed={offset > 800}>
-      <div className="links-cont">
-        <Link to="/UDS" onClick={() => dispatch(setActivePage("/UDS"))}>
-          <img
-            className="logo"
-            src={require("../images/Logo_School.png")}
-            alt="logo"
-          />
-        </Link>
+    <Media
+      queries={{
+        small: "(max-width: 729px)",
+        large: "(min-width: 730px)",
+      }}
+    >
+      {(size) => (
+        <>
+          {size.small && (
+            <Menu>
+              <Link to="/UDS" onClick={() => dispatch(setActivePage("/UDS"))}>
+                <img
+                  className="logo"
+                  height={60}
+                  src={require("../images/Logo_School.png")}
+                  alt="logo"
+                />
+              </Link>
 
-        {pages.map(({ name, patch, bgColor, showLogo }) => (
-          <Link
-            onClick={() => dispatch(setActivePage(patch))}
-            style={{
-              background: bgColor,
-            }}
-            className={`links  ${
-              bgColor ? "disable-hover-color" : "anable-hover-color"
-            } `}
-            key={name}
-            to={patch}
-          >
-            {name}
-
-            {showLogo && (
-              <img
-                width={25}
-                height={25}
-                style={{ margin: "0 0 0 15px" }}
-                src={require("../images/logo-m.jpg")}
-                alt="logo"
+              <HamburgerMenu
+                isOpen={isMenuOpen}
+                menuClicked={() => setIsMtnuOpen(!isMenuOpen)}
+                width={46}
+                height={40}
+                strokeWidth={1}
+                rotate={0}
+                color="black"
+                borderRadius={0}
+                animationDuration={0.5}
+                className="menu-btn"
               />
-            )}
-            <div
-              className="border-line"
-              style={{ display: activePage === patch && "flex" }}
-            />
-          </Link>
-        ))}
-      </div>
-    </HeaderBox>
+
+              {isMenuOpen && (
+                <div className="menu-items">
+                  {pages.map(
+                    ({ name, patch, bgColor, showLogo, hideBorder }) => (
+                      <Link
+                        onClick={() => dispatch(setActivePage(patch))}
+                        className="page"
+                        key={name}
+                        to={patch}
+                        style={{ border: hideBorder && "none" }}
+                      >
+                        {name}
+                      </Link>
+                    )
+                  )}
+                </div>
+              )}
+            </Menu>
+          )}
+
+          {size.large && (
+            <HeaderBox fixed={offset > 800}>
+              <div className="links-cont">
+                <Link to="/UDS" onClick={() => dispatch(setActivePage("/UDS"))}>
+                  <img
+                    className="logo"
+                    src={require("../images/Logo_School.png")}
+                    alt="logo"
+                  />
+                </Link>
+
+                {pages.map(({ name, patch, bgColor, showLogo }) => (
+                  <Link
+                    onClick={() => dispatch(setActivePage(patch))}
+                    style={{
+                      background: bgColor,
+                    }}
+                    className={`links  ${
+                      bgColor ? "disable-hover-color" : "anable-hover-color"
+                    } `}
+                    key={name}
+                    to={patch}
+                  >
+                    {name}
+
+                    {showLogo && (
+                      <img
+                        width={25}
+                        height={25}
+                        style={{ margin: "0 0 0 15px" }}
+                        src={require("../images/logo-m.jpg")}
+                        alt="logo"
+                      />
+                    )}
+                    <div
+                      className="border-line"
+                      style={{ display: activePage === patch && "flex" }}
+                    />
+                  </Link>
+                ))}
+              </div>
+            </HeaderBox>
+          )}
+        </>
+      )}
+    </Media>
   );
 };
 

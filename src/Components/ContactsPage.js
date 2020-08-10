@@ -6,13 +6,19 @@ import Footer from "./Footer";
 import emailjs from "emailjs-com";
 import Form from "./Form";
 
+const ContactsPageBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+`;
+
 const Contacts = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 295px);
 `;
 
 const ContactsPage = () => {
@@ -43,7 +49,7 @@ const ContactsPage = () => {
   }
 
   return (
-    <>
+    <ContactsPageBox>
       <Header />
       <Contacts>
         <Form
@@ -55,7 +61,7 @@ const ContactsPage = () => {
       </Contacts>
 
       <Footer />
-    </>
+    </ContactsPageBox>
   );
 };
 

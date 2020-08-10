@@ -7,6 +7,7 @@ const GoogleMap = () => {
       style={{
         display: "flex",
         height: "235px",
+        maxHeight: "300px",
         flex: 1,
         minWidth: "300px",
       }}
