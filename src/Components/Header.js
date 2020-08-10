@@ -116,7 +116,7 @@ const Menu = styled.div`
     background: #0067b8;
     animation: border 0.3s ease-in-out 0s 1 normal forwards;
     position: absolute;
-    top: 72px;
+    top: 55px;
     left: 0;
     z-index: 20;
   }
