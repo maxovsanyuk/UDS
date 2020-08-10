@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import get from "lodash/get";
 import { Link } from "react-router-dom";
+import Media from "react-media";
 
 const FormCont = styled.form`
   width: 400px;
@@ -11,6 +12,8 @@ const FormCont = styled.form`
   margin: 100px auto;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   position: relative;
+  .form-cont-lg {
+  }
 
   input,
   textarea {
@@ -82,126 +85,145 @@ const Form = ({
   };
 
   return (
-    <FormCont
-      enctype="multipart/form-data"
-      method="post"
-      id="myform"
-      className="contact-form"
-      onSubmit={sendEmail}
+    <Media
+      queries={{
+        small: "(max-width: 729px)",
+        large: "(min-width: 730px)",
+      }}
     >
-      <h2
-        style={{ color: "#0067b8", textAlign: "center", margin: "0 0 30px 0" }}
-      >
-        {title}
-      </h2>
-      {withLogo && (
-        <img
-          className="logo"
-          src={require("../images/Logo_School.png")}
-          style={{ position: "absolute", top: "15px", left: "15px" }}
-          alt="logo"
-        />
-      )}
+      {(size) => (
+        <FormCont
+          enctype="multipart/form-data"
+          method="post"
+          id="myform"
+          className="form-cont-lg"
+          onSubmit={sendEmail}
+        >
+          <h2
+            style={{
+              color: "#0067b8",
+              textAlign: "center",
+              margin: "0 0 30px 0",
+            }}
+          >
+            {title}
+          </h2>
+          {withLogo && (
+            <img
+              className="logo"
+              src={require("../images/Logo_School.png")}
+              style={{ position: "absolute", top: "15px", left: "15px" }}
+              alt="logo"
+            />
+          )}
 
-      <label>name</label>
-      <input
-        type="text"
-        name="name"
-        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-        ref={register({ required: true, maxLength: 20 })}
-      />
-
-      <label>email</label>
-      <input
-        type="email"
-        name="email"
-        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-        ref={register({ required: true })}
-      />
-
-      <label>phone</label>
-      <input
-        type="tel"
-        name="phone"
-        ref={register({ required: true, maxLength: 18 })}
-        onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-      />
-
-      {!disableText && (
-        <>
-          <label>text</label>
-          <textarea
-            style={{ resize: "none" }}
-            name="text"
+          <label>name</label>
+          <input
+            type="text"
+            name="name"
             onChange={(e) =>
-              setFormState({ ...formState, text: e.target.value })
+              setFormState({ ...formState, name: e.target.value })
+            }
+            ref={register({ required: true, maxLength: 20 })}
+          />
+
+          <label>email</label>
+          <input
+            type="email"
+            name="email"
+            onChange={(e) =>
+              setFormState({ ...formState, email: e.target.value })
+            }
+            ref={register({ required: true })}
+          />
+
+          <label>phone</label>
+          <input
+            type="tel"
+            name="phone"
+            ref={register({ required: true, maxLength: 18 })}
+            onChange={(e) =>
+              setFormState({ ...formState, phone: e.target.value })
             }
           />
-        </>
-      )}
 
-      {isFile && (
-        <>
-          <label htmlFor="file-upload" className="custom-file-upload">
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              Upload CV: .jpg, .jpeg, .png , .pdf
-              <img
-                src={require("../images/upload.png")}
-                alt="upload"
-                width={28}
-                height={18}
-                style={{ margin: "0 10px" }}
+          {!disableText && (
+            <>
+              <label>text</label>
+              <textarea
+                style={{ resize: "none" }}
+                name="text"
+                onChange={(e) =>
+                  setFormState({ ...formState, text: e.target.value })
+                }
               />
-              Max file size 2MB
-            </div>
-            <div
-              style={{
-                whiteSpace: "no-wrap",
-                maxWidth: "70px",
-                textOverflow: "ellipsis",
-                overflow: "hidden",
-              }}
-            >
-              {get(formState, "fileUploaded.name", "")}
-            </div>
-          </label>
-          <input
-            required
-            onChange={handleChange}
-            name="file"
-            id="file-upload"
-            type="file"
-            accept=".jpg, .jpeg, .png , .pdf"
-          />
-        </>
-      )}
+            </>
+          )}
 
-      <button
-        style={{
-          opacity:
-            (!formState ||
+          {isFile && (
+            <>
+              <label htmlFor="file-upload" className="custom-file-upload">
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  Upload CV: .jpg, .jpeg, .png , .pdf
+                  <img
+                    src={require("../images/upload.png")}
+                    alt="upload"
+                    width={28}
+                    height={18}
+                    style={{ margin: "0 10px" }}
+                  />
+                  Max file size 2MB
+                </div>
+                <div
+                  style={{
+                    whiteSpace: "no-wrap",
+                    maxWidth: "70px",
+                    textOverflow: "ellipsis",
+                    overflow: "hidden",
+                  }}
+                >
+                  {get(formState, "fileUploaded.name", "")}
+                </div>
+              </label>
+              <input
+                required
+                onChange={handleChange}
+                name="file"
+                id="file-upload"
+                type="file"
+                accept=".jpg, .jpeg, .png , .pdf"
+              />
+            </>
+          )}
+
+          <button
+            style={{
+              opacity:
+                (!formState ||
+                  !formState.name ||
+                  !formState.email ||
+                  (isFile && !formState.fileUploaded) ||
+                  !formState.phone) &&
+                "0.5",
+            }}
+            disabled={
+              !formState ||
               !formState.name ||
               !formState.email ||
-              (isFile && !formState.fileUploaded) ||
-              !formState.phone) &&
-            "0.5",
-        }}
-        disabled={
-          !formState ||
-          !formState.name ||
-          !formState.email ||
-          !formState.phone ||
-          (isFile && !formState.fileUploaded)
-        }
-      >
-        {isSendingForm ? "Sending..." : "Send"}
-      </button>
-    </FormCont>
+              !formState.phone ||
+              (isFile && !formState.fileUploaded)
+            }
+          >
+            {isSendingForm ? "Sending..." : "Send"}
+          </button>
+        </FormCont>
+      )}
+    </Media>
   );
 };
 
