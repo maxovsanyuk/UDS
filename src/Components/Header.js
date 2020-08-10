@@ -122,7 +122,7 @@ const Menu = styled.div`
   }
 
   .page {
-    font-size: 42px;
+    font-size: 36px;
     text-align: center;
     padding: 20px 0;
     text-decoration: none;

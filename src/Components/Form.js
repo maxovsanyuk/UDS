@@ -7,8 +7,8 @@ const FormCont = styled.form`
   width: 400px;
   background: white;
   padding: 20px 25px;
+  margin: 100px 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  margin: auto;
   position: relative;
 
   input,

@@ -5,12 +5,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 import emailjs from "emailjs-com";
 import Form from "./Form";
+import Media from "react-media";
 
 const ContactsPageBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
 `;
 
 const Contacts = styled.div`
@@ -49,19 +49,28 @@ const ContactsPage = () => {
   }
 
   return (
-    <ContactsPageBox>
-      <Header />
-      <Contacts>
-        <Form
-          isSendingForm={isSendingForm}
-          sendEmail={sendEmail}
-          title="Контактна форма"
-          withLogo
-        />
-      </Contacts>
+    <Media
+      queries={{
+        small: "(max-width: 729px)",
+        large: "(min-width: 730px)",
+      }}
+    >
+      {(size) => (
+        <ContactsPageBox style={{ height: size.large && "100vh" }}>
+          <Header />
+          <Contacts>
+            <Form
+              isSendingForm={isSendingForm}
+              sendEmail={sendEmail}
+              title="Контактна форма"
+              withLogo
+            />
+          </Contacts>
 
-      <Footer />
-    </ContactsPageBox>
+          <Footer />
+        </ContactsPageBox>
+      )}
+    </Media>
   );
 };
 
