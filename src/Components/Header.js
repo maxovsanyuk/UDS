@@ -122,7 +122,7 @@ const Menu = styled.div`
   }
 
   .page {
-    font-size: 36px;
+    font-size: 26px;
     text-align: center;
     padding: 20px 0;
     text-decoration: none;
@@ -207,8 +207,8 @@ const Header = () => {
               <HamburgerMenu
                 isOpen={isMenuOpen}
                 menuClicked={() => setIsMtnuOpen(!isMenuOpen)}
-                width={46}
-                height={40}
+                width={36}
+                height={30}
                 strokeWidth={1}
                 rotate={0}
                 color="black"
