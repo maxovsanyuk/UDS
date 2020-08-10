@@ -207,7 +207,10 @@ const Header = () => {
 
               <HamburgerMenu
                 isOpen={isMenuOpen}
-                menuClicked={() => setIsMtnuOpen(!isMenuOpen)}
+                menuClicked={() => {
+                  setIsMtnuOpen(!isMenuOpen);
+                  window.scrollTo(0, 0);
+                }}
                 width={36}
                 height={30}
                 strokeWidth={1}
