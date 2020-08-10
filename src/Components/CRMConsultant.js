@@ -397,7 +397,6 @@ const CRMConsultant = ({}) => {
               <div className="modal-content">
                 <img
                   src={require("../images/Logo_School.png")}
-                  width={60}
                   alt="logo"
                   style={{ position: "absolute", top: "15px", left: "15px" }}
                 />

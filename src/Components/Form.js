@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import get from "lodash/get";
+import { Link } from "react-router-dom";
 
 const FormCont = styled.form`
   width: 400px;
@@ -95,10 +96,10 @@ const Form = ({
       </h2>
       {withLogo && (
         <img
+          className="logo"
           src={require("../images/Logo_School.png")}
-          width={50}
-          alt="logo"
           style={{ position: "absolute", top: "15px", left: "15px" }}
+          alt="logo"
         />
       )}
 

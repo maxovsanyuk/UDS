@@ -198,7 +198,6 @@ const Header = () => {
               <Link to="/UDS" onClick={() => dispatch(setActivePage("/UDS"))}>
                 <img
                   className="logo"
-                  height={60}
                   src={require("../images/Logo_School.png")}
                   alt="logo"
                 />
