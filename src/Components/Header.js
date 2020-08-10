@@ -113,7 +113,8 @@ const Menu = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    background: #0067b8;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.85);
     animation: border 0.3s ease-in-out 0s 1 normal forwards;
     position: absolute;
     top: 55px;
@@ -126,6 +127,7 @@ const Menu = styled.div`
     text-align: center;
     padding: 20px 0;
     text-decoration: none;
+    background: #0067b8;
     border-bottom: 1px solid #fff;
     transition: 0.4s;
     color: #fff;
