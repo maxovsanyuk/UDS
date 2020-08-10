@@ -209,7 +209,7 @@ const Header = () => {
                 isOpen={isMenuOpen}
                 menuClicked={() => {
                   setIsMtnuOpen(!isMenuOpen);
-                  window.scrollTo(0, 0);
+                  document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
                 }}
                 width={36}
                 height={30}
@@ -254,7 +254,10 @@ const Header = () => {
 
                 {pages.map(({ name, patch, bgColor, showLogo }) => (
                   <Link
-                    onClick={() => dispatch(setActivePage(patch))}
+                    onClick={() => {
+                      dispatch(setActivePage(patch));
+                      window.scrollTo(0, 0);
+                    }}
                     style={{
                       background: bgColor,
                     }}
