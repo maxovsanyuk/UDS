@@ -10,6 +10,7 @@ const GoogleMap = () => {
         maxHeight: "300px",
         flex: 1,
         minWidth: "300px",
+        maxWidth: "800px",
       }}
     >
       <GoogleMapReact

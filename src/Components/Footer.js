@@ -52,7 +52,8 @@ const Footer = ({}) => {
               style={{
                 display: "flex",
                 width: "100vw",
-                maxWidt: "1400px",
+                maxWidth: "1400px",
+                justifyContent: "center",
               }}
             >
               {size.large && <GoogleMap />}
