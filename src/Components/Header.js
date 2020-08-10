@@ -178,7 +178,7 @@ const Header = () => {
 
   console.log(activePage, "activePage");
 
-  document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+  document.body.style.overflow = isMenuOpen && "hidden";
 
   const dispatch = useDispatch();
 
