@@ -244,7 +244,13 @@ const Header = () => {
           {size.large && (
             <HeaderBox fixed={offset > 800}>
               <div className="links-cont">
-                <Link to="/UDS" onClick={() => dispatch(setActivePage("/UDS"))}>
+                <Link
+                  to="/UDS"
+                  onClick={() => {
+                    dispatch(setActivePage("/UDS"));
+                    document.body.style.overflow = "auto";
+                  }}
+                >
                   <img
                     className="logo"
                     src={require("../images/Logo_School.png")}
@@ -257,6 +263,7 @@ const Header = () => {
                     onClick={() => {
                       dispatch(setActivePage(patch));
                       window.scrollTo(0, 0);
+                      document.body.style.overflow = "auto";
                     }}
                     style={{
                       background: bgColor,
