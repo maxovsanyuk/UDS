@@ -33,6 +33,7 @@ const FooterCont = styled.div`
     display: flex;
     align-items: center;
     margin: 0 0 5px 0;
+    color: rgba(0, 0, 0, 0.8);
   }
 `;
 
@@ -101,13 +102,24 @@ const Footer = ({}) => {
                     margin: "0 0 2px 0",
                   }}
                 >
-                  <a href="https://www.instagram.com/udsconsulting/">
-                    <img
-                      width={35}
-                      height={35}
-                      src={require("../images/insta.png")}
-                      alt="inst"
-                    />
+                  <a
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                    }}
+                    href="https://www.instagram.com/udsconsulting/"
+                  >
+                    <div className="contact-detail">
+                      <img
+                        width={35}
+                        height={35}
+                        style={{ margin: "0 10px 0 0" }}
+                        src={require("../images/insta.png")}
+                        alt="inst"
+                      />
+                      instagram
+                    </div>
                   </a>
                 </div>
                 <div
@@ -117,13 +129,24 @@ const Footer = ({}) => {
                     justifyContent: size.small && "center",
                   }}
                 >
-                  <a href="https://www.youtube.com/channel/UCx443BQ2U4gGXLPYB8Nu3bg">
-                    <img
-                      width={35}
-                      height={35}
-                      src={require("../images/youtube.png")}
-                      alt="youtube"
-                    />
+                  <a
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                    }}
+                    href="https://www.youtube.com/channel/UCx443BQ2U4gGXLPYB8Nu3bg"
+                  >
+                    <div className="contact-detail">
+                      <img
+                        width={35}
+                        height={35}
+                        style={{ margin: "0 10px 0 0" }}
+                        src={require("../images/youtube.png")}
+                        alt="youtube"
+                      />
+                      youtube
+                    </div>
                   </a>
                 </div>
               </div>
