@@ -26,6 +26,8 @@ const ContactsPage = () => {
   const [isSendingForm, setIsSendingForm] = useState(false);
   const { register } = useForm();
 
+  document.body.style.overflow = "auto";
+
   function sendEmail(e) {
     e.preventDefault();
     setIsSendingForm(true);

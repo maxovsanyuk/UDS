@@ -109,6 +109,7 @@ const blogLinks = [
 
 const BlogPage = ({}) => {
   const dispatch = useDispatch();
+  document.body.style.overflow = "auto";
 
   return (
     <>

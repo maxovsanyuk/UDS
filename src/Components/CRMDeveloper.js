@@ -174,6 +174,8 @@ const CRMDeveloper = ({}) => {
   const [isSendingForm, setIsSendingForm] = useState(false);
   const [templateId, setTemplateId] = useState(null);
 
+  document.body.style.overflow = "auto";
+
   function sendEmail(e, templateId) {
     e.preventDefault();
     setIsSendingForm(true);
@@ -408,7 +410,6 @@ const CRMDeveloper = ({}) => {
               className="close-btn"
               onClick={() => {
                 setIsOpenModal(false);
-                document.body.style.overflow = "auto";
               }}
             >
               X

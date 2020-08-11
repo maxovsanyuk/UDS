@@ -228,6 +228,7 @@ const HomePage = ({}) => {
   const [slideToShow, setSlideToShow] = useState(1);
 
   const dispatch = useDispatch();
+  document.body.style.overflow = "auto";
 
   return (
     <div>

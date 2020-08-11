@@ -248,7 +248,6 @@ const Header = () => {
                   to="/UDS"
                   onClick={() => {
                     dispatch(setActivePage("/UDS"));
-                    document.body.style.overflow = "auto";
                   }}
                 >
                   <img
@@ -263,7 +262,6 @@ const Header = () => {
                     onClick={() => {
                       dispatch(setActivePage(patch));
                       window.scrollTo(0, 0);
-                      document.body.style.overflow = "auto";
                     }}
                     style={{
                       background: bgColor,

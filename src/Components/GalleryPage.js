@@ -135,6 +135,8 @@ const IMAGES = [
 ];
 
 const GalleryPage = ({}) => {
+  document.body.style.overflow = "auto";
+
   const images = IMAGES.map((i) => {
     i.customOverlay = (
       <ImgCard>
