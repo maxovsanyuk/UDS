@@ -11,7 +11,8 @@ const Blog = styled.div`
   font-size: 18px;
 
   .blog-cont {
-    width: 1400px;
+    width: 100%;
+    max-width: 1400px;
   }
 
   .title {
