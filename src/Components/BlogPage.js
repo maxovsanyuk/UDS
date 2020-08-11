@@ -178,7 +178,10 @@ const BlogPage = ({}) => {
                     <ImgCard imgPatch={imgPatch} style={defineStyle(size)}>
                       <Link
                         to={patch}
-                        onClick={() => dispatch(setActivePage(null))}
+                        onClick={() => {
+                          dispatch(setActivePage(null));
+                          window.scrollTo(0, 0);
+                        }}
                       >
                         <div className="detail-btn">Детальніше</div>
                         <div className="text">{text}</div>

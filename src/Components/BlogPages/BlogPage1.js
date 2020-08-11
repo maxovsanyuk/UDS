@@ -133,7 +133,7 @@ const BlogPage1 = () => {
                 }}
               >
                 <img
-                  width={1000}
+                  style={{ width: "100%" }}
                   src={require("../../images/blog_images/01_Qy698H5.jpg")}
                   alt="img"
                 />
@@ -174,7 +174,7 @@ const BlogPage1 = () => {
                 }}
               >
                 <img
-                  width={1000}
+                  style={{ width: "100%" }}
                   src={require("../../images/blog_images/03_a8TrhhX.jpg")}
                   alt="img"
                 />
@@ -213,7 +213,7 @@ const BlogPage1 = () => {
                 }}
               >
                 <img
-                  width={1000}
+                  style={{ width: "100%" }}
                   src={require("../../images/blog_images/06_c2338Vz.jpg")}
                   alt="img"
                 />
@@ -239,7 +239,7 @@ const BlogPage1 = () => {
                 }}
               >
                 <img
-                  width={1000}
+                  style={{ width: "100%" }}
                   src={require("../../images/blog_images/07_mZTr1KH.jpg")}
                   alt="img"
                 />
