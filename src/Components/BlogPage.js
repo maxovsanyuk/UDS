@@ -11,6 +11,7 @@ import img4 from "../images/blog_images/imgpsh_fullsize_anim.jpeg";
 import img5 from "../images/gallery/9.jpg";
 import { setActivePage } from "../redux/actions/app_action";
 import { useDispatch } from "react-redux";
+import Media from "react-media";
 
 const Blog = styled.div`
   display: flex;
@@ -19,15 +20,14 @@ const Blog = styled.div`
   align-items: center;
 
   .blog-cont {
-    width: 1400px;
+    width: 100%;
+    max-width: 1400px;
     font-size: 18px;
   }
 `;
 
 const ImgCard = styled.div`
   display: flex;
-  min-width: calc(25% - 20px);
-  min-height: 320px;
   margin: 10px;
   transition: 0.5s;
   background: ${({ imgPatch }) => `url(${imgPatch}) no-repeat center`};
@@ -107,57 +107,92 @@ const blogLinks = [
   },
 ];
 
+function defineStyle(size) {
+  if (size.xs) {
+    return {
+      width: "calc(100% - 20px)",
+      height: "450px",
+    };
+  } else if (size.sm) {
+    return {
+      width: "calc(50% - 20px)",
+      height: "380px",
+    };
+  } else if (size.md) {
+    return {
+      width: "calc(33% - 20px)",
+      height: "360px",
+    };
+  } else if (size.lg) {
+    return {
+      width: "calc(25% - 20px)",
+      height: "320px",
+    };
+  }
+}
+
 const BlogPage = ({}) => {
   const dispatch = useDispatch();
   document.body.style.overflow = "auto";
 
   return (
-    <>
-      <Header />
-      <Blog>
-        <div className="blog-cont">
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              height: "280px",
-              justifyContent: "center",
-              background: "#B9DBF4",
-              margin: "40px 0 0 0",
-            }}
-          >
-            <img
-              src={require("../images/goluboj-1100-na-300-1-1024x279.png")}
-              alt="img"
-            />
-          </div>
+    <Media
+      queries={{
+        xs: "(max-width: 720px)",
+        sm: "(max-width: 1100px)",
+        md: "(max-width: 1400px)",
+        lg: "(min-width: 1401px)",
+      }}
+    >
+      {(size) => (
+        <>
+          <Header />
+          <Blog>
+            <div className="blog-cont">
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  height: "280px",
+                  justifyContent: "center",
+                  background: "#B9DBF4",
+                  margin: "40px 0 0 0",
+                }}
+              >
+                <img
+                  src={require("../images/goluboj-1100-na-300-1-1024x279.png")}
+                  alt="img"
+                />
+              </div>
 
-          <div
-            style={{
-              display: "flex",
-              width: "100%",
-              flexWrap: "wrap",
-              margin: "20px auto 30px auto",
-            }}
-          >
-            {blogLinks.map(({ imgPatch, patch, text }) => {
-              return (
-                <ImgCard imgPatch={imgPatch}>
-                  <Link
-                    to={patch}
-                    onClick={() => dispatch(setActivePage(null))}
-                  >
-                    <div className="detail-btn">Детальніше</div>
-                    <div className="text">{text}</div>
-                  </Link>
-                </ImgCard>
-              );
-            })}
-          </div>
-        </div>
-      </Blog>
-      <Footer />
-    </>
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  flexWrap: "wrap",
+                  margin: "20px auto 30px auto",
+                }}
+              >
+                {blogLinks.map(({ imgPatch, patch, text }) => {
+                  return (
+                    <ImgCard imgPatch={imgPatch} style={defineStyle(size)}>
+                      <Link
+                        to={patch}
+                        onClick={() => dispatch(setActivePage(null))}
+                      >
+                        <div className="detail-btn">Детальніше</div>
+                        <div className="text">{text}</div>
+                      </Link>
+                    </ImgCard>
+                  );
+                })}
+              </div>
+            </div>
+          </Blog>
+          <Footer />
+        </>
+      )}
+    </Media>
   );
 };
 
