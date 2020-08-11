@@ -12,7 +12,8 @@ const Educations = styled.div`
   width: 100%;
 
   .education-cont {
-    width: 1400px;
+    width: 100%;
+    max-width: 1400px;
 
     .title {
       display: flex;
@@ -174,7 +175,7 @@ const CRMDeveloper = ({}) => {
   const [isSendingForm, setIsSendingForm] = useState(false);
   const [templateId, setTemplateId] = useState(null);
 
-  // document.body.style.overflow = "auto";
+  document.body.style.overflow = !isOpenModal && "auto";
 
   function sendEmail(e, templateId) {
     e.preventDefault();

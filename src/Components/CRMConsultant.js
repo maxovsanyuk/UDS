@@ -13,7 +13,8 @@ const Educations = styled.div`
   width: 100%;
 
   .education-cont {
-    width: 1400px;
+    width: 100%;
+    max-width: 1400px;
 
     .title {
       display: flex;

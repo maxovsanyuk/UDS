@@ -55,7 +55,8 @@ const Home = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 1400px;
+    width: 100%;
+    max-width: 1400px;
     margin: 40px 0 0 0;
 
     .title {
