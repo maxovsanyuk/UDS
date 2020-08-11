@@ -137,7 +137,9 @@ const IMAGES = [
 ];
 
 function defineStyle(size) {
-  if (size.xs) {
+  if (size.xxs) {
+    return "min-height: 300px !important; width: calc(100% - 20px)!important;";
+  } else if (size.xs) {
     return "min-height: 700px !important; width: calc(100% - 20px)!important;";
   } else if (size.sm) {
     return "min-height: 500px !important; width: calc(50% - 20px)!important;";
@@ -168,6 +170,7 @@ const GalleryPage = ({}) => {
   return (
     <Media
       queries={{
+        xxs: "(max-width: 600px)",
         xs: "(max-width: 920px)",
         sm: "(max-width: 1150px)",
         md: "(max-width: 1400px)",
