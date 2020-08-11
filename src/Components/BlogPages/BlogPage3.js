@@ -63,7 +63,7 @@ const BlogPage3 = ({}) => {
               background: "#f5f5f5",
               margin: "40px 0 20px 0",
               padding: "0 20px",
-              height: "46.3vh",
+              minHeight: "46.3vh",
             }}
           >
             <h2
