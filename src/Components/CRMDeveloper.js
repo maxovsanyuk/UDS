@@ -404,11 +404,6 @@ const CRMDeveloper = ({}) => {
       {isOpenModal && (
         <Modal>
           <div className="modal-content">
-            <img
-              src={require("../images/Logo_School.png")}
-              alt="logo"
-              style={{ position: "absolute", top: "15px", left: "15px" }}
-            />
             <span
               className="close-btn"
               onClick={() => {
@@ -424,6 +419,7 @@ const CRMDeveloper = ({}) => {
               isSendingForm={isSendingForm}
               isFile
               sendEmail={(e) => sendEmail(e, templateId)}
+              withLogo
             />
           </div>
         </Modal>

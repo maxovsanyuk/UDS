@@ -12,8 +12,6 @@ const FormCont = styled.form`
   margin: 100px auto;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   position: relative;
-  .form-cont-lg {
-  }
 
   input,
   textarea {
