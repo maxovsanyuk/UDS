@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Media from "react-media";
 
 const FormCont = styled.form`
-  width: 400px;
+  width: ${({ small }) => (small ? "calc(100% - 50px)" : "400px")};
   background: white;
   padding: 20px 25px;
   margin: 100px auto;
@@ -98,6 +98,7 @@ const Form = ({
           id="myform"
           className="form-cont-lg"
           onSubmit={sendEmail}
+          small={size.small}
         >
           <h2
             style={{
@@ -108,7 +109,7 @@ const Form = ({
           >
             {title}
           </h2>
-          {withLogo && (
+          {withLogo && !size.small && (
             <img
               className="logo"
               src={require("../images/Logo_School.png")}
