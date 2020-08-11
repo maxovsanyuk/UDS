@@ -63,7 +63,6 @@ const ContactsPage = () => {
               isSendingForm={isSendingForm}
               sendEmail={sendEmail}
               title="Контактна форма"
-              withLogo
             />
           </Contacts>
 
