@@ -209,7 +209,7 @@ const Header = () => {
                 isOpen={isMenuOpen}
                 menuClicked={() => {
                   setIsMtnuOpen(!isMenuOpen);
-                  document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+                  document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
                 }}
                 width={36}
                 height={30}
