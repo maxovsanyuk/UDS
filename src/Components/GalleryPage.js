@@ -138,7 +138,9 @@ const IMAGES = [
 
 function defineStyle(size) {
   if (size.xxs) {
-    return "min-height: 300px !important; width: calc(100% - 20px)!important;";
+    return "min-height: 400px !important; width: calc(100% - 20px)!important;";
+  } else if (size.xsm) {
+    return "min-height: 500px !important; width: calc(100% - 20px)!important;";
   } else if (size.xs) {
     return "min-height: 700px !important; width: calc(100% - 20px)!important;";
   } else if (size.sm) {
@@ -171,6 +173,7 @@ const GalleryPage = ({}) => {
     <Media
       queries={{
         xxs: "(max-width: 600px)",
+        xsm: "(max-width: 700px)",
         xs: "(max-width: 920px)",
         sm: "(max-width: 1150px)",
         md: "(max-width: 1400px)",
