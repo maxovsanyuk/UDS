@@ -8,6 +8,7 @@ import HamburgerMenu from "react-hamburger-menu";
 
 const HeaderBox = styled.div`
   display: flex;
+  width: 100vw;
   justify-content: center;
   align-items: center;
   height: 60px;

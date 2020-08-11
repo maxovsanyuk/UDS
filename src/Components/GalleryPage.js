@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
 import Gallery from "react-grid-gallery";
+import Media from "react-media";
 
 const GalleryCont = styled.div`
   height: 100vh;
@@ -12,7 +13,7 @@ const GalleryCont = styled.div`
   align-items: center;
 
   .gallery {
-    width: max-content;
+    width: 100%;
     animation: appearingGallery 0.8s ease-in-out 0.3s 1 normal forwards;
     opacity: 0;
 
@@ -27,7 +28,8 @@ const GalleryCont = styled.div`
   }
 
   .ReactGridGallery {
-    width: 1400px;
+    max-width: 1400px;
+    width: 100%;
     margin: 40px 0;
     display: flex;
     flex-wrap: wrap;
@@ -37,16 +39,16 @@ const GalleryCont = styled.div`
   }
 
   .ReactGridGallery_tile-viewport {
-    min-height: 320px !important;
+    ${({ imgStyle }) => imgStyle};
+    width: 100% !important;
     & img {
-      min-height: 100% !important;
+      ${({ imgStyle }) => imgStyle};
       width: 100% !important;
     }
   }
 
   .ReactGridGallery_tile {
-    width: calc(25% - 20px) !important;
-    min-height: 320px !important;
+    ${({ imgStyle }) => imgStyle}
   }
 `;
 
@@ -60,7 +62,7 @@ const ImgCard = styled.div`
 `;
 
 const GalleryBox = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 280px;
   opacity: 0;
   background: url("http://dynamics.net.ua/wp-content/uploads/back.png")
@@ -134,6 +136,18 @@ const IMAGES = [
   },
 ];
 
+function defineStyle(size) {
+  if (size.xs) {
+    return "min-height: 700px !important; width: calc(100% - 20px)!important;";
+  } else if (size.sm) {
+    return "min-height: 500px !important; width: calc(50% - 20px)!important;";
+  } else if (size.md) {
+    return "min-height: 400px !important; width: calc(33% - 20px)!important;";
+  } else if (size.lg) {
+    return "min-height: 320px !important; width: calc(25% - 20px)!important;";
+  }
+}
+
 const GalleryPage = ({}) => {
   document.body.style.overflow = "auto";
 
@@ -152,23 +166,34 @@ const GalleryPage = ({}) => {
   });
 
   return (
-    <GalleryCont>
-      <div>
-        <Header />
-        <GalleryBox />
-      </div>
+    <Media
+      queries={{
+        xs: "(max-width: 920px)",
+        sm: "(max-width: 1150px)",
+        md: "(max-width: 1400px)",
+        lg: "(min-width: 1401px)",
+      }}
+    >
+      {(size) => (
+        <GalleryCont imgStyle={defineStyle(size)}>
+          <div>
+            <Header />
+            <GalleryBox />
+          </div>
 
-      <div className="gallery">
-        <Gallery
-          enableImageSelection={false}
-          images={images}
-          showLightboxThumbnails
-          preloadNextImage
-        />
-      </div>
+          <div className="gallery">
+            <Gallery
+              enableImageSelection={false}
+              images={images}
+              showLightboxThumbnails
+              preloadNextImage
+            />
+          </div>
 
-      <Footer />
-    </GalleryCont>
+          <Footer />
+        </GalleryCont>
+      )}
+    </Media>
   );
 };
 

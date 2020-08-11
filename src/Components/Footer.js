@@ -52,7 +52,6 @@ const Footer = ({}) => {
               style={{
                 display: "flex",
                 width: "100vw",
-                maxWidth: "1400px",
                 justifyContent: "center",
               }}
             >
