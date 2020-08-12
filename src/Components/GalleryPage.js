@@ -40,6 +40,7 @@ const GalleryCont = styled.div`
 
   .ReactGridGallery_tile-viewport {
     ${({ imgStyle }) => imgStyle};
+    ${({ isMobile }) => isMobile && "margin: 0 0 20px 0 !important;"};
     width: 100% !important;
     & img {
       ${({ imgStyle }) => imgStyle};
@@ -48,7 +49,7 @@ const GalleryCont = styled.div`
   }
 
   .ReactGridGallery_tile {
-    ${({ imgStyle }) => imgStyle}
+    ${({ imgStyle }) => imgStyle};
   }
 `;
 
@@ -138,11 +139,11 @@ const IMAGES = [
 
 function defineStyle(size) {
   if (size.xxs) {
-    return "min-height: 400px !important; width: calc(100% - 20px)!important;";
+    return "min-height: 380px; !important; width: 380px!important;margin: 0 auto!important;";
   } else if (size.xsm) {
-    return "min-height: 500px !important; width: calc(100% - 20px)!important;";
+    return "min-height: 500px !important; width: 500px!important;margin: 0 auto!important;";
   } else if (size.xs) {
-    return "min-height: 700px !important; width: calc(100% - 20px)!important;";
+    return "min-height: 700px !important; width: 700px!important;margin: 0 auto!important;";
   } else if (size.sm) {
     return "min-height: 500px !important; width: calc(50% - 20px)!important;";
   } else if (size.md) {
@@ -181,7 +182,10 @@ const GalleryPage = ({}) => {
       }}
     >
       {(size) => (
-        <GalleryCont imgStyle={defineStyle(size)}>
+        <GalleryCont
+          isMobile={size.xxs || size.xsm || size.xs}
+          imgStyle={defineStyle(size)}
+        >
           <div>
             <Header />
             <GalleryBox />
