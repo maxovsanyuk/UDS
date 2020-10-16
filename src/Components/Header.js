@@ -53,30 +53,17 @@ const HeaderBox = styled.div`
     line-height: 30px;
     font-weight: 400;
     font-size: 18px;
-  }
+    transition: color 0.3s;
 
-  .navigation__link::after {
-    content: '';
-    position: absolute;
-    left: -5%;
-    bottom: -8px;
-    
-    height: 2px;
-    width: 110%;
-    background-color: #FFCA62;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-  }
+    &:hover {
+      color: #4E7BAA; 
+    }
 
-  .navigation__link:hover:after {
-    visibility: visible;
-    transform: scaleX(1);
+    &:hover:after {
+      visibility: visible;
+      transform: scaleX(1);
+    }
   }
-
-  /* .navigation__link:hover {
-    font-weight: 500;
-  } */
 
   .links-cont {
     height: 100%;
@@ -87,11 +74,12 @@ const HeaderBox = styled.div`
 
     .border-line {
       height: 2px;
-      width: 100%;
+      width: 110%;
       display: none;
       position: absolute;
-      bottom: -1px;
-      background: #0067b8;
+      left: -5%;
+      bottom: -8px;
+      background-color: #FFCA62;
       animation: border 0.3s ease-in-out 0s 1 normal forwards;
 
       @keyframes border {
@@ -99,7 +87,7 @@ const HeaderBox = styled.div`
           width: 0;
         }
         100% {
-          width: 100%;
+          width: 110%;
         }
       }
     }
@@ -115,33 +103,13 @@ const HeaderBox = styled.div`
       font-weight: 700;
       letter-spacing: 1px;
       color: #4E7BAA;
-    }
+      cursor: pointer;
+      transition: all 0.3s;
 
-    /* .links {
-      position: relative;
-      display: flex;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20px;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 500;
-      text-decoration: none;
-      color: #262626;
-      font-size: 13px;
-      transition: 0.2s;
-      text-align: center;
-    }
-    .anable-hover-color {
-      &:hover {
-        .border-line {
-          display: flex;
-        }
-        background: #e9e9e9;
-        color: #0067b8;
-        transition: 0.2s;
+      &:hover{
+        box-shadow: 0px 4px 14px rgba(81, 126, 173, 0.15);
       }
-    } */
+    }
 
     .disable-hover-color {
       &:hover {
@@ -308,7 +276,7 @@ const Header = () => {
                 </Link>
                 
                 <nav className="navigation__links ">
-                  {pages.map(({ name, patch,  }) => (
+                  {pages.map(({ name, patch }) => (
                     <Link
                       onClick={() => {
                         dispatch(setActivePage(patch));
