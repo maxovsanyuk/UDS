@@ -48,6 +48,8 @@ const SliderBox = styled.div`
   overflow: hidden;
   margin: 30px 0;
   background: #fff;
+  position: relative;
+  z-index: 100;
 `;
 
 const TextComp = styled.div`
