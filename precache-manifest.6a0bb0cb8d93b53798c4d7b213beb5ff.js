@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "89caa2984d0759541dd4d6d9f0e4027b",
+    "revision": "9f70cb5218a1a37a2cc1d11b626f5f90",
     "url": "/UDS/index.html"
   },
   {
-    "revision": "12ceffeb743060706b9a",
+    "revision": "12e092e28e6110df2e9f",
     "url": "/UDS/static/css/main.160ae4ec.chunk.css"
   },
   {
-    "revision": "1af08174a11d096abc1b",
-    "url": "/UDS/static/js/2.e1dedf36.chunk.js"
+    "revision": "15335e8b3c9ed80e47a2",
+    "url": "/UDS/static/js/2.a5f0f22b.chunk.js"
   },
   {
     "revision": "150c313e56f607a71374d418e4986f43",
-    "url": "/UDS/static/js/2.e1dedf36.chunk.js.LICENSE.txt"
+    "url": "/UDS/static/js/2.a5f0f22b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "12ceffeb743060706b9a",
-    "url": "/UDS/static/js/main.f2f7a9d7.chunk.js"
+    "revision": "12e092e28e6110df2e9f",
+    "url": "/UDS/static/js/main.f2b569d0.chunk.js"
   },
   {
     "revision": "0115eabbafec18124ae2",
@@ -200,6 +200,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/UDS/static/media/Nina.be7f5d3a.jpg"
   },
   {
+    "revision": "f1f7222015e84e373bd4e61437309147",
+    "url": "/UDS/static/media/Vylobkova2.f1f72220.jpg"
+  },
+  {
     "revision": "6cbaf6b1bfb72752a5f447cdda6c7d9f",
     "url": "/UDS/static/media/diplom-300-na-200.6cbaf6b1.png"
   },
@@ -244,8 +248,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/UDS/static/media/map.adfe3a31.png"
   },
   {
+    "revision": "d0c553af84bdb94da42733f6b74c5895",
+    "url": "/UDS/static/media/nizdropa2.d0c553af.png"
+  },
+  {
     "revision": "24af568e84137d93362ad14e771b1063",
     "url": "/UDS/static/media/oplata-300-na-220.24af568e.jpg"
+  },
+  {
+    "revision": "c6adfcad11f8d2744cac324c9d76e2df",
+    "url": "/UDS/static/media/polyanovskij.c6adfcad.png"
   },
   {
     "revision": "089ecb807f840a1598c361430a9ed924",
