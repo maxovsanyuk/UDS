@@ -10,7 +10,7 @@ const Slider = styled.div`
 
   .dot {
     position: relative;
-    z-index: 15;
+    z-index: 1000;
     height: 12px;
     width: 12px;
     background: #3491c8;
