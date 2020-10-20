@@ -307,11 +307,15 @@ const Home = styled.div`
     position: relative;
     overflow: hidden;
   }
+
+  .review-cont {
+    width: 100%;
+    background: linear-gradient(180deg, #dde7f0 11.47%, #f2f5f8 51.41%);
+    transform: matrix(1, 0, 0, -1, 0, 0);
+  }
 `;
 
 const HomePage = ({}) => {
-  const [slideToShow, setSlideToShow] = useState(1);
-
   const dispatch = useDispatch();
   document.body.style.overflow = "auto";
 
@@ -358,7 +362,7 @@ const HomePage = ({}) => {
                   Ми готуємо кваліфікованих спеціалістів починаючи з 2016 року.
                 </div>
                 <Link to="/UDS/contacts">
-                  <button className="register-btn">Зареєструватись</button>
+                  <button className="register-btn">Зареєструватися</button>
                 </Link>
               </div>
             </div>
@@ -703,7 +707,6 @@ const HomePage = ({}) => {
                 transform: "translateX(-50%)",
               }}
             />
-
             <div
               style={{
                 display: "flex",
@@ -714,7 +717,6 @@ const HomePage = ({}) => {
             >
               Наші переваги
             </div>
-
             <div style={{ display: "flex", flexWrap: "wrap" }}>
               <div
                 style={{ display: "flex", flex: 1, justifyContent: "center" }}
@@ -842,310 +844,73 @@ const HomePage = ({}) => {
                 </div>
               </div>
             </div>
-          </div>
-          ''''''''''
-          <div
-            style={{
-              width: "calc(100% - 40px)",
-              background: "#f5f5f5",
-              margin: "0 0 20px 0",
-              padding: "20px",
-            }}
-          >
-            <h2 className="title" style={{ margin: "10px 0 20px 0" }}>
-              Dynamics Education –
-            </h2>
-
-            <div style={{ width: "100%" }}></div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              width: "calc(100% - 40px)",
-              margin: "0 0 20px 0",
-            }}
-          >
-            <h2 className="title" style={{ margin: "10px 0  20px 0" }}>
-              Кого ми готуємо?
-            </h2>
             <div
               style={{
                 display: "flex",
+                justifyContent: "center",
                 flexDirection: "column",
                 alignItems: "center",
+                padding: "0 0 240px 0",
+                position: "relative",
+                overflow: "hidden",
               }}
             >
               <div
                 style={{
                   display: "flex",
-                  flexDirection: "column",
+                  justifyContent: "center",
+                  margin: "200px 0 0 0",
+                }}
+                className="text-6"
+              >
+                Детальніше про компанію UDS
+              </div>
+              <SimpleSlider
+                arrOfImgs={[1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 14]}
+              />
+              <img
+                style={{
+                  position: "absolute",
+                  bottom: "-140px",
+                  zIndex: 10,
+                }}
+                src={require("../images/Vector9.png")}
+                alt="vector"
+              />
+            </div>
+            <div className="review-cont">
+              <div
+                style={{
+                  display: "flex",
                   alignItems: "center",
-                  margin: "0 0 10px 0",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  width: "100%",
+                  height: "100%",
+                  transform: "rotateX(180deg)",
+                  padding: "0 0 200px 0",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
+                    justifyContent: "center",
+                    padding: "20px 0 0 0",
                   }}
+                  className="text-6"
                 >
-                  {[
-                    {
-                      title: "MS Dynamics CRM Developer",
-                      patch: "/UDS/CRMDeveloper",
-                    },
-                    {
-                      title: "MS Dynamics CRM Consultant",
-                      patch: "/UDS/CRMConsultant",
-                    },
-                  ].map(({ patch, title }) => {
-                    return (
-                      <div key={title} className="education-box">
-                        <div className="animation" />
-                        <div className="education-title">{title}</div>
-                        <Link
-                          to={patch}
-                          onClick={() => {
-                            dispatch(setActivePage(patch));
-                            window.scrollTo(0, 0);
-                          }}
-                          className="detail-btn"
-                        >
-                          Детальніше
-                        </Link>
-                      </div>
-                    );
-                  })}
+                  Відгуки
                 </div>
-              </div>
-            </div>
-          </div>
-          <div
-            style={{
-              width: "100%",
-              flexWrap: "wrap",
-              display: "flex",
-              flexDirection: "column",
-              background: "#f5f5f5",
-              justifyContent: "space-around",
-              padding: "20px 0",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <h2 className="title">Навчальна платформа</h2>
-              <a href="https://dynamics.microsoft.com/ru-ru/">
-                <img
-                  className="new-programm"
-                  src={require("../images/New.png")}
-                  alt="new-programm"
-                  width={520}
-                  height={340}
-                />
-              </a>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              width: "100%",
-              justifyContent: "center",
-              flexWrap: "wrap",
-              margin: "40px 0 0 0",
-            }}
-          >
-            <div style={{ margin: "0 20px" }} className="card-wrapper">
-              <div className="card">
-                <img
-                  width={300}
-                  height={200}
-                  src={require("../images/distance.jpg")}
-                  alt="distance"
+                <SimpleSlider
+                  style={{ height: "380px" }}
+                  arrOfImgs={[
+                    "http://dynamics.net.ua/wp-content/uploads/nizdropa2.png",
+                    "http://dynamics.net.ua/wp-content/uploads/polyanovskij.png",
+                    "http://dynamics.net.ua/wp-content/uploads/Vylobkova2.jpg",
+                  ]}
+                  reviewSlider
                 />
               </div>
-              <div
-                className="education-title"
-                style={{ margin: "20px 20px 0 20px" }}
-              >
-                Дистанційне навчання <br /> у зручний для вас час
-              </div>
-            </div>
-            <div style={{ margin: "0 20px" }} className="card-wrapper">
-              <div className="card">
-                <img
-                  width={300}
-                  height={200}
-                  src={require("../images/diplom-300-na-200.png")}
-                  alt="distance"
-                />
-              </div>
-
-              <div
-                className="education-title"
-                style={{ margin: "20px 20px 0 20px" }}
-              >
-                По закінченню курсу <br /> видається сертифікат
-              </div>
-            </div>
-
-            <div style={{ margin: "0 20px" }} className="card-wrapper">
-              <div className="card">
-                <img
-                  width={300}
-                  height={200}
-                  src={require("../images/pratsevlashtuv-300-na-200.png")}
-                  alt="distance"
-                />
-              </div>
-              <div
-                className="education-title"
-                style={{ margin: "20px 20px 0 20px" }}
-              >
-                Працевлаштування та <br /> практична підготовка
-              </div>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              background: "#f5f5f5",
-              margin: "30px 0 0 0",
-            }}
-          >
-            <h2 className="title" style={{ margin: "40px 0 0 0" }}>
-              Наше співробітництво з UDS
-            </h2>
-            <SimpleSlider
-              style={{ height: "100%", width: "100%", margin: "50px 0" }}
-            />
-          </div>
-          <div
-            style={{
-              width: "100%",
-              margin: "25px 0",
-            }}
-          >
-            <h2 className="title" style={{ margin: "10px 0" }}>
-              Відгуки наших студентів:
-            </h2>
-
-            <div
-              style={{
-                width: "100%",
-                height: "470px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <img
-                src={require("../images/arrow.png")}
-                width={50}
-                height={50}
-                alt="arrow"
-                style={{
-                  transform: "rotate(180deg)",
-                  visibility: slideToShow === 1 ? "hidden" : "visible",
-                }}
-                className="slider-arrow"
-                onClick={() =>
-                  setSlideToShow(slideToShow === 1 ? 1 : slideToShow - 1)
-                }
-              />
-              <div
-                className="stydents-review-box"
-                style={{ display: slideToShow === 1 ? "flex" : "none" }}
-              >
-                <img
-                  width={80}
-                  height={80}
-                  src="http://dynamics.net.ua/wp-content/uploads/nizdropa2.png"
-                  alt="photo"
-                  style={{ borderRadius: "50%", margin: "20px 0 15px 0" }}
-                />
-                <span className="student-name">Ніздропа Тетяна</span>
-
-                <p className="student-review">
-                  "Цей курс дав мені набагато більше, ніж просто теоретичні
-                  знання в області Microsoft Dynamics CRM. Він познайомив мене з
-                  новими цікавими людьми, надихнув мене на нові цілі та дав
-                  можливість працювати у дивовижній команді. Мені все
-                  сподобалося, особливо те, як пояснювалися теми. У мене тільки
-                  позитивні емоції: гарна атмосфера, смачна кава та різноманітні
-                  смаколики. Цей навчальний курс був на високому рівні!"
-                </p>
-              </div>
-              <div
-                className="stydents-review-box"
-                style={{ display: slideToShow === 2 ? "flex" : "none" }}
-              >
-                <img
-                  width={80}
-                  height={80}
-                  src="http://dynamics.net.ua/wp-content/uploads/polyanovskij.png"
-                  alt="photo"
-                  style={{ borderRadius: "50%", margin: "20px 0 15px 0" }}
-                />
-                <span className="student-name">Поляновський Евгеній</span>
-
-                <p className="student-review">
-                  "Виклад курсу доступний і зрозумілий, весь пройдений матеріал
-                  день в день закріплюється практичними завданнями. Лектор
-                  пояснює все більш ніж доступно, дає вичерпні відповіді на
-                  будь-які питання. Величезним плюсом є доступ до CRM в
-                  будь-який час доби, при необхідності можна повторити, згадати
-                  або закріпити потрібну частину матеріалу. Окремо хотілося б
-                  відзначити гарну організацію, дружню атмосферу, смачні
-                  кофі-брейки, бездоганну технічну сторону організації навчання.
-                  Спасибі всім і особливо лектору".
-                </p>
-              </div>
-              <div
-                className="stydents-review-box"
-                style={{ display: slideToShow === 3 ? "flex" : "none" }}
-              >
-                <img
-                  width={80}
-                  height={80}
-                  src="http://dynamics.net.ua/wp-content/uploads/Vylobkova2.jpg"
-                  alt="photo"
-                  style={{ borderRadius: "50%", margin: "20px 0 15px 0" }}
-                />
-                <span className="student-name">Вилобкова Вікторія</span>
-
-                <p className="student-review">
-                  "Це були гарні курси! Інформація була структурованою та
-                  послідовною. Це мій перший досвід роботи з MS Dynamics CRM, не
-                  зважаючи це, особливих складнощів у вивченні курсу не
-                  виникало. Куратор продемонстрував нам справжні випадки роботи
-                  з Microsoft CRM. Організація навчання була на високому рівні,
-                  учасники завжди могли звернутися за допомогою. Також ми мали
-                  можливість практикуватись із тестовим CRM. Як результат, я
-                  можу сказати, що отримала нові навички та великий досвід
-                  роботи з CRM".
-                </p>
-              </div>
-              <img
-                src={require("../images/arrow.png")}
-                width={50}
-                height={50}
-                alt="arrow"
-                className="slider-arrow"
-                style={{ visibility: slideToShow === 3 ? "hidden" : "visible" }}
-                onClick={() =>
-                  setSlideToShow(slideToShow === 3 ? 3 : slideToShow + 1)
-                }
-              />
             </div>
           </div>
         </div>
