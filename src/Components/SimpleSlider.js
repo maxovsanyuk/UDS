@@ -9,6 +9,8 @@ const Slider = styled.div`
   flex-direction: column;
 
   .dot {
+    position: relative;
+    z-index: 10;
     height: 12px;
     width: 12px;
     background: #3491c8;
