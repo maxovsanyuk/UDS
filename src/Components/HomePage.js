@@ -903,11 +903,7 @@ const HomePage = ({}) => {
                 </div>
                 <SimpleSlider
                   style={{ height: "380px" }}
-                  arrOfImgs={[
-                    "http://dynamics.net.ua/wp-content/uploads/nizdropa2.png",
-                    "http://dynamics.net.ua/wp-content/uploads/polyanovskij.png",
-                    "http://dynamics.net.ua/wp-content/uploads/Vylobkova2.jpg",
-                  ]}
+                  arrOfImgs={["nizdropa2", "polyanovskij", "Vylobkova2"]}
                   reviewSlider
                 />
               </div>

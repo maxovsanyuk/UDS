@@ -77,7 +77,7 @@ const TextComp = styled.div`
 
 const DefineCont = ({ currentImg }) => {
   switch (currentImg) {
-    case "http://dynamics.net.ua/wp-content/uploads/nizdropa2.png":
+    case "nizdropa2":
       return (
         <TextComp>
           <div className="text-10">
@@ -93,7 +93,7 @@ const DefineCont = ({ currentImg }) => {
           <div className="text-12">випускниця курсів</div>
         </TextComp>
       );
-    case "http://dynamics.net.ua/wp-content/uploads/polyanovskij.png":
+    case "polyanovskij":
       return (
         <TextComp>
           <div className="text-10">
@@ -110,7 +110,7 @@ const DefineCont = ({ currentImg }) => {
           <div className="text-12">випускник курсів</div>
         </TextComp>
       );
-    case "http://dynamics.net.ua/wp-content/uploads/Vylobkova2.jpg":
+    case "Vylobkova2":
       return (
         <TextComp>
           <div className="text-10">
@@ -186,7 +186,12 @@ const SimpleSlider = ({ arrOfImgs = [], style, reviewSlider }) => {
                     margin: "0 0 0 50px",
                     borderRadius: "50%",
                   }}
-                  src={currentImg}
+                  src={
+                    currentImg &&
+                    require(`../images/sliderImgs/${currentImg}${
+                      currentImg === "Vylobkova2" ? ".jpg" : ".png"
+                    }`)
+                  }
                   alt={currentImg}
                 />
               </div>
