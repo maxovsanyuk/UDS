@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/UDS/static/css/main.160ae4ec.chunk.css",
-    "main.js": "/UDS/static/js/main.adafa3b5.chunk.js",
-    "main.js.map": "/UDS/static/js/main.adafa3b5.chunk.js.map",
+    "main.js": "/UDS/static/js/main.25f7f759.chunk.js",
+    "main.js.map": "/UDS/static/js/main.25f7f759.chunk.js.map",
     "runtime-main.js": "/UDS/static/js/runtime-main.564ca6be.js",
     "runtime-main.js.map": "/UDS/static/js/runtime-main.564ca6be.js.map",
-    "static/js/2.ef4b0a13.chunk.js": "/UDS/static/js/2.ef4b0a13.chunk.js",
-    "static/js/2.ef4b0a13.chunk.js.map": "/UDS/static/js/2.ef4b0a13.chunk.js.map",
+    "static/js/2.0dfe5854.chunk.js": "/UDS/static/js/2.0dfe5854.chunk.js",
+    "static/js/2.0dfe5854.chunk.js.map": "/UDS/static/js/2.0dfe5854.chunk.js.map",
     "index.html": "/UDS/index.html",
-    "precache-manifest.0bdb4a00b0073ba373ecd893d1f96726.js": "/UDS/precache-manifest.0bdb4a00b0073ba373ecd893d1f96726.js",
+    "precache-manifest.714489865d5e2e0c5a23bcc58d47d227.js": "/UDS/precache-manifest.714489865d5e2e0c5a23bcc58d47d227.js",
     "service-worker.js": "/UDS/service-worker.js",
     "static/css/main.160ae4ec.chunk.css.map": "/UDS/static/css/main.160ae4ec.chunk.css.map",
-    "static/js/2.ef4b0a13.chunk.js.LICENSE.txt": "/UDS/static/js/2.ef4b0a13.chunk.js.LICENSE.txt",
+    "static/js/2.0dfe5854.chunk.js.LICENSE.txt": "/UDS/static/js/2.0dfe5854.chunk.js.LICENSE.txt",
     "static/media/01_Qy698H5.jpg": "/UDS/static/media/01_Qy698H5.22b2623d.jpg",
     "static/media/03_a8TrhhX.jpg": "/UDS/static/media/03_a8TrhhX.87aec080.jpg",
     "static/media/06_c2338Vz.jpg": "/UDS/static/media/06_c2338Vz.22481b8b.jpg",
@@ -44,6 +44,9 @@
     "static/media/Consult.png": "/UDS/static/media/Consult.a3206c7e.png",
     "static/media/Developer.png": "/UDS/static/media/Developer.47518ba4.png",
     "static/media/Ill_Bonus_1.png": "/UDS/static/media/Ill_Bonus_1.acd4c221.png",
+    "static/media/Ill_Certificate1.png": "/UDS/static/media/Ill_Certificate1.0d24bda6.png",
+    "static/media/Ill_Distance1.png": "/UDS/static/media/Ill_Distance1.b3c2b55d.png",
+    "static/media/Ill_Employment1.png": "/UDS/static/media/Ill_Employment1.7f121cd9.png",
     "static/media/Main_Logo.png": "/UDS/static/media/Main_Logo.71659f6c.png",
     "static/media/New.png": "/UDS/static/media/New.892ea391.png",
     "static/media/Nina.jpg": "/UDS/static/media/Nina.be7f5d3a.jpg",
@@ -69,8 +72,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.564ca6be.js",
-    "static/js/2.ef4b0a13.chunk.js",
+    "static/js/2.0dfe5854.chunk.js",
     "static/css/main.160ae4ec.chunk.css",
-    "static/js/main.adafa3b5.chunk.js"
+    "static/js/main.25f7f759.chunk.js"
   ]
 }
