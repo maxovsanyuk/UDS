@@ -301,6 +301,12 @@ const Home = styled.div`
     margin: 40px 0 0 0;
     padding: 10px;
   }
+
+  .our-advantages-cont {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
 `;
 
 const HomePage = ({}) => {
@@ -681,6 +687,148 @@ const HomePage = ({}) => {
                         </div>
                       );
                     })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="our-advantages-cont">
+            <img
+              src={require("../images/Vector4.png")}
+              alt="vector"
+              style={{
+                position: "absolute",
+                top: "-30px",
+                left: "50%",
+                transform: "translateX(-50%)",
+              }}
+            />
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                margin: "240px 0 60px 0",
+              }}
+              className="text-6"
+            >
+              Наші переваги
+            </div>
+
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+              <div
+                style={{ display: "flex", flex: 1, justifyContent: "center" }}
+              >
+                <img
+                  src={require("../images/Ill_Distance1.png")}
+                  alt="Ill_Distance1"
+                />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div style={{ width: "100%" }}>
+                  <div
+                    className="text-8"
+                    style={{
+                      color: "#3491C8",
+                      textAlign: "start",
+                      margin: "0 0 20px 0",
+                    }}
+                  >
+                    Дистанційне навчання у зручний для тебе час
+                  </div>
+                  <div className="text-5">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aliquam pharetra mi dui blandit a auctor malesuada. Metus at
+                    dolor lobortis cras tellus ullamcorper. In id amet, mi sed
+                    aliquet pla
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+              <div style={{ display: "flex", flex: 1 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div style={{ width: "100%" }}>
+                    <div
+                      className="text-8"
+                      style={{
+                        color: "#3491C8",
+                        textAlign: "start",
+                        margin: "0 0 20px 0",
+                      }}
+                    >
+                      По закінченню курсу видається сертифікат
+                    </div>
+                    <div className="text-5">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Aliquam pharetra mi dui blandit a auctor malesuada. Metus
+                      at dolor lobortis cras tellus ullamcorper. In id amet, mi
+                      sed aliquet pla
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style={{ display: "flex", flex: 1, justifyContent: "center" }}
+              >
+                <img
+                  src={require("../images/Ill_Certificate1.png")}
+                  alt="Ill_Distance1"
+                />
+              </div>
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+              <div
+                style={{ display: "flex", flex: 1, justifyContent: "center" }}
+              >
+                <img
+                  src={require("../images/Ill_Employment1.png")}
+                  alt="Ill_Distance1"
+                />
+              </div>
+              <div style={{ display: "flex", flex: 1 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div style={{ width: "100%" }}>
+                    <div
+                      className="text-8"
+                      style={{
+                        color: "#3491C8",
+                        textAlign: "start",
+                        margin: "0 0 20px 0",
+                      }}
+                    >
+                      Працевлаштування та практична підготовка
+                    </div>
+                    <div className="text-5">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Aliquam pharetra mi dui blandit a auctor malesuada. Metus
+                      at dolor lobortis cras tellus ullamcorper. In id amet, mi
+                      sed aliquet pla
+                    </div>
                   </div>
                 </div>
               </div>
