@@ -314,6 +314,8 @@ const Home = styled.div`
     width: 100%;
     background: linear-gradient(180deg, #dde7f0 11.47%, #f2f5f8 51.41%);
     transform: matrix(1, 0, 0, -1, 0, 0);
+    position: relative;
+    z-index: 15;
   }
 
   .contact-cont {
