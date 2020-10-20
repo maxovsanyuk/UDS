@@ -6,11 +6,12 @@ const GoogleMap = () => {
     <div
       style={{
         display: "flex",
-        height: "235px",
-        maxHeight: "300px",
+        height: "100%",
         flex: 1,
-        minWidth: "300px",
-        maxWidth: "800px",
+        width: "100%",
+        borderRadius: "25px",
+        overflow: "hidden",
+        border: "2px solid #C1C9D0",
       }}
     >
       <GoogleMapReact

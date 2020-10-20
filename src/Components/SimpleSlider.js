@@ -29,6 +29,7 @@ const Slider = styled.div`
     border-radius: 50%;
     border: 1px solid #4e7baa;
     margin: 0 20px;
+    background: transparent;
     &:hover {
       cursor: pointer;
     }

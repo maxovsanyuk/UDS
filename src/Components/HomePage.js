@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import SimpleSlider from "./SimpleSlider";
@@ -6,6 +6,8 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { setActivePage } from "../redux/actions/app_action";
 import { useDispatch } from "react-redux";
+
+import GoogleMap from "./GoogleMap";
 
 const Home = styled.div`
   display: flex;
@@ -312,6 +314,24 @@ const Home = styled.div`
     width: 100%;
     background: linear-gradient(180deg, #dde7f0 11.47%, #f2f5f8 51.41%);
     transform: matrix(1, 0, 0, -1, 0, 0);
+  }
+
+  .contact-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    background: #fff;
+    padding: 240px 0 60px 0;
+
+    .info-box {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 40px 20px 100px;
+    }
   }
 `;
 
@@ -888,7 +908,7 @@ const HomePage = ({}) => {
                   width: "100%",
                   height: "100%",
                   transform: "rotateX(180deg)",
-                  padding: "0 0 200px 0",
+                  padding: "0 0 20px 0",
                 }}
               >
                 <div
@@ -907,6 +927,118 @@ const HomePage = ({}) => {
                   reviewSlider
                 />
               </div>
+            </div>
+            <div className="contact-cont">
+              <div
+                style={{
+                  width: "670px",
+                  height: "440px",
+                  margin: "0 0 0 10%",
+                }}
+              >
+                <GoogleMap />
+              </div>
+              <div className="info-box">
+                <div style={{ textAlign: "left" }} className="text-6">
+                  Наші контакти
+                </div>
+
+                <div>
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "60px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img
+                      src={require("../images/Vector12.png")}
+                      alt="vector"
+                      style={{
+                        margin: "0 30px 0 0",
+                      }}
+                    />
+                    <div style={{ fontSize: "18px" }} className="text-5">
+                      м. Київ, просп. Лобановського 150
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "60px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img
+                      src={require("../images/Vector13.png")}
+                      alt="vector"
+                      style={{
+                        margin: "0 30px 0 0",
+                      }}
+                    />
+                    <div style={{ fontSize: "18px" }} className="text-5">
+                      Графік роботи: Пн-Пт <br /> 8:00-19:00
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "60px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img
+                      src={require("../images/Vector14.png")}
+                      alt="vector"
+                      style={{
+                        margin: "0 30px 0 0",
+                      }}
+                    />
+                    <div style={{ fontSize: "18px" }} className="text-5">
+                      +38 (063) 146 92 46
+                    </div>
+                  </div>
+                </div>
+                <div style={{ display: "flex" }}>
+                  <img src={require("../images/Vector15.png")} alt="vector" />
+                  <a
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                      margin: "0 40px",
+                    }}
+                    href="https://www.instagram.com/udsconsulting/"
+                  >
+                    <img
+                      src={require("../images/instagram.png")}
+                      alt="vector"
+                    />
+                  </a>
+                  <img src={require("../images/Vector17.png")} alt="vector" />
+                  <a
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                      margin: "0 0 0 40px",
+                    }}
+                    href="https://www.youtube.com/channel/UCx443BQ2U4gGXLPYB8Nu3bg"
+                  >
+                    <img src={require("../images/Vector18.png")} alt="vector" />
+                  </a>
+                </div>
+              </div>
+              <img
+                src={require("../images/Vector10.png")}
+                alt="vector"
+                style={{
+                  position: "absolute",
+                  top: "-40px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                }}
+              />
             </div>
           </div>
         </div>

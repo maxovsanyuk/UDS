@@ -1,43 +1,81 @@
 import React from "react";
 import styled from "styled-components";
-import GoogleMap from "./GoogleMap";
 import Media from "react-media";
+import { useDispatch, useSelector } from "react-redux";
+import { setActivePage } from "../redux/actions/app_action";
+import { Link } from "react-router-dom";
 
 const FooterCont = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  min-height: 235px;
-  background: #f2f2f2;
+  min-height: 290px;
+  background: #3491c8;
   border-top: 1px solid #ccc;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.8);
 
-  .info-box {
-    display: ${({ size }) => (size.small ? "flex" : "block")};
-    flex-wrap: wrap;
+  .footer {
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     justify-content: space-between;
-    margin: ${({ size }) => (size.small ? "0 40px" : "0 20px 0 40px")};
-    padding: 20px 0;
-  }
 
-  .link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.8);
-    margin: 0 0 5px 0;
-  }
+    .text-13 {
+      width: 100%;
+      text-align: center;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 15px;
+      color: #fff;
+      margin: 0 0 40px 0;
+    }
 
-  .contact-detail {
-    display: flex;
-    align-items: center;
-    margin: 0 0 5px 0;
-    color: rgba(0, 0, 0, 0.8);
+    .title-14 {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 29px;
+      color: #fff;
+    }
+
+    .link {
+      transition: 0.4s;
+      color: #fff;
+      &:hover {
+        transition: 0.4s;
+        cursor: pointer;
+      }
+    }
+    .footer-btn {
+      width: max-content;
+      background: #fff;
+      border: 1px solid #fff;
+      border-radius: 71px;
+      color: #3491c8;
+      padding: 15px 25px;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 20px 0 0 0;
+      transition: 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 20px rgba(81, 126, 173, 0.8);
+        transition: 0.3s;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
 `;
 
 const Footer = ({}) => {
+  const dispatch = useDispatch();
+
   return (
     <Media
       queries={{
@@ -46,113 +84,107 @@ const Footer = ({}) => {
       }}
     >
       {(size) => (
-        <div>
-          {size.small && <GoogleMap />}
-          <FooterCont size={size}>
+        <FooterCont size={size}>
+          <div className="footer">
             <div
-              style={{
-                display: "flex",
-                width: "100vw",
-                justifyContent: "center",
-              }}
+              style={{ display: "flex", width: "100%", margin: "60px 0 0 0" }}
             >
-              {size.large && <GoogleMap />}
-
-              <div className="info-box">
-                <a
-                  className="link"
-                  href="https://www.google.com/maps/place/%D0%BF%D1%80%D0%BE%D1%81%D0%BF.+%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D1%8F+%D0%9B%D0%BE%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE,+150,+%D0%9A%D0%B8%D0%B5%D0%B2,+03118/@50.4070124,30.5063996,17z/data=!3m1!4b1!4m5!3m4!1s0x40d4cf31f2a52cbf:0x4233c187ac37a452!8m2!3d50.4070124!4d30.5085883"
-                >
-                  <img
-                    style={{ margin: "0 10px 0 0" }}
-                    width={35}
-                    height={35}
-                    src={require("../images/map.png")}
-                    alt="timetable"
-                  />
-                  м. Київ, просп. Лобановского 150
-                </a>
-
-                <div className="contact-detail">
-                  <img
-                    style={{ margin: "0 10px 0 0" }}
-                    width={35}
-                    height={35}
-                    src={require("../images/timetable.png")}
-                    alt="timetable"
-                  />
-                  Графік роботи: Пн-Пт 8:00-19:00
-                </div>
-                <div className="contact-detail">
-                  <img
-                    width={35}
-                    height={35}
-                    style={{ margin: "0 10px 0 0" }}
-                    src={require("../images/telegram.png")}
-                    alt="timetable"
-                  />
-                  +38 (063) 146 92 46
-                </div>
-
-                <div
+              <div
+                style={{
+                  display: "flex",
+                  flex: 1,
+                  alignItems: "center",
+                  margin: "0 0 0 10%",
+                  fontSize: "18px",
+                  color: "#fff",
+                }}
+              >
+                <img
+                  src={require("../images/logowhite.png")}
+                  alt="vector"
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: size.small && "center",
-                    margin: "0 0 2px 0",
+                    margin: "0 60px 0 0 ",
                   }}
-                >
-                  <a
+                />
+                <div>
+                  <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
-                      textDecoration: "none",
+                      margin: "0 0 20px 0",
                     }}
-                    href="https://www.instagram.com/udsconsulting/"
                   >
-                    <div className="contact-detail">
-                      <img
-                        width={35}
-                        height={35}
-                        style={{ margin: "0 10px 0 0" }}
-                        src={require("../images/insta.png")}
-                        alt="inst"
-                      />
-                      instagram
-                    </div>
-                  </a>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: size.small && "center",
-                  }}
-                >
-                  <a
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      textDecoration: "none",
-                    }}
-                    href="https://www.youtube.com/channel/UCx443BQ2U4gGXLPYB8Nu3bg"
-                  >
-                    <div className="contact-detail">
-                      <img
-                        width={35}
-                        height={35}
-                        style={{ margin: "0 10px 0 0" }}
-                        src={require("../images/youtube.png")}
-                        alt="youtube"
-                      />
-                      youtube
-                    </div>
-                  </a>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to="/UDS"
+                      onClick={() => dispatch(setActivePage("/UDS"))}
+                    >
+                      <div className="link">Головна</div>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to="/UDS/CRMConsultant"
+                      onClick={() => dispatch(setActivePage("/UDS"))}
+                    >
+                      <div className="link" style={{ margin: "0 40px" }}>
+                        CRM Consultant
+                      </div>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to="/UDS/blog"
+                      onClick={() => dispatch(setActivePage("/UDS"))}
+                    >
+                      <div className="link">Блог</div>
+                    </Link>
+                  </div>
+                  <div style={{ display: "flex" }}>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to="/UDS/gallery"
+                      onClick={() => dispatch(setActivePage("/UDS"))}
+                    >
+                      <div className="link">Галерея</div>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to="/UDS/blog"
+                      onClick={() =>
+                        dispatch(setActivePage("/UDS/CRMDeveloper"))
+                      }
+                    >
+                      <div className="link" style={{ margin: "0 40px" }}>
+                        CRM Developer
+                      </div>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to="/UDS/blog"
+                      onClick={() => dispatch(setActivePage("/UDS/gallery"))}
+                    >
+                      <div className="link">Старт курсу</div>
+                    </Link>
+                  </div>
                 </div>
               </div>
+              <div
+                style={{
+                  display: "flex",
+                  flex: 1,
+                  flexDirection: "column",
+                  margin: "0 0 0 100px",
+                }}
+              >
+                <div className="title-14">
+                  Хочеш дізнатися про початок курсів?
+                </div>
+                <Link to="/UDS/contacts">
+                  <button className="footer-btn">НАТИСНИ СЮДИ</button>
+                </Link>
+              </div>
             </div>
-          </FooterCont>
-        </div>
+            <div className="text-13">Copyright © 2020 DYNAMICS Education</div>
+          </div>
+        </FooterCont>
       )}
     </Media>
   );
