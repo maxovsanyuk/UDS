@@ -11,7 +11,7 @@ const HeaderBox = styled.div`
   width: 100vw;
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 80px;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   margin: 0 0 1px 0;
@@ -22,7 +22,7 @@ const HeaderBox = styled.div`
   .logo {
     opacity: 0;
     animation: appearingComp 1s ease-in-out 0s 1 normal forwards;
-    margin: 0 30px 0 40px;
+    margin: 0 150px 0 0;
 
     @keyframes appearingComp {
       0% {
@@ -34,11 +34,11 @@ const HeaderBox = styled.div`
     }
   }
 
-  .links-cont {
+  .header-cont {
     height: 100%;
     width: 1400px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background: #fff;
 
@@ -48,7 +48,7 @@ const HeaderBox = styled.div`
       display: none;
       position: absolute;
       bottom: -1px;
-      background: #0067b8;
+      background: #ffca62;
       animation: border 0.3s ease-in-out 0s 1 normal forwards;
 
       @keyframes border {
@@ -67,7 +67,8 @@ const HeaderBox = styled.div`
       height: 100%;
       align-items: center;
       justify-content: center;
-      padding: 0 20px;
+      padding: 0 30px;
+      margin: 0 10px;
       font-family: "Montserrat", sans-serif;
       font-weight: 500;
       text-decoration: none;
@@ -75,25 +76,39 @@ const HeaderBox = styled.div`
       font-size: 13px;
       transition: 0.2s;
       text-align: center;
-    }
-    .anable-hover-color {
+
       &:hover {
         .border-line {
           display: flex;
         }
-        background: #e9e9e9;
-        color: #0067b8;
         transition: 0.2s;
       }
+    }
+  }
+
+  .start-course-btn {
+    background: linear-gradient(0deg, #ffffff, #ffffff);
+    border-radius: 40px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    color: #4e7baa;
+    border: 1px solid #4e7baa;
+    transition: 0.2s;
+
+    &:hover {
+      transition: 0.2s;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(81, 126, 173, 0.15);
     }
 
-    .disable-hover-color {
-      &:hover {
-        .border-line {
-          display: flex;
-        }
-        transition: 0.2s;
-      }
+    :focus {
+      outline: none;
     }
   }
 `;
@@ -162,13 +177,6 @@ const pages = [
   { name: "CRM Consultant", patch: "/UDS/CRMConsultant" },
   { name: "Галерея", patch: "/UDS/gallery" },
   { name: "Блог", patch: "/UDS/blog" },
-  {
-    name: "Старт курсу",
-    patch: "/UDS/contacts",
-    bgColor: "aliceblue",
-    showLogo: true,
-    hideBorder: true,
-  },
 ];
 
 const Header = () => {
@@ -224,19 +232,17 @@ const Header = () => {
 
               {isMenuOpen && (
                 <div className="menu-items">
-                  {pages.map(
-                    ({ name, patch, bgColor, showLogo, hideBorder }) => (
-                      <Link
-                        onClick={() => dispatch(setActivePage(patch))}
-                        className="page"
-                        key={name}
-                        to={patch}
-                        style={{ border: hideBorder && "none" }}
-                      >
-                        {name}
-                      </Link>
-                    )
-                  )}
+                  {pages.map(({ name, patch, hideBorder }) => (
+                    <Link
+                      onClick={() => dispatch(setActivePage(patch))}
+                      className="page"
+                      key={name}
+                      to={patch}
+                      style={{ border: hideBorder && "none" }}
+                    >
+                      {name}
+                    </Link>
+                  ))}
                 </div>
               )}
             </Menu>
@@ -244,7 +250,7 @@ const Header = () => {
 
           {size.large && (
             <HeaderBox fixed={offset > 800}>
-              <div className="links-cont">
+              <div className="header-cont">
                 <Link
                   to="/UDS"
                   onClick={() => {
@@ -258,38 +264,28 @@ const Header = () => {
                   />
                 </Link>
 
-                {pages.map(({ name, patch, bgColor, showLogo }) => (
+                {pages.map(({ name, patch }) => (
                   <Link
                     onClick={() => {
                       dispatch(setActivePage(patch));
                       window.scrollTo(0, 0);
                     }}
-                    style={{
-                      background: bgColor,
-                    }}
-                    className={`links  ${
-                      bgColor ? "disable-hover-color" : "anable-hover-color"
-                    } `}
+                    className="links"
                     key={name}
                     to={patch}
                   >
                     {name}
 
-                    {showLogo && (
-                      <img
-                        width={25}
-                        height={25}
-                        style={{ margin: "0 0 0 15px" }}
-                        src={require("../images/logo-m.jpg")}
-                        alt="logo"
-                      />
-                    )}
                     <div
                       className="border-line"
                       style={{ display: activePage === patch && "flex" }}
                     />
                   </Link>
                 ))}
+
+                <Link to="/UDS/contacts">
+                  <button className="start-course-btn">Старт Курсу</button>
+                </Link>
               </div>
             </HeaderBox>
           )}

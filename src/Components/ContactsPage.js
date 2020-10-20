@@ -22,9 +22,7 @@ const Contacts = styled.div`
 `;
 
 const ContactsPage = () => {
-  const [formState, setFormState] = useState({});
   const [isSendingForm, setIsSendingForm] = useState(false);
-  const { register } = useForm();
 
   document.body.style.overflow = "auto";
 

@@ -13,43 +13,7 @@ const Home = styled.div`
   width: 100%;
   align-items: center;
   overflow: auto;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  .img-box {
-    width: 100%;
-    height: 280px;
-    opacity: 0;
-    background: url("http://dynamics.net.ua/wp-content/uploads/back.png")
-      no-repeat left;
-    animation: appearingImg 0.8s ease-in-out 0s 1 normal forwards,
-      scrollingImg 400s linear 0s 1 normal;
-    margin-top: -280px;
-
-    @keyframes appearingImg {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-        margin-top: -5px;
-      }
-    }
-
-    @keyframes scrollingImg {
-      0% {
-        background-position: left;
-      }
-      50% {
-        background-position: right;
-      }
-
-      100% {
-        background-position: left;
-      }
-    }
-  }
+  font-family: Montserrat;
 
   .content {
     display: flex;
@@ -105,24 +69,62 @@ const Home = styled.div`
       }
     }
 
-    .detail-btn {
-      font-size: 16px;
-      padding: 10px 25px;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-      border: 1px solid #ccc;
-      color: rgba(0, 0, 0, 0.8);
-      background: #0067b8;
+    .register-btn {
+      background: linear-gradient(
+          180deg,
+          #3697d1 0%,
+          rgba(29, 73, 103, 0.29) 100%
+        ),
+        #5689b4;
+      border-radius: 40px;
+      border: none;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 29px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 14px rgba(81, 126, 173, 0.2);
       color: #fff;
-      border-radius: 4px;
-      transition: 0.4s;
+      padding: 25px 50px;
+      margin: 40px 0 0 0;
+      transition: 0.3s;
+
+      &:hover {
+        transition: 0.3s;
+        cursor: pointer;
+        box-shadow: 0 0 20px rgba(81, 126, 173, 0.8);
+      }
+
+      &:active {
+        background: #ccc;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .detail-btn {
+      background: #fff;
+      border-radius: 50px;
+      font-size: 24px;
+      line-height: 29px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #3491c8;
+      padding: 20px 40px;
+      border: 0.4px solid #3491c8;
       text-decoration: none;
-      margin: 0 0 0 25px;
+      transition: 0.4s;
 
       &:hover {
         transition: 0.4s;
         cursor: pointer;
-        color: #0067b8;
-        background: #fff;
+        box-shadow: 3px 4px 14px rgba(81, 126, 173, 0.6);
+      }
+
+      &:active {
+        background: #ccc;
       }
 
       &:focus {
@@ -216,14 +218,90 @@ const Home = styled.div`
       }
     }
   }
-`;
 
-const textLabels = [
-  "Ти молодий спеціаліст з технічним бекграундом та знанням англійської мови?",
-  "Ти хочешь отримувати зарплату европейського рівня?",
-  "Проте в тебе немає досвіду роботи?",
-  "Тоді тобі до нас!",
-];
+  .text-1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 130%;
+    color: #09051f;
+  }
+
+  .text-2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 135%;
+    color: #09051f;
+  }
+
+  .text-3 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 130%;
+    margin: 20px 0 0 0;
+    color: #100a2e;
+  }
+
+  .text-4 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 140%;
+    margin: 0 0 30px 0;
+    color: #3491c8;
+  }
+
+  .text-5 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: #09051f;
+  }
+
+  .text-6 {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 59px;
+    color: #3491c8;
+    position: relative;
+    z-index: 10;
+  }
+
+  .text-7 {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+    color: #09051f;
+  }
+
+  .text-8 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #000;
+  }
+
+  .education-content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1141px;
+    width: 80%;
+    height: 480px;
+    background: #fff;
+    border: 2px solid #4e7baa;
+    border-radius: 25px;
+    margin: 40px 0 0 0;
+    padding: 10px;
+  }
+`;
 
 const HomePage = ({}) => {
   const [slideToShow, setSlideToShow] = useState(1);
@@ -235,8 +313,380 @@ const HomePage = ({}) => {
     <div>
       <Header />
       <Home>
-        <div className="img-box" />
         <div className="content">
+          <div
+            style={{
+              display: "flex",
+              width: "100%",
+              flexWrap: "wrap",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div style={{ display: "flex", flex: 1, justifyContent: "center" }}>
+              <img
+                style={{
+                  margin: "0px 0px 12px 43px",
+                  position: "relative",
+                  zIndex: 10,
+                }}
+                src={require("../images/Main_Logo.png")}
+                alt="vector"
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+                background: `url(${require("../images/Back1.png")})no-repeat center 50px`,
+              }}
+            >
+              <div style={{ width: "460px" }}>
+                <div className="text-1">Dynamics Education –</div>
+                <div className="text-2">
+                  це курси для тих, хто хоче проявити себе в ІТ.
+                </div>
+                <div className="text-3">
+                  Ми готуємо кваліфікованих спеціалістів починаючи з 2016 року.
+                </div>
+                <Link to="/UDS/contacts">
+                  <button className="register-btn">Зареєструватись</button>
+                </Link>
+              </div>
+            </div>
+
+            <img
+              src={require("../images/Vector.png")}
+              alt="vector"
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: "50%",
+                transform: "translateX(-50%)",
+              }}
+            />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              width: "100%",
+              padding: "40px 0 0 0 ",
+              background:
+                "linear-gradient(180deg, #DDE7F0 10.29%, #F2F5F8 46.36%)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div style={{ width: "600px" }}>
+                <div className="text-4">Тоді тобі до нас якщо:</div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <img
+                    style={{ margin: "0 15px 0 0 " }}
+                    src={require("../images/Star11.png")}
+                    alt="star"
+                  />
+                  <div className="text-5">
+                    Ти <b>молодий спеціаліст</b> з технічним бекграундом та
+                    знанням англійської мови?
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    margin: "20px 0",
+                  }}
+                >
+                  <img
+                    style={{ margin: "0 15px 0 0 " }}
+                    src={require("../images/Star11.png")}
+                    alt="star"
+                  />
+                  <div className="text-5">
+                    Ти хочешь отримувати <b>зарплату европейського рівня</b>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <img
+                    style={{ margin: "0 15px 0 0 " }}
+                    src={require("../images/Star11.png")}
+                    alt="star"
+                  />
+                  <div className="text-5">
+                    В тебе <b>немає досвіду роботи</b>
+                  </div>
+                </div>
+
+                <Link to="/UDS/contacts">
+                  <button
+                    style={{ margin: "60px 0 0 0" }}
+                    className="register-btn"
+                  >
+                    Хочу спробувати
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div style={{ display: "flex", flex: 1, justifyContent: "center" }}>
+              <img
+                style={{
+                  margin: "0 0 15px 0",
+                  position: "relative",
+                  zIndex: 10,
+                }}
+                src={require("../images/Ill_Bonus_1.png")}
+                alt="vector"
+              />
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              width: "100%",
+              position: "relative",
+              overflow: "hidden",
+              padding: "0 0 200px 0",
+            }}
+          >
+            <div style={{ margin: "200px 0 50px 0" }} className="text-6">
+              Кого ми готуємо?
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                width: "100%",
+                position: "relative",
+                zIndex: 10,
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <img src={require("../images/Developer.png")} alt="Developer" />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "300px",
+                  }}
+                >
+                  <div style={{ margin: "20px 0 0 0 " }} className="text-7">
+                    MS Dynamics CRM Developer
+                  </div>
+                  <Link to="/UDS/CRMDeveloper">
+                    <button
+                      style={{ margin: "20px 0 0 0" }}
+                      className="detail-btn"
+                      onClick={() => {
+                        dispatch(setActivePage("/UDS/CRMDeveloper"));
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      Детальніше
+                    </button>
+                  </Link>
+                </div>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <img src={require("../images/Consult.png")} alt="Consult" />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "300px",
+                  }}
+                >
+                  <div style={{ margin: "30px 0 0 0" }} className="text-7">
+                    MS Dynamics CRM Consultant
+                  </div>
+                  <Link to="/UDS/CRMConsultant">
+                    <button
+                      style={{ margin: "30px 0 0 0" }}
+                      className="detail-btn"
+                      onClick={() => {
+                        dispatch(setActivePage("/UDS/CRMConsultant"));
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      Детальніше
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <img
+              src={require("../images/Vector2.png")}
+              alt="vector"
+              style={{
+                position: "absolute",
+                top: "-150px",
+                left: "50%",
+                transform: "translateX(-50%)",
+              }}
+            />
+
+            <img
+              src={require("../images/Vector3.png")}
+              alt="vector"
+              style={{
+                position: "absolute",
+                bottom: "-80px",
+                left: "50%",
+                transform: "translateX(-50%)",
+              }}
+            />
+          </div>
+          <div
+            style={{
+              width: "100%",
+              transform: "matrix(1, 0, 0, -1, 0, 0)",
+              background:
+                "linear-gradient(180deg, #DDE7F0 10.96%, #F2F5F8 49.11%)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                margin: "100px 0 50px 0",
+                transform: "rotateX(180deg)",
+              }}
+              className="text-6"
+            >
+              Навчальна платформа
+              <div className="education-content">
+                <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
+                  {[
+                    { iconPath: "Icons8.png", text: "Marketing" },
+                    { iconPath: "Icons2.png", text: "Customer insights" },
+                    { iconPath: "Icons3.png", text: "Retail" },
+                    {
+                      iconPath: "Icons0.png",
+                      text: "Project service automation",
+                    },
+                  ].map(({ iconPath, text }) => {
+                    return (
+                      <div
+                        key={iconPath}
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "50%",
+                          height: "50%",
+                        }}
+                      >
+                        <img
+                          style={{ width: "max-content" }}
+                          src={require(`../images/${iconPath}`)}
+                          alt="icon"
+                        />
+                        <div
+                          style={{ margin: "15px 0 0 0", height: "70px" }}
+                          className="text-8"
+                        >
+                          {text}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    background: `url(${require("../images/Back2.png")})no-repeat center`,
+                  }}
+                >
+                  <div
+                    className="text-4"
+                    style={{
+                      width: "250px",
+                      textAlign: "center",
+                      margin: "0 0 0 40px",
+                    }}
+                  >
+                    Microsoft Dynamics 365
+                  </div>
+                </div>
+                <div style={{ display: "flex", flex: 1 }}>
+                  <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
+                    {[
+                      { iconPath: "Icons5.png", text: "Customer service" },
+                      { iconPath: "Icons4.png", text: "Field service" },
+                      { iconPath: "Icons6.png", text: "Sales" },
+                      {
+                        iconPath: "Icons1.png",
+                        text: "Finance and operations",
+                      },
+                    ].map(({ iconPath, text }) => {
+                      return (
+                        <div
+                          key={iconPath}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "50%",
+                            height: "50%",
+                          }}
+                        >
+                          <img
+                            style={{ width: "max-content" }}
+                            src={require(`../images/${iconPath}`)}
+                            alt="icon"
+                          />
+                          <div
+                            style={{ margin: "15px 0 0 0", height: "70px" }}
+                            className="text-8"
+                          >
+                            {text}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          ''''''''''
           <div
             style={{
               width: "calc(100% - 40px)",
@@ -247,36 +697,10 @@ const HomePage = ({}) => {
           >
             <h2 className="title" style={{ margin: "10px 0 20px 0" }}>
               Dynamics Education –
-              <span
-                style={{
-                  fontSize: "16px",
-                  margin: "0 0 0 5px",
-                  color: "rgba(0,0,0,0.8)",
-                  fontWeight: 500,
-                }}
-              >
-                це курси для тих, хто хоче проявити себе в ІТ. Ми готуємо
-                кваліфікованих спеціалістів починаючи з 2016 року.
-              </span>
             </h2>
 
-            <div style={{ width: "100%" }}>
-              {textLabels.map((t) => {
-                return (
-                  <div key={t} className="text-block">
-                    <img
-                      width={40}
-                      style={{ margin: "0 10px 0 0" }}
-                      src={require("../images/checkMark.png")}
-                      alt="checkMark"
-                    />
-                    {t}
-                  </div>
-                );
-              })}
-            </div>
+            <div style={{ width: "100%" }}></div>
           </div>
-
           <div
             style={{
               display: "flex",
@@ -340,7 +764,6 @@ const HomePage = ({}) => {
               </div>
             </div>
           </div>
-
           <div
             style={{
               width: "100%",
@@ -371,7 +794,6 @@ const HomePage = ({}) => {
               </a>
             </div>
           </div>
-
           <div
             style={{
               display: "flex",
@@ -432,7 +854,6 @@ const HomePage = ({}) => {
               </div>
             </div>
           </div>
-
           <div
             style={{
               display: "flex",
@@ -451,7 +872,6 @@ const HomePage = ({}) => {
               style={{ height: "100%", width: "100%", margin: "50px 0" }}
             />
           </div>
-
           <div
             style={{
               width: "100%",
