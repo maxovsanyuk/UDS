@@ -397,7 +397,7 @@ const HomePage = ({}) => {
               }}
             >
               <div style={{ width: "600px" }}>
-                <div className="text-4">Тоді тобі до нас якщо:</div>
+                <div className="text-4">Тобі до нас якщо:</div>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <img
                     style={{ margin: "0 15px 0 0 " }}
