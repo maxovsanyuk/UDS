@@ -744,7 +744,10 @@ const HomePage = ({}) => {
                   >
                     Дистанційне навчання у зручний для тебе час
                   </div>
-                  <div className="text-5">
+                  <div
+                    className="text-5"
+                    style={{ fontSize: "18px", width: "85%" }}
+                  >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Aliquam pharetra mi dui blandit a auctor malesuada. Metus at
                     dolor lobortis cras tellus ullamcorper. In id amet, mi sed
@@ -775,7 +778,10 @@ const HomePage = ({}) => {
                     >
                       По закінченню курсу видається сертифікат
                     </div>
-                    <div className="text-5">
+                    <div
+                      className="text-5"
+                      style={{ fontSize: "18px", width: "85%" }}
+                    >
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Aliquam pharetra mi dui blandit a auctor malesuada. Metus
                       at dolor lobortis cras tellus ullamcorper. In id amet, mi
@@ -823,7 +829,10 @@ const HomePage = ({}) => {
                     >
                       Працевлаштування та практична підготовка
                     </div>
-                    <div className="text-5">
+                    <div
+                      className="text-5"
+                      style={{ fontSize: "18px", width: "85%" }}
+                    >
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Aliquam pharetra mi dui blandit a auctor malesuada. Metus
                       at dolor lobortis cras tellus ullamcorper. In id amet, mi
