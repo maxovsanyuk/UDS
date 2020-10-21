@@ -17,12 +17,11 @@ const HeaderBox = styled.div`
   margin: 0 0 1px 0;
   ${({ fixed }) =>
     fixed &&
-    "width: 100%; position: fixed; top: 0; z-index: 100; background: #fff; animation: appearingComp .5s ease-in-out 0s 1 normal forwards;"}
+    "width: 100%; position: fixed; top: 0; z-index: 1000; background: #fff; animation: appearingComp .5s ease-in-out 0s 1 normal forwards;"}
 
   .logo {
     opacity: 0;
     animation: appearingComp 1s ease-in-out 0s 1 normal forwards;
-    margin: 0 150px 0 0;
 
     @keyframes appearingComp {
       0% {
@@ -38,7 +37,7 @@ const HeaderBox = styled.div`
     height: 100%;
     width: 1400px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background: #fff;
 
@@ -73,7 +72,7 @@ const HeaderBox = styled.div`
       font-weight: 500;
       text-decoration: none;
       color: #262626;
-      font-size: 13px;
+      font-size: 18px;
       transition: 0.2s;
       text-align: center;
 
@@ -263,25 +262,26 @@ const Header = () => {
                     alt="logo"
                   />
                 </Link>
+                <div style={{ display: "flex", height: "100%" }}>
+                  {pages.map(({ name, patch }) => (
+                    <Link
+                      onClick={() => {
+                        dispatch(setActivePage(patch));
+                        window.scrollTo(0, 0);
+                      }}
+                      className="links"
+                      key={name}
+                      to={patch}
+                    >
+                      {name}
 
-                {pages.map(({ name, patch }) => (
-                  <Link
-                    onClick={() => {
-                      dispatch(setActivePage(patch));
-                      window.scrollTo(0, 0);
-                    }}
-                    className="links"
-                    key={name}
-                    to={patch}
-                  >
-                    {name}
-
-                    <div
-                      className="border-line"
-                      style={{ display: activePage === patch && "flex" }}
-                    />
-                  </Link>
-                ))}
+                      <div
+                        className="border-line"
+                        style={{ display: activePage === patch && "flex" }}
+                      />
+                    </Link>
+                  ))}
+                </div>
 
                 <Link to="/UDS/contacts">
                   <button className="start-course-btn">Старт Курсу</button>

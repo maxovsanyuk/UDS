@@ -419,23 +419,23 @@ const HomePage = ({}) => {
               }}
             >
               <div style={{ width: "600px" }}>
-                <div className="text-4">Тобі до нас якщо:</div>
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div className="text-4">Тобі до нас, якщо:</div>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
                   <img
                     style={{ margin: "0 15px 0 0 " }}
                     src={require("../images/Star11.png")}
                     alt="star"
                   />
                   <div className="text-5">
-                    Ти <b>молодий спеціаліст</b> з технічним бекграундом та
-                    знанням англійської мови?
+                    Ти молодий спеціаліст
+                    <b> з технічним бекграундом та знанням англійської мови</b>
                   </div>
                 </div>
 
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "center",
+                    alignItems: "flex-start",
                     margin: "20px 0",
                   }}
                 >
@@ -449,14 +449,15 @@ const HomePage = ({}) => {
                   </div>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
                   <img
                     style={{ margin: "0 15px 0 0 " }}
                     src={require("../images/Star11.png")}
                     alt="star"
                   />
                   <div className="text-5">
-                    В тебе <b>немає досвіду роботи</b>
+                    В тебе <b>немає досвіду роботи з MS Dynamics 365</b>, але ти
+                    готовий навчатися
                   </div>
                 </div>
 
@@ -772,10 +773,9 @@ const HomePage = ({}) => {
                     className="text-5"
                     style={{ fontSize: "18px", width: "85%" }}
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aliquam pharetra mi dui blandit a auctor malesuada. Metus at
-                    dolor lobortis cras tellus ullamcorper. In id amet, mi sed
-                    aliquet pla
+                    Курс «MS Dynamics 365 Developer» доступний для онлайн
+                    навчання з будь-якої точки світу, графік навчання ти будуєш
+                    самостійно.
                   </div>
                 </div>
               </div>
@@ -806,10 +806,8 @@ const HomePage = ({}) => {
                       className="text-5"
                       style={{ fontSize: "18px", width: "85%" }}
                     >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Aliquam pharetra mi dui blandit a auctor malesuada. Metus
-                      at dolor lobortis cras tellus ullamcorper. In id amet, mi
-                      sed aliquet pla
+                      Даний сертифікат є підтвердженням успішного проходження
+                      курсу та видається тільки в цьому випадку.
                     </div>
                   </div>
                 </div>
@@ -857,10 +855,9 @@ const HomePage = ({}) => {
                       className="text-5"
                       style={{ fontSize: "18px", width: "85%" }}
                     >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Aliquam pharetra mi dui blandit a auctor malesuada. Metus
-                      at dolor lobortis cras tellus ullamcorper. In id amet, mi
-                      sed aliquet pla
+                      Випускники з високими результатами рекомендуються до
+                      співбесіди з СТО та подальшого працевлаштування при
+                      компанії UDS.
                     </div>
                   </div>
                 </div>
@@ -979,7 +976,7 @@ const HomePage = ({}) => {
                       }}
                     />
                     <div style={{ fontSize: "18px" }} className="text-5">
-                      Графік роботи: Пн-Пт <br /> 8:00-19:00
+                      Графік роботи: Пн-П 8:00-19:00
                     </div>
                   </div>
                   <div
@@ -1007,7 +1004,6 @@ const HomePage = ({}) => {
                       display: "flex",
                       alignItems: "center",
                       textDecoration: "none",
-                      margin: "0 40px",
                     }}
                     href="https://www.facebook.com/UDS.systems/"
                   >
@@ -1032,7 +1028,6 @@ const HomePage = ({}) => {
                       display: "flex",
                       alignItems: "center",
                       textDecoration: "none",
-                      margin: "0 40px",
                     }}
                     href="https://www.linkedin.com/company/uds-systems/"
                   >
