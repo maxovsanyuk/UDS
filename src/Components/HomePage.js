@@ -354,20 +354,22 @@ const HomePage = ({}) => {
               flexWrap: "wrap",
               position: "relative",
               overflow: "hidden",
+              height: "600px",
+              margin: "60px 0 0 0",
             }}
           >
-            <div style={{ display: "flex", flex: 1, justifyContent: "center" }}>
-              <ReactPlayer
-                style={{
-                  margin: "0px 0px 12px 43px",
-                  position: "relative",
-                  zIndex: 10,
-                }}
-                loop
-                playing
-                url={require("../Files/Best_Main_Logo.webm")}
-              />
-            </div>
+            <ReactPlayer
+              style={{
+                margin: "80px 0 0 50px",
+                transform: "scale(1.8)",
+                position: "relative",
+                zIndex: 20,
+              }}
+              loop
+              playing
+              url={require("../Files/Best_Main_Logo.webm")}
+            />
+
             <div
               style={{
                 display: "flex",
