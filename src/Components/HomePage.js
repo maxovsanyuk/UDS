@@ -354,13 +354,12 @@ const HomePage = ({}) => {
               flexWrap: "wrap",
               position: "relative",
               overflow: "hidden",
-              height: "600px",
-              margin: "60px 0 0 0",
+              height: "700px",
             }}
           >
             <ReactPlayer
               style={{
-                margin: "80px 0 0 50px",
+                margin: "180px 0 0 50px",
                 transform: "scale(1.8)",
                 position: "relative",
                 zIndex: 20,
