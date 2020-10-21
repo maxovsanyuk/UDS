@@ -123,7 +123,9 @@ const Footer = ({}) => {
                     <Link
                       style={{ textDecoration: "none" }}
                       to="/UDS/CRMConsultant"
-                      onClick={() => dispatch(setActivePage("/UDS/CRMConsultant"))}
+                      onClick={() =>
+                        dispatch(setActivePage("/UDS/CRMConsultant"))
+                      }
                     >
                       <div className="link" style={{ margin: "0 40px" }}>
                         CRM Consultant
@@ -178,7 +180,12 @@ const Footer = ({}) => {
                   Хочеш дізнатися про початок курсів?
                 </div>
                 <Link to="/UDS/contacts">
-                  <button className="footer-btn">НАТИСНИ СЮДИ</button>
+                  <button
+                    onClick={() => dispatch(setActivePage("/UDS/contacts"))}
+                    className="footer-btn"
+                  >
+                    НАТИСНИ СЮДИ
+                  </button>
                 </Link>
               </div>
             </div>
