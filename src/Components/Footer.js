@@ -9,6 +9,7 @@ const FooterCont = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  flex-wrap: wrap;
   min-height: 290px;
   background: #3491c8;
   border-top: 1px solid #ccc;
@@ -18,6 +19,7 @@ const FooterCont = styled.div`
   .footer {
     max-width: 1400px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
     justify-content: space-between;
@@ -87,7 +89,12 @@ const Footer = ({}) => {
         <FooterCont size={size}>
           <div className="footer">
             <div
-              style={{ display: "flex", width: "100%", margin: "60px 0 0 0" }}
+              style={{
+                display: "flex",
+                width: "100%",
+                margin: "60px 0 0 0",
+                flexWrap: "wrap",
+              }}
             >
               <div
                 style={{

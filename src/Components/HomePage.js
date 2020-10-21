@@ -357,14 +357,15 @@ const HomePage = ({}) => {
             }}
           >
             <div style={{ display: "flex", flex: 1, justifyContent: "center" }}>
-              <img
+              <ReactPlayer
                 style={{
                   margin: "0px 0px 12px 43px",
                   position: "relative",
                   zIndex: 10,
                 }}
-                src={require("../images/Main_Logo.png")}
-                alt="vector"
+                loop
+                playing
+                url={require("../Files/Best_Main_Logo.webm")}
               />
             </div>
             <div
@@ -516,7 +517,11 @@ const HomePage = ({}) => {
                   alignItems: "center",
                 }}
               >
-                <img src={require("../images/Developer.png")} alt="Developer" />
+                <ReactPlayer
+                  loop
+                  playing
+                  url={require("../Files/Best_Developer.webm")}
+                />
                 <div
                   style={{
                     display: "flex",

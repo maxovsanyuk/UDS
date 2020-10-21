@@ -35,7 +35,8 @@ const HeaderBox = styled.div`
 
   .header-cont {
     height: 100%;
-    width: 1400px;
+    width: 1360px;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
