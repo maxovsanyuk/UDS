@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { setActivePage } from "../redux/actions/app_action";
 import { useDispatch } from "react-redux";
+import ReactPlayer from "react-player";
 
 import GoogleMap from "./GoogleMap";
 
@@ -550,7 +551,11 @@ const HomePage = ({}) => {
                   alignItems: "center",
                 }}
               >
-                <img src={require("../images/Consult.png")} alt="Consult" />
+                <ReactPlayer
+                  loop
+                  playing
+                  url={require("../Files/Best_Consult.webm")}
+                />
                 <div
                   style={{
                     display: "flex",
