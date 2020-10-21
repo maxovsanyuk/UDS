@@ -1002,7 +1002,17 @@ const HomePage = ({}) => {
                   </div>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <img src={require("../images/Vector15.png")} alt="vector" />
+                  <a
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                      margin: "0 40px",
+                    }}
+                    href="https://www.facebook.com/UDS.systems/"
+                  >
+                    <img src={require("../images/Vector15.png")} alt="vector" />
+                  </a>
                   <a
                     style={{
                       display: "flex",
@@ -1017,7 +1027,17 @@ const HomePage = ({}) => {
                       alt="vector"
                     />
                   </a>
-                  <img src={require("../images/Vector17.png")} alt="vector" />
+                  <a
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                      margin: "0 40px",
+                    }}
+                    href="https://www.linkedin.com/company/uds-systems/"
+                  >
+                    <img src={require("../images/Vector17.png")} alt="vector" />
+                  </a>
                   <a
                     style={{
                       display: "flex",

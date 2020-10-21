@@ -123,7 +123,7 @@ const Footer = ({}) => {
                     <Link
                       style={{ textDecoration: "none" }}
                       to="/UDS/CRMConsultant"
-                      onClick={() => dispatch(setActivePage("/UDS"))}
+                      onClick={() => dispatch(setActivePage("/UDS/CRMConsultant"))}
                     >
                       <div className="link" style={{ margin: "0 40px" }}>
                         CRM Consultant
@@ -132,7 +132,7 @@ const Footer = ({}) => {
                     <Link
                       style={{ textDecoration: "none" }}
                       to="/UDS/blog"
-                      onClick={() => dispatch(setActivePage("/UDS"))}
+                      onClick={() => dispatch(setActivePage("/UDS/blog"))}
                     >
                       <div className="link">Блог</div>
                     </Link>
@@ -141,13 +141,13 @@ const Footer = ({}) => {
                     <Link
                       style={{ textDecoration: "none" }}
                       to="/UDS/gallery"
-                      onClick={() => dispatch(setActivePage("/UDS"))}
+                      onClick={() => dispatch(setActivePage("/UDS/gallery"))}
                     >
                       <div className="link">Галерея</div>
                     </Link>
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/UDS/blog"
+                      to="/UDS/CRMDeveloper"
                       onClick={() =>
                         dispatch(setActivePage("/UDS/CRMDeveloper"))
                       }
@@ -158,8 +158,8 @@ const Footer = ({}) => {
                     </Link>
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/UDS/blog"
-                      onClick={() => dispatch(setActivePage("/UDS/gallery"))}
+                      to="/UDS/contacts"
+                      onClick={() => dispatch(setActivePage("/UDS/contacts"))}
                     >
                       <div className="link">Старт курсу</div>
                     </Link>
