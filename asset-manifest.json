@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/UDS/static/css/main.160ae4ec.chunk.css",
-    "main.js": "/UDS/static/js/main.c85b9152.chunk.js",
-    "main.js.map": "/UDS/static/js/main.c85b9152.chunk.js.map",
+    "main.js": "/UDS/static/js/main.5b992e50.chunk.js",
+    "main.js.map": "/UDS/static/js/main.5b992e50.chunk.js.map",
     "runtime-main.js": "/UDS/static/js/runtime-main.564ca6be.js",
     "runtime-main.js.map": "/UDS/static/js/runtime-main.564ca6be.js.map",
-    "static/js/2.9f6d6ef8.chunk.js": "/UDS/static/js/2.9f6d6ef8.chunk.js",
-    "static/js/2.9f6d6ef8.chunk.js.map": "/UDS/static/js/2.9f6d6ef8.chunk.js.map",
+    "static/js/2.c4aff861.chunk.js": "/UDS/static/js/2.c4aff861.chunk.js",
+    "static/js/2.c4aff861.chunk.js.map": "/UDS/static/js/2.c4aff861.chunk.js.map",
     "index.html": "/UDS/index.html",
-    "precache-manifest.ac20e64f9bbb7e7861e00369ed2e0ec6.js": "/UDS/precache-manifest.ac20e64f9bbb7e7861e00369ed2e0ec6.js",
+    "precache-manifest.e12990ad51c96fc2c3eddc764d8740e9.js": "/UDS/precache-manifest.e12990ad51c96fc2c3eddc764d8740e9.js",
     "service-worker.js": "/UDS/service-worker.js",
     "static/css/main.160ae4ec.chunk.css.map": "/UDS/static/css/main.160ae4ec.chunk.css.map",
-    "static/js/2.9f6d6ef8.chunk.js.LICENSE.txt": "/UDS/static/js/2.9f6d6ef8.chunk.js.LICENSE.txt",
+    "static/js/2.c4aff861.chunk.js.LICENSE.txt": "/UDS/static/js/2.c4aff861.chunk.js.LICENSE.txt",
     "static/media/01_Qy698H5.jpg": "/UDS/static/media/01_Qy698H5.22b2623d.jpg",
     "static/media/03_a8TrhhX.jpg": "/UDS/static/media/03_a8TrhhX.87aec080.jpg",
     "static/media/06_c2338Vz.jpg": "/UDS/static/media/06_c2338Vz.22481b8b.jpg",
@@ -41,6 +41,7 @@
     "static/media/8.jpg": "/UDS/static/media/8.678f812c.jpg",
     "static/media/9.jpg": "/UDS/static/media/9.dab6db1a.jpg",
     "static/media/Back1.png": "/UDS/static/media/Back1.ae1dcd6e.png",
+    "static/media/Best_Consult.webm": "/UDS/static/media/Best_Consult.6bbc6ca6.webm",
     "static/media/Consult.png": "/UDS/static/media/Consult.a3206c7e.png",
     "static/media/Developer.png": "/UDS/static/media/Developer.47518ba4.png",
     "static/media/Ill_Bonus_1.png": "/UDS/static/media/Ill_Bonus_1.acd4c221.png",
@@ -75,8 +76,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.564ca6be.js",
-    "static/js/2.9f6d6ef8.chunk.js",
+    "static/js/2.c4aff861.chunk.js",
     "static/css/main.160ae4ec.chunk.css",
-    "static/js/main.c85b9152.chunk.js"
+    "static/js/main.5b992e50.chunk.js"
   ]
 }
