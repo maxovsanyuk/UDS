@@ -355,6 +355,7 @@ const HomePage = ({}) => {
               position: "relative",
               overflow: "hidden",
               height: "700px",
+              margin: "60px 0 0 0",
             }}
           >
             <ReactPlayer
@@ -751,7 +752,9 @@ const HomePage = ({}) => {
             >
               Наші переваги
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div
+              style={{ display: "flex", flexWrap: "wrap", margin: "0 20px" }}
+            >
               <div
                 style={{ display: "flex", flex: 1, justifyContent: "center" }}
               >
@@ -791,7 +794,9 @@ const HomePage = ({}) => {
                 </div>
               </div>
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div
+              style={{ display: "flex", flexWrap: "wrap", margin: "0 20px" }}
+            >
               <div style={{ display: "flex", flex: 1 }}>
                 <div
                   style={{
@@ -832,7 +837,9 @@ const HomePage = ({}) => {
                 />
               </div>
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div
+              style={{ display: "flex", flexWrap: "wrap", margin: "0 20px" }}
+            >
               <div
                 style={{ display: "flex", flex: 1, justifyContent: "center" }}
               >
