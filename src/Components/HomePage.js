@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import ReactPlayer from "react-player";
 
 import GoogleMap from "./GoogleMap";
+import Media from "react-media";
 
 const Home = styled.div`
   display: flex;
@@ -24,7 +25,7 @@ const Home = styled.div`
     align-items: center;
     width: 100%;
     max-width: 1400px;
-    margin: 40px 0 0 0;
+    margin: ${({ isSmall }) => (isSmall ? 0 : "40px 0 0 0")};
 
     .title {
       display: flex;
@@ -91,6 +92,10 @@ const Home = styled.div`
       padding: 25px 50px;
       margin: 40px 0 0 0;
       transition: 0.3s;
+
+      ${({ isSmall }) =>
+        isSmall &&
+        "font-size: 14px; padding: 15px 50px;position: relative;left: 50%;transform: translateX(-50%);margin:30px 0 0 0;"};
 
       &:hover {
         transition: 0.3s;
@@ -225,7 +230,7 @@ const Home = styled.div`
   .text-1 {
     font-style: normal;
     font-weight: bold;
-    font-size: 40px;
+    font-size: ${({ isSmall }) => (isSmall ? "26px" : "40px")};
     line-height: 130%;
     color: #09051f;
   }
@@ -234,6 +239,7 @@ const Home = styled.div`
     font-style: normal;
     font-weight: 500;
     font-size: 32px;
+    font-size: ${({ isSmall }) => (isSmall ? "16px" : "32px")};
     line-height: 135%;
     color: #09051f;
   }
@@ -241,7 +247,7 @@ const Home = styled.div`
   .text-3 {
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: ${({ isSmall }) => (isSmall ? "14px" : "24px")};
     line-height: 130%;
     margin: 20px 0 0 0;
     color: #100a2e;
@@ -338,748 +344,818 @@ const Home = styled.div`
   }
 `;
 
+const lineStyles = {
+  position: "absolute",
+  bottom: 0,
+  left: "50%",
+  transform: "translateX(-50%)",
+};
+
 const HomePage = ({}) => {
   const dispatch = useDispatch();
   document.body.style.overflow = "auto";
 
   return (
-    <div>
-      <Header />
-      <Home>
-        <div className="content">
-          <div
-            style={{
-              display: "flex",
-              width: "100%",
-              flexWrap: "wrap",
-              position: "relative",
-              overflow: "hidden",
-              height: "700px",
-              margin: "60px 0 0 0",
-            }}
-          >
-            <ReactPlayer
-              style={{
-                margin: "180px 0 0 50px",
-                transform: "scale(1.8)",
-                position: "relative",
-                zIndex: 20,
-              }}
-              loop
-              playing
-              url={require("../Files/Best_Main_Logo.webm")}
-            />
-
-            <div
-              style={{
-                display: "flex",
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
-                background: `url(${require("../images/Back1.png")})no-repeat center 50px`,
-              }}
-            >
-              <div style={{ width: "460px" }}>
-                <div className="text-1">Dynamics Education –</div>
-                <div className="text-2">
-                  це курси для тих, хто хоче проявити себе в ІТ.
-                </div>
-                <div className="text-3">
-                  Ми готуємо кваліфікованих спеціалістів починаючи з 2016 року.
-                </div>
-                <Link to="/UDS/contacts">
-                  <button className="register-btn">Зареєструватися</button>
-                </Link>
-              </div>
-            </div>
-
-            <img
-              src={require("../images/Vector.png")}
-              alt="vector"
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: "50%",
-                transform: "translateX(-50%)",
-              }}
-            />
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              width: "100%",
-              padding: "40px 0 0 0 ",
-              background:
-                "linear-gradient(180deg, #DDE7F0 10.29%, #F2F5F8 46.36%)",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "600px" }}>
-                <div className="text-4">Тобі до нас, якщо:</div>
-                <div style={{ display: "flex", alignItems: "flex-start" }}>
-                  <img
-                    style={{ margin: "0 15px 0 0 " }}
-                    src={require("../images/Star11.png")}
-                    alt="star"
-                  />
-                  <div className="text-5">
-                    Ти молодий спеціаліст
-                    <b> з технічним бекграундом та знанням англійської мови</b>
-                  </div>
-                </div>
-
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    margin: "20px 0",
-                  }}
-                >
-                  <img
-                    style={{ margin: "0 15px 0 0 " }}
-                    src={require("../images/Star11.png")}
-                    alt="star"
-                  />
-                  <div className="text-5">
-                    Ти хочешь отримувати <b>зарплату европейського рівня</b>
-                  </div>
-                </div>
-
-                <div style={{ display: "flex", alignItems: "flex-start" }}>
-                  <img
-                    style={{ margin: "0 15px 0 0 " }}
-                    src={require("../images/Star11.png")}
-                    alt="star"
-                  />
-                  <div className="text-5">
-                    В тебе <b>немає досвіду роботи з MS Dynamics 365</b>, але ти
-                    готовий навчатися
-                  </div>
-                </div>
-
-                <Link to="/UDS/contacts">
-                  <button
-                    style={{ margin: "60px 0 0 0" }}
-                    className="register-btn"
-                  >
-                    Хочу спробувати
-                  </button>
-                </Link>
-              </div>
-            </div>
-            <div style={{ display: "flex", flex: 1, justifyContent: "center" }}>
-              <img
+    <Media
+      queries={{
+        small: "(max-width: 729px)",
+      }}
+    >
+      {(size) => (
+        <div>
+          <Header />
+          <Home isSmall={size?.small}>
+            <div className="content">
+              <div
                 style={{
-                  margin: "0 0 15px 0",
+                  display: "flex",
+                  width: "100%",
+                  flexWrap: "wrap",
                   position: "relative",
-                  zIndex: 10,
-                }}
-                src={require("../images/Ill_Bonus_1.png")}
-                alt="vector"
-              />
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              width: "100%",
-              position: "relative",
-              overflow: "hidden",
-              padding: "0 0 200px 0",
-            }}
-          >
-            <div style={{ margin: "200px 0 50px 0" }} className="text-6">
-              Кого ми готуємо?
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                width: "100%",
-                position: "relative",
-                zIndex: 10,
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center",
+                  overflow: "hidden",
+                  height: size.small ? "auto" : "700px",
+                  margin: size.small ? 0 : "60px 0 0 0",
                 }}
               >
                 <ReactPlayer
+                  style={{
+                    margin: size.small ? 0 : "180px 0 0 50px",
+                    transform: size.small ? "scale(1)" : "scale(1.8)",
+                    position: "relative",
+                    zIndex: 20,
+                  }}
                   loop
                   playing
-                  url={require("../Files/Best_Developer.webm")}
+                  url={require("../Files/Best_Main_Logo.webm")}
                 />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    width: "300px",
-                  }}
-                >
-                  <div style={{ margin: "20px 0 0 0 " }} className="text-7">
-                    MS Dynamics CRM Developer
-                  </div>
-                  <Link to="/UDS/CRMDeveloper">
-                    <button
-                      style={{ margin: "20px 0 0 0" }}
-                      className="detail-btn"
-                      onClick={() => {
-                        dispatch(setActivePage("/UDS/CRMDeveloper"));
-                        window.scrollTo(0, 0);
-                      }}
-                    >
-                      Детальніше
-                    </button>
-                  </Link>
-                </div>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <ReactPlayer
-                  loop
-                  playing
-                  url={require("../Files/Best_Consult.webm")}
-                />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    width: "300px",
-                  }}
-                >
-                  <div style={{ margin: "30px 0 0 0" }} className="text-7">
-                    MS Dynamics CRM Consultant
-                  </div>
-                  <Link to="/UDS/CRMConsultant">
-                    <button
-                      style={{ margin: "30px 0 0 0" }}
-                      className="detail-btn"
-                      onClick={() => {
-                        dispatch(setActivePage("/UDS/CRMConsultant"));
-                        window.scrollTo(0, 0);
-                      }}
-                    >
-                      Детальніше
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
 
-            <img
-              src={require("../images/Vector2.png")}
-              alt="vector"
-              style={{
-                position: "absolute",
-                top: "-150px",
-                left: "50%",
-                transform: "translateX(-50%)",
-              }}
-            />
-
-            <img
-              src={require("../images/Vector3.png")}
-              alt="vector"
-              style={{
-                position: "absolute",
-                bottom: "-80px",
-                left: "50%",
-                transform: "translateX(-50%)",
-              }}
-            />
-          </div>
-          <div
-            style={{
-              width: "100%",
-              transform: "matrix(1, 0, 0, -1, 0, 0)",
-              background:
-                "linear-gradient(180deg, #DDE7F0 10.96%, #F2F5F8 49.11%)",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                margin: "100px 0 50px 0",
-                transform: "rotateX(180deg)",
-              }}
-              className="text-6"
-            >
-              Навчальна платформа
-              <div className="education-content">
-                <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
-                  {[
-                    { iconPath: "Icons8.png", text: "Marketing" },
-                    { iconPath: "Icons2.png", text: "Customer insights" },
-                    { iconPath: "Icons3.png", text: "Retail" },
-                    {
-                      iconPath: "Icons0.png",
-                      text: "Project service automation",
-                    },
-                  ].map(({ iconPath, text }) => {
-                    return (
-                      <div
-                        key={iconPath}
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          width: "50%",
-                          height: "50%",
-                        }}
-                      >
-                        <img
-                          style={{ width: "max-content" }}
-                          src={require(`../images/${iconPath}`)}
-                          alt="icon"
-                        />
-                        <div
-                          style={{ margin: "15px 0 0 0", height: "70px" }}
-                          className="text-8"
-                        >
-                          {text}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
                 <div
                   style={{
                     display: "flex",
                     flex: 1,
-                    justifyContent: "center",
                     alignItems: "center",
-                    background: `url(${require("../images/Back2.png")})no-repeat center`,
+                    justifyContent: "center",
+                    background: `url(${require("../images/Back1.png")})no-repeat center ${
+                      size.small ? "0" : "50px"
+                    }`,
+                    backgroundSize: size.small && "80%",
                   }}
                 >
                   <div
-                    className="text-4"
                     style={{
-                      width: "250px",
-                      textAlign: "center",
-                      margin: "0 0 0 40px",
+                      width: size?.small ? "auto" : "460px",
+                      margin: size?.small && "0 10px",
                     }}
                   >
-                    Microsoft Dynamics 365
+                    <div
+                      className="text-1"
+                      style={{ margin: size?.small && "20px 0 0 0" }}
+                    >
+                      Dynamics Education –
+                    </div>
+                    <div
+                      className="text-2"
+                      style={{ textAlign: size?.small && "center" }}
+                    >
+                      це курси для тих, хто хоче проявити себе в ІТ.
+                    </div>
+                    <div
+                      className="text-3"
+                      style={{ textAlign: size?.small && "center" }}
+                    >
+                      Ми готуємо кваліфікованих спеціалістів починаючи з 2016
+                      року.
+                    </div>
+                    <Link to="/UDS/contacts">
+                      <button className="register-btn">Зареєструватися</button>
+                    </Link>
                   </div>
                 </div>
-                <div style={{ display: "flex", flex: 1 }}>
-                  <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
-                    {[
-                      { iconPath: "Icons5.png", text: "Customer service" },
-                      { iconPath: "Icons4.png", text: "Field service" },
-                      { iconPath: "Icons6.png", text: "Sales" },
-                      {
-                        iconPath: "Icons1.png",
-                        text: "Finance and operations",
-                      },
-                    ].map(({ iconPath, text }) => {
-                      return (
-                        <div
-                          key={iconPath}
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: "50%",
-                            height: "50%",
+
+                <img
+                  src={require("../images/Vector.png")}
+                  alt="vector"
+                  style={size?.small ? { margin: "40px 0 0 0" } : lineStyles}
+                />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  width: "100%",
+                  padding: "40px 0 0 0 ",
+                  background:
+                    "linear-gradient(180deg, #DDE7F0 10.29%, #F2F5F8 46.36%)",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flex: 1,
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div style={{ width: "600px" }}>
+                    <div className="text-4">Тобі до нас, якщо:</div>
+                    <div style={{ display: "flex", alignItems: "flex-start" }}>
+                      <img
+                        style={{ margin: "0 15px 0 0 " }}
+                        src={require("../images/Star11.png")}
+                        alt="star"
+                      />
+                      <div className="text-5">
+                        Ти молодий спеціаліст
+                        <b>
+                          {" "}
+                          з технічним бекграундом та знанням англійської мови
+                        </b>
+                      </div>
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        margin: "20px 0",
+                      }}
+                    >
+                      <img
+                        style={{ margin: "0 15px 0 0 " }}
+                        src={require("../images/Star11.png")}
+                        alt="star"
+                      />
+                      <div className="text-5">
+                        Ти хочешь отримувати <b>зарплату европейського рівня</b>
+                      </div>
+                    </div>
+
+                    <div style={{ display: "flex", alignItems: "flex-start" }}>
+                      <img
+                        style={{ margin: "0 15px 0 0 " }}
+                        src={require("../images/Star11.png")}
+                        alt="star"
+                      />
+                      <div className="text-5">
+                        В тебе <b>немає досвіду роботи з MS Dynamics 365</b>,
+                        але ти готовий навчатися
+                      </div>
+                    </div>
+
+                    <Link to="/UDS/contacts">
+                      <button
+                        style={{ margin: "60px 0 0 0" }}
+                        className="register-btn"
+                      >
+                        Хочу спробувати
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+                <div
+                  style={{ display: "flex", flex: 1, justifyContent: "center" }}
+                >
+                  <img
+                    style={{
+                      margin: "0 0 15px 0",
+                      position: "relative",
+                      zIndex: 10,
+                    }}
+                    src={require("../images/Ill_Bonus_1.png")}
+                    alt="vector"
+                  />
+                </div>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  width: "100%",
+                  position: "relative",
+                  overflow: "hidden",
+                  padding: "0 0 200px 0",
+                }}
+              >
+                <div style={{ margin: "200px 0 50px 0" }} className="text-6">
+                  Кого ми готуємо?
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    width: "100%",
+                    position: "relative",
+                    zIndex: 10,
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      flex: 1,
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <ReactPlayer
+                      loop
+                      playing
+                      url={require("../Files/Best_Developer.webm")}
+                    />
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        width: "300px",
+                      }}
+                    >
+                      <div style={{ margin: "20px 0 0 0 " }} className="text-7">
+                        MS Dynamics CRM Developer
+                      </div>
+                      <Link to="/UDS/CRMDeveloper">
+                        <button
+                          style={{ margin: "20px 0 0 0" }}
+                          className="detail-btn"
+                          onClick={() => {
+                            dispatch(setActivePage("/UDS/CRMDeveloper"));
+                            window.scrollTo(0, 0);
                           }}
                         >
-                          <img
-                            style={{ width: "max-content" }}
-                            src={require(`../images/${iconPath}`)}
-                            alt="icon"
-                          />
-                          <div
-                            style={{ margin: "15px 0 0 0", height: "70px" }}
-                            className="text-8"
-                          >
-                            {text}
-                          </div>
-                        </div>
-                      );
-                    })}
+                          Детальніше
+                        </button>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="our-advantages-cont">
-            <img
-              src={require("../images/Vector4.png")}
-              alt="vector"
-              style={{
-                position: "absolute",
-                top: "-30px",
-                left: "50%",
-                transform: "translateX(-50%)",
-              }}
-            />
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                margin: "240px 0 60px 0",
-              }}
-              className="text-6"
-            >
-              Наші переваги
-            </div>
-            <div
-              style={{ display: "flex", flexWrap: "wrap", margin: "0 20px" }}
-            >
-              <div
-                style={{ display: "flex", flex: 1, justifyContent: "center" }}
-              >
-                <img
-                  src={require("../images/Ill_Distance1.png")}
-                  alt="Ill_Distance1"
-                />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <div style={{ width: "100%" }}>
                   <div
-                    className="text-8"
                     style={{
-                      color: "#3491C8",
-                      textAlign: "start",
-                      margin: "0 0 20px 0",
+                      display: "flex",
+                      flexDirection: "column",
+                      flex: 1,
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
-                    Дистанційне навчання у зручний для тебе час
-                  </div>
-                  <div
-                    className="text-5"
-                    style={{ fontSize: "18px", width: "85%" }}
-                  >
-                    Курс «MS Dynamics 365 Developer» доступний для онлайн
-                    навчання з будь-якої точки світу, графік навчання ти будуєш
-                    самостійно.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              style={{ display: "flex", flexWrap: "wrap", margin: "0 20px" }}
-            >
-              <div style={{ display: "flex", flex: 1 }}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ width: "100%" }}>
+                    <ReactPlayer
+                      loop
+                      playing
+                      url={require("../Files/Best_Consult.webm")}
+                    />
                     <div
-                      className="text-8"
                       style={{
-                        color: "#3491C8",
-                        textAlign: "start",
-                        margin: "0 0 20px 0",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        width: "300px",
                       }}
                     >
-                      По закінченню курсу видається сертифікат
-                    </div>
-                    <div
-                      className="text-5"
-                      style={{ fontSize: "18px", width: "85%" }}
-                    >
-                      Даний сертифікат є підтвердженням успішного проходження
-                      курсу та видається тільки в цьому випадку.
+                      <div style={{ margin: "30px 0 0 0" }} className="text-7">
+                        MS Dynamics CRM Consultant
+                      </div>
+                      <Link to="/UDS/CRMConsultant">
+                        <button
+                          style={{ margin: "30px 0 0 0" }}
+                          className="detail-btn"
+                          onClick={() => {
+                            dispatch(setActivePage("/UDS/CRMConsultant"));
+                            window.scrollTo(0, 0);
+                          }}
+                        >
+                          Детальніше
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
-                style={{ display: "flex", flex: 1, justifyContent: "center" }}
-              >
+
                 <img
-                  src={require("../images/Ill_Certificate1.png")}
-                  alt="Ill_Distance1"
-                />
-              </div>
-            </div>
-            <div
-              style={{ display: "flex", flexWrap: "wrap", margin: "0 20px" }}
-            >
-              <div
-                style={{ display: "flex", flex: 1, justifyContent: "center" }}
-              >
-                <img
-                  src={require("../images/Ill_Employment1.png")}
-                  alt="Ill_Distance1"
-                />
-              </div>
-              <div style={{ display: "flex", flex: 1 }}>
-                <div
+                  src={require("../images/Vector2.png")}
+                  alt="vector"
                   style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center",
+                    position: "absolute",
+                    top: "-150px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
                   }}
-                >
-                  <div style={{ width: "100%" }}>
-                    <div
-                      className="text-8"
-                      style={{
-                        color: "#3491C8",
-                        textAlign: "start",
-                        margin: "0 0 20px 0",
-                      }}
-                    >
-                      Працевлаштування та практична підготовка
-                    </div>
-                    <div
-                      className="text-5"
-                      style={{ fontSize: "18px", width: "85%" }}
-                    >
-                      Випускники з високими результатами рекомендуються до
-                      співбесіди з СТО та подальшого працевлаштування при
-                      компанії UDS.
-                    </div>
-                  </div>
-                </div>
+                />
+
+                <img
+                  src={require("../images/Vector3.png")}
+                  alt="vector"
+                  style={{
+                    position: "absolute",
+                    bottom: "-80px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
+                />
               </div>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                flexDirection: "column",
-                alignItems: "center",
-                padding: "0 0 240px 0",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
               <div
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  margin: "200px 0 0 0",
-                }}
-                className="text-6"
-              >
-                Детальніше про компанію UDS
-              </div>
-              <SimpleSlider
-                arrOfImgs={[1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 14]}
-              />
-              <img
-                style={{
-                  position: "absolute",
-                  bottom: "-140px",
-                  zIndex: 10,
-                }}
-                src={require("../images/Vector9.png")}
-                alt="vector"
-              />
-            </div>
-            <div className="review-cont">
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  flexDirection: "column",
-                  justifyContent: "center",
                   width: "100%",
-                  height: "100%",
-                  transform: "rotateX(180deg)",
-                  padding: "0 0 20px 0",
+                  transform: "matrix(1, 0, 0, -1, 0, 0)",
+                  background:
+                    "linear-gradient(180deg, #DDE7F0 10.96%, #F2F5F8 49.11%)",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "center",
-                    padding: "20px 0 0 0",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    margin: "100px 0 50px 0",
+                    transform: "rotateX(180deg)",
                   }}
                   className="text-6"
                 >
-                  Відгуки
+                  Навчальна платформа
+                  <div className="education-content">
+                    <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
+                      {[
+                        { iconPath: "Icons8.png", text: "Marketing" },
+                        { iconPath: "Icons2.png", text: "Customer insights" },
+                        { iconPath: "Icons3.png", text: "Retail" },
+                        {
+                          iconPath: "Icons0.png",
+                          text: "Project service automation",
+                        },
+                      ].map(({ iconPath, text }) => {
+                        return (
+                          <div
+                            key={iconPath}
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              width: "50%",
+                              height: "50%",
+                            }}
+                          >
+                            <img
+                              style={{ width: "max-content" }}
+                              src={require(`../images/${iconPath}`)}
+                              alt="icon"
+                            />
+                            <div
+                              style={{ margin: "15px 0 0 0", height: "70px" }}
+                              className="text-8"
+                            >
+                              {text}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flex: 1,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        background: `url(${require("../images/Back2.png")})no-repeat center`,
+                      }}
+                    >
+                      <div
+                        className="text-4"
+                        style={{
+                          width: "250px",
+                          textAlign: "center",
+                          margin: "0 0 0 40px",
+                        }}
+                      >
+                        Microsoft Dynamics 365
+                      </div>
+                    </div>
+                    <div style={{ display: "flex", flex: 1 }}>
+                      <div
+                        style={{ display: "flex", flex: 1, flexWrap: "wrap" }}
+                      >
+                        {[
+                          { iconPath: "Icons5.png", text: "Customer service" },
+                          { iconPath: "Icons4.png", text: "Field service" },
+                          { iconPath: "Icons6.png", text: "Sales" },
+                          {
+                            iconPath: "Icons1.png",
+                            text: "Finance and operations",
+                          },
+                        ].map(({ iconPath, text }) => {
+                          return (
+                            <div
+                              key={iconPath}
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                width: "50%",
+                                height: "50%",
+                              }}
+                            >
+                              <img
+                                style={{ width: "max-content" }}
+                                src={require(`../images/${iconPath}`)}
+                                alt="icon"
+                              />
+                              <div
+                                style={{ margin: "15px 0 0 0", height: "70px" }}
+                                className="text-8"
+                              >
+                                {text}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <SimpleSlider
-                  style={{ height: "380px" }}
-                  arrOfImgs={["nizdropa2", "polyanovskij", "Vylobkova2"]}
-                  reviewSlider
+              </div>
+              <div className="our-advantages-cont">
+                <img
+                  src={require("../images/Vector4.png")}
+                  alt="vector"
+                  style={{
+                    position: "absolute",
+                    top: "-30px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
                 />
-              </div>
-            </div>
-            <div className="contact-cont">
-              <div
-                style={{
-                  width: "670px",
-                  height: "440px",
-                  margin: "0 0 0 10%",
-                }}
-              >
-                <GoogleMap />
-              </div>
-              <div className="info-box">
-                <div style={{ textAlign: "left" }} className="text-6">
-                  Наші контакти
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: "240px 0 60px 0",
+                  }}
+                  className="text-6"
+                >
+                  Наші переваги
                 </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    margin: "0 20px",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flex: 1,
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img
+                      src={require("../images/Ill_Distance1.png")}
+                      alt="Ill_Distance1"
+                    />
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      flex: 1,
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div style={{ width: "100%" }}>
+                      <div
+                        className="text-8"
+                        style={{
+                          color: "#3491C8",
+                          textAlign: "start",
+                          margin: "0 0 20px 0",
+                        }}
+                      >
+                        Дистанційне навчання у зручний для тебе час
+                      </div>
+                      <div
+                        className="text-5"
+                        style={{ fontSize: "18px", width: "85%" }}
+                      >
+                        Курс «MS Dynamics 365 Developer» доступний для онлайн
+                        навчання з будь-якої точки світу, графік навчання ти
+                        будуєш самостійно.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    margin: "0 20px",
+                  }}
+                >
+                  <div style={{ display: "flex", flex: 1 }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        flex: 1,
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div style={{ width: "100%" }}>
+                        <div
+                          className="text-8"
+                          style={{
+                            color: "#3491C8",
+                            textAlign: "start",
+                            margin: "0 0 20px 0",
+                          }}
+                        >
+                          По закінченню курсу видається сертифікат
+                        </div>
+                        <div
+                          className="text-5"
+                          style={{ fontSize: "18px", width: "85%" }}
+                        >
+                          Даний сертифікат є підтвердженням успішного
+                          проходження курсу та видається тільки в цьому випадку.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flex: 1,
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img
+                      src={require("../images/Ill_Certificate1.png")}
+                      alt="Ill_Distance1"
+                    />
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    margin: "0 20px",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flex: 1,
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img
+                      src={require("../images/Ill_Employment1.png")}
+                      alt="Ill_Distance1"
+                    />
+                  </div>
+                  <div style={{ display: "flex", flex: 1 }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        flex: 1,
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div style={{ width: "100%" }}>
+                        <div
+                          className="text-8"
+                          style={{
+                            color: "#3491C8",
+                            textAlign: "start",
+                            margin: "0 0 20px 0",
+                          }}
+                        >
+                          Працевлаштування та практична підготовка
+                        </div>
+                        <div
+                          className="text-5"
+                          style={{ fontSize: "18px", width: "85%" }}
+                        >
+                          Випускники з високими результатами рекомендуються до
+                          співбесіди з СТО та подальшого працевлаштування при
+                          компанії UDS.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    padding: "0 0 240px 0",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      margin: "200px 0 0 0",
+                    }}
+                    className="text-6"
+                  >
+                    Детальніше про компанію UDS
+                  </div>
+                  <SimpleSlider
+                    arrOfImgs={[1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 14]}
+                  />
+                  <img
+                    style={{
+                      position: "absolute",
+                      bottom: "-140px",
+                      zIndex: 10,
+                    }}
+                    src={require("../images/Vector9.png")}
+                    alt="vector"
+                  />
+                </div>
+                <div className="review-cont">
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      width: "100%",
+                      height: "100%",
+                      transform: "rotateX(180deg)",
+                      padding: "0 0 20px 0",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        padding: "20px 0 0 0",
+                      }}
+                      className="text-6"
+                    >
+                      Відгуки
+                    </div>
+                    <SimpleSlider
+                      style={{ height: "380px" }}
+                      arrOfImgs={["nizdropa2", "polyanovskij", "Vylobkova2"]}
+                      reviewSlider
+                    />
+                  </div>
+                </div>
+                <div className="contact-cont">
+                  <div
+                    style={{
+                      width: "670px",
+                      height: "440px",
+                      margin: "0 0 0 10%",
+                    }}
+                  >
+                    <GoogleMap />
+                  </div>
+                  <div className="info-box">
+                    <div style={{ textAlign: "left" }} className="text-6">
+                      Наші контакти
+                    </div>
 
-                <div>
-                  <div
-                    style={{
-                      display: "flex",
-                      height: "60px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <img
-                      src={require("../images/Vector12.png")}
-                      alt="vector"
-                      style={{
-                        margin: "0 30px 0 0",
-                      }}
-                    />
-                    <div style={{ fontSize: "18px" }} className="text-5">
-                      м. Київ, просп. Лобановського 150
+                    <div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "60px",
+                          alignItems: "center",
+                        }}
+                      >
+                        <img
+                          src={require("../images/Vector12.png")}
+                          alt="vector"
+                          style={{
+                            margin: "0 30px 0 0",
+                          }}
+                        />
+                        <div style={{ fontSize: "18px" }} className="text-5">
+                          м. Київ, просп. Лобановського 150
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "60px",
+                          alignItems: "center",
+                        }}
+                      >
+                        <img
+                          src={require("../images/Vector13.png")}
+                          alt="vector"
+                          style={{
+                            margin: "0 30px 0 0",
+                          }}
+                        />
+                        <div style={{ fontSize: "18px" }} className="text-5">
+                          Графік роботи: Пн-П 8:00-19:00
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "60px",
+                          alignItems: "center",
+                        }}
+                      >
+                        <img
+                          src={require("../images/Vector14.png")}
+                          alt="vector"
+                          style={{
+                            margin: "0 30px 0 0",
+                          }}
+                        />
+                        <div style={{ fontSize: "18px" }} className="text-5">
+                          +38 (063) 146 92 46
+                        </div>
+                      </div>
+                    </div>
+                    <div style={{ display: "flex" }}>
+                      <a
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          textDecoration: "none",
+                        }}
+                        href="https://www.facebook.com/UDS.systems/"
+                      >
+                        <img
+                          src={require("../images/Vector15.png")}
+                          alt="vector"
+                        />
+                      </a>
+                      <a
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          textDecoration: "none",
+                          margin: "0 40px",
+                        }}
+                        href="https://www.instagram.com/udsconsulting/"
+                      >
+                        <img
+                          src={require("../images/instagram.png")}
+                          alt="vector"
+                        />
+                      </a>
+                      <a
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          textDecoration: "none",
+                        }}
+                        href="https://www.linkedin.com/company/uds-systems/"
+                      >
+                        <img
+                          src={require("../images/Vector17.png")}
+                          alt="vector"
+                        />
+                      </a>
+                      <a
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          textDecoration: "none",
+                          margin: "0 0 0 40px",
+                        }}
+                        href="https://www.youtube.com/channel/UCx443BQ2U4gGXLPYB8Nu3bg"
+                      >
+                        <img
+                          src={require("../images/Vector18.png")}
+                          alt="vector"
+                        />
+                      </a>
                     </div>
                   </div>
-                  <div
+                  <img
+                    src={require("../images/Vector10.png")}
+                    alt="vector"
                     style={{
-                      display: "flex",
-                      height: "60px",
-                      alignItems: "center",
+                      position: "absolute",
+                      top: "-40px",
+                      left: "50%",
+                      transform: "translateX(-50%)",
                     }}
-                  >
-                    <img
-                      src={require("../images/Vector13.png")}
-                      alt="vector"
-                      style={{
-                        margin: "0 30px 0 0",
-                      }}
-                    />
-                    <div style={{ fontSize: "18px" }} className="text-5">
-                      Графік роботи: Пн-П 8:00-19:00
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      height: "60px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <img
-                      src={require("../images/Vector14.png")}
-                      alt="vector"
-                      style={{
-                        margin: "0 30px 0 0",
-                      }}
-                    />
-                    <div style={{ fontSize: "18px" }} className="text-5">
-                      +38 (063) 146 92 46
-                    </div>
-                  </div>
-                </div>
-                <div style={{ display: "flex" }}>
-                  <a
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      textDecoration: "none",
-                    }}
-                    href="https://www.facebook.com/UDS.systems/"
-                  >
-                    <img src={require("../images/Vector15.png")} alt="vector" />
-                  </a>
-                  <a
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      textDecoration: "none",
-                      margin: "0 40px",
-                    }}
-                    href="https://www.instagram.com/udsconsulting/"
-                  >
-                    <img
-                      src={require("../images/instagram.png")}
-                      alt="vector"
-                    />
-                  </a>
-                  <a
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      textDecoration: "none",
-                    }}
-                    href="https://www.linkedin.com/company/uds-systems/"
-                  >
-                    <img src={require("../images/Vector17.png")} alt="vector" />
-                  </a>
-                  <a
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      textDecoration: "none",
-                      margin: "0 0 0 40px",
-                    }}
-                    href="https://www.youtube.com/channel/UCx443BQ2U4gGXLPYB8Nu3bg"
-                  >
-                    <img src={require("../images/Vector18.png")} alt="vector" />
-                  </a>
+                  />
                 </div>
               </div>
-              <img
-                src={require("../images/Vector10.png")}
-                alt="vector"
-                style={{
-                  position: "absolute",
-                  top: "-40px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                }}
-              />
             </div>
-          </div>
+            <Footer />
+          </Home>
         </div>
-        <Footer />
-      </Home>
-    </div>
+      )}
+    </Media>
   );
 };
 

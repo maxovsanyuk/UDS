@@ -118,39 +118,38 @@ const Menu = styled.div`
   flex: 1;
   justify-content: space-between;
   position: relative;
+  align-items: center;
   width: 100vw;
   max-height: 80px;
-
   .logo {
-    margin: 5px;
+    margin: 10px 15px;
   }
 
   .menu-items {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.85);
+    height: calc(100vh - 40px);
+    background: #dde7f0;
     animation: border 0.3s ease-in-out 0s 1 normal forwards;
     position: absolute;
-    top: 55px;
+    top: 70px;
     left: 0;
-    z-index: 20;
+    z-index: 200;
+    padding: 40px 0 0 0;
   }
 
   .page {
-    font-size: 26px;
-    text-align: center;
     padding: 20px 0;
     text-decoration: none;
-    background: #0067b8;
-    border-bottom: 1px solid #fff;
-    transition: 0.4s;
-    color: #fff;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #09051f;
+    width: auto;
     &:hover {
       transition: 0.4s;
-      background: #fff;
-      color: #0067b8;
     }
   }
 
@@ -169,6 +168,32 @@ const Menu = styled.div`
       opacity: 1;
     }
   }
+  .start-course-btn {
+    background: linear-gradient(0deg, #ffffff, #ffffff);
+    border-radius: 40px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    color: #4e7baa;
+    border: 1px solid #4e7baa;
+    transition: 0.2s;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    &:hover {
+      transition: 0.2s;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(81, 126, 173, 0.15);
+    }
+
+    :focus {
+      outline: none;
+    }
+  }
 `;
 
 const pages = [
@@ -177,6 +202,7 @@ const pages = [
   { name: "CRM Consultant", patch: "/UDS/CRMConsultant" },
   { name: "Галерея", patch: "/UDS/gallery" },
   { name: "Блог", patch: "/UDS/blog" },
+  { name: "Старт курсу", patch: "/UDS/contacts" },
 ];
 
 const Header = () => {
@@ -184,8 +210,6 @@ const Header = () => {
   const [isMenuOpen, setIsMtnuOpen] = useState(false);
   const state = useSelector((state) => state.app);
   const { activePage } = state;
-
-  console.log(activePage, "activePage");
 
   const dispatch = useDispatch();
 
@@ -214,6 +238,10 @@ const Header = () => {
                 />
               </Link>
 
+              <Link to="/UDS/contacts">
+                <button className="start-course-btn">Старт Курсу</button>
+              </Link>
+
               <HamburgerMenu
                 isOpen={isMenuOpen}
                 menuClicked={() => {
@@ -222,9 +250,9 @@ const Header = () => {
                 }}
                 width={36}
                 height={30}
-                strokeWidth={1}
+                strokeWidth={2}
                 rotate={0}
-                color="black"
+                color="#4E7BAA"
                 borderRadius={0}
                 animationDuration={0.5}
                 className="menu-btn"
