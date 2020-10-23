@@ -390,7 +390,7 @@ const HomePage = ({}) => {
                   }}
                   loop
                   playing
-                  url={require("../Files/Best_Main_Logo.webm")}
+                  url="https://dynamicsnetuastorageprod.blob.core.windows.net/animations/Best_Main_Logo.webm"
                 />
 
                 <div
@@ -430,7 +430,7 @@ const HomePage = ({}) => {
                       Ми готуємо кваліфікованих спеціалістів починаючи з 2016
                       року.
                     </div>
-                    <Link to="/UDS/contacts">
+                    <Link to="/contacts">
                       <button className="register-btn">Зареєструватися</button>
                     </Link>
                   </div>
@@ -506,7 +506,7 @@ const HomePage = ({}) => {
                       </div>
                     </div>
 
-                    <Link to="/UDS/contacts">
+                    <Link to="/contacts">
                       <button
                         style={{ margin: "60px 0 0 0" }}
                         className="register-btn"
@@ -562,11 +562,11 @@ const HomePage = ({}) => {
                       alignItems: "center",
                     }}
                   >
-                    <ReactPlayer
-                      loop
-                      playing
-                      url={require("../Files/Best_Developer.webm")}
+                    <img
+                      src={require("../images/Developer.png")}
+                      alt="Developer"
                     />
+
                     <div
                       style={{
                         display: "flex",
@@ -578,12 +578,12 @@ const HomePage = ({}) => {
                       <div style={{ margin: "20px 0 0 0 " }} className="text-7">
                         MS Dynamics CRM Developer
                       </div>
-                      <Link to="/UDS/CRMDeveloper">
+                      <Link to="/CRMDeveloper">
                         <button
                           style={{ margin: "20px 0 0 0" }}
                           className="detail-btn"
                           onClick={() => {
-                            dispatch(setActivePage("/UDS/CRMDeveloper"));
+                            dispatch(setActivePage("/CRMDeveloper"));
                             window.scrollTo(0, 0);
                           }}
                         >
@@ -601,11 +601,7 @@ const HomePage = ({}) => {
                       alignItems: "center",
                     }}
                   >
-                    <ReactPlayer
-                      loop
-                      playing
-                      url={require("../Files/Best_Consult.webm")}
-                    />
+                    <img src={require("../images/Consult.png")} alt="Consult" />
                     <div
                       style={{
                         display: "flex",
@@ -617,12 +613,12 @@ const HomePage = ({}) => {
                       <div style={{ margin: "30px 0 0 0" }} className="text-7">
                         MS Dynamics CRM Consultant
                       </div>
-                      <Link to="/UDS/CRMConsultant">
+                      <Link to="/CRMConsultant">
                         <button
                           style={{ margin: "30px 0 0 0" }}
                           className="detail-btn"
                           onClick={() => {
-                            dispatch(setActivePage("/UDS/CRMConsultant"));
+                            dispatch(setActivePage("/CRMConsultant"));
                             window.scrollTo(0, 0);
                           }}
                         >

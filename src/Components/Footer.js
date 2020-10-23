@@ -122,16 +122,16 @@ const Footer = ({}) => {
                   >
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/UDS"
-                      onClick={() => dispatch(setActivePage("/UDS"))}
+                      to="/"
+                      onClick={() => dispatch(setActivePage("/"))}
                     >
                       <div className="link">Головна</div>
                     </Link>
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/UDS/CRMConsultant"
+                      to="/CRMConsultant"
                       onClick={() =>
-                        dispatch(setActivePage("/UDS/CRMConsultant"))
+                        dispatch(setActivePage("/CRMConsultant"))
                       }
                     >
                       <div className="link" style={{ margin: "0 40px" }}>
@@ -140,8 +140,8 @@ const Footer = ({}) => {
                     </Link>
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/UDS/blog"
-                      onClick={() => dispatch(setActivePage("/UDS/blog"))}
+                      to="/blog"
+                      onClick={() => dispatch(setActivePage("/blog"))}
                     >
                       <div className="link">Блог</div>
                     </Link>
@@ -149,16 +149,16 @@ const Footer = ({}) => {
                   <div style={{ display: "flex" }}>
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/UDS/gallery"
-                      onClick={() => dispatch(setActivePage("/UDS/gallery"))}
+                      to="/gallery"
+                      onClick={() => dispatch(setActivePage("/gallery"))}
                     >
                       <div className="link">Галерея</div>
                     </Link>
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/UDS/CRMDeveloper"
+                      to="/CRMDeveloper"
                       onClick={() =>
-                        dispatch(setActivePage("/UDS/CRMDeveloper"))
+                        dispatch(setActivePage("/CRMDeveloper"))
                       }
                     >
                       <div className="link" style={{ margin: "0 40px" }}>
@@ -167,8 +167,8 @@ const Footer = ({}) => {
                     </Link>
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/UDS/contacts"
-                      onClick={() => dispatch(setActivePage("/UDS/contacts"))}
+                      to="/contacts"
+                      onClick={() => dispatch(setActivePage("/contacts"))}
                     >
                       <div className="link">Старт курсу</div>
                     </Link>
@@ -186,9 +186,9 @@ const Footer = ({}) => {
                 <div className="title-14">
                   Хочеш дізнатися про початок курсів?
                 </div>
-                <Link to="/UDS/contacts">
+                <Link to="/contacts">
                   <button
-                    onClick={() => dispatch(setActivePage("/UDS/contacts"))}
+                    onClick={() => dispatch(setActivePage("/contacts"))}
                     className="footer-btn"
                   >
                     НАТИСНИ СЮДИ

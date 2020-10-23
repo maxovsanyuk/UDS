@@ -25,30 +25,30 @@ const Error404 = styled.div`
 `;
 
 const blogLinks = [
-  { patch: "/UDS/blog/1", component: BlogPage1 },
-  { patch: "/UDS/blog/2", component: BlogPage2 },
-  { patch: "/UDS/blog/3", component: BlogPage3 },
-  { patch: "/UDS/blog/4", component: BlogPage4 },
-  { patch: "/UDS/blog/5", component: BlogPage5 },
+  { patch: "/blog/1", component: BlogPage1 },
+  { patch: "/blog/2", component: BlogPage2 },
+  { patch: "/blog/3", component: BlogPage3 },
+  { patch: "/blog/4", component: BlogPage4 },
+  { patch: "/blog/5", component: BlogPage5 },
 ];
 
 const App = ({}) => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/UDS" component={HomePage} />
-        <Route exact path="/UDS/gallery" component={GalleryPage} />
-        <Route exact path="/UDS/blog" component={BlogPage} />
-        <Route exact path="/UDS/contacts" component={ContactsPage} />
-        <Route exact path="/UDS/CRMDeveloper" component={CRMDeveloper} />
-        <Route exact path="/UDS/CRMConsultant" component={CRMConsultant} />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/gallery" component={GalleryPage} />
+        <Route exact path="/blog" component={BlogPage} />
+        <Route exact path="/contacts" component={ContactsPage} />
+        <Route exact path="/CRMDeveloper" component={CRMDeveloper} />
+        <Route exact path="/CRMConsultant" component={CRMConsultant} />
         {blogLinks.map(({ patch, component }) => {
           return <Route key={patch} exact path={patch} component={component} />;
         })}
         <Route
           render={() => {
             return (
-              <Link to="/UDS">
+              <Link to="">
                 <Error404>
                   <img src={require("./images/404.gif")} alt="404" />
                 </Error404>

@@ -197,11 +197,11 @@ const Menu = styled.div`
 `;
 
 const pages = [
-  { name: "Головна", patch: "/UDS" },
-  { name: "CRM Developer", patch: "/UDS/CRMDeveloper" },
-  { name: "CRM Consultant", patch: "/UDS/CRMConsultant" },
-  { name: "Галерея", patch: "/UDS/gallery" },
-  { name: "Блог", patch: "/UDS/blog" },
+  { name: "Головна", patch: "/" },
+  { name: "CRM Developer", patch: "/CRMDeveloper" },
+  { name: "CRM Consultant", patch: "/CRMConsultant" },
+  { name: "Галерея", patch: "/gallery" },
+  { name: "Блог", patch: "/blog" },
 ];
 
 const Header = () => {
@@ -229,7 +229,7 @@ const Header = () => {
         <>
           {size.small && (
             <Menu>
-              <Link to="/UDS" onClick={() => dispatch(setActivePage("/UDS"))}>
+              <Link to="/" onClick={() => dispatch(setActivePage("/"))}>
                 <img
                   className="logo"
                   src={require("../images/Logo_School.png")}
@@ -237,7 +237,7 @@ const Header = () => {
                 />
               </Link>
 
-              <Link to="/UDS/contacts">
+              <Link to="/contacts">
                 <button className="start-course-btn">Старт Курсу</button>
               </Link>
 
@@ -261,7 +261,7 @@ const Header = () => {
                 <div className="menu-items">
                   {[
                     ...pages,
-                    { name: "Старт курсу", patch: "/UDS/contacts" },
+                    { name: "Старт курсу", patch: "/contacts" },
                   ].map(({ name, patch, hideBorder }) => (
                     <Link
                       onClick={() => dispatch(setActivePage(patch))}
@@ -282,9 +282,9 @@ const Header = () => {
             <HeaderBox fixed={offset > 800}>
               <div className="header-cont">
                 <Link
-                  to="/UDS"
+                  to="/"
                   onClick={() => {
-                    dispatch(setActivePage("/UDS"));
+                    dispatch(setActivePage("/"));
                   }}
                 >
                   <img
@@ -314,7 +314,7 @@ const Header = () => {
                   ))}
                 </div>
 
-                <Link to="/UDS/contacts">
+                <Link to="/contacts">
                   <button className="start-course-btn">Старт Курсу</button>
                 </Link>
               </div>
