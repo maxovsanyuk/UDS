@@ -202,7 +202,6 @@ const pages = [
   { name: "CRM Consultant", patch: "/UDS/CRMConsultant" },
   { name: "Галерея", patch: "/UDS/gallery" },
   { name: "Блог", patch: "/UDS/blog" },
-  { name: "Старт курсу", patch: "/UDS/contacts" },
 ];
 
 const Header = () => {
@@ -260,7 +259,10 @@ const Header = () => {
 
               {isMenuOpen && (
                 <div className="menu-items">
-                  {pages.map(({ name, patch, hideBorder }) => (
+                  {[
+                    ...pages,
+                    { name: "Старт курсу", patch: "/UDS/contacts" },
+                  ].map(({ name, patch, hideBorder }) => (
                     <Link
                       onClick={() => dispatch(setActivePage(patch))}
                       className="page"

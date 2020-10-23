@@ -27,6 +27,10 @@ const Home = styled.div`
     max-width: 1400px;
     margin: ${({ isSmall }) => (isSmall ? 0 : "40px 0 0 0")};
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
     .title {
       display: flex;
       justify-content: center;
