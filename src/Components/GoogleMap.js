@@ -1,19 +1,20 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
+import styled from "styled-components";
+
+const GM = styled.div`
+  display: flex;
+  height: 100%;
+  flex: 1;
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 2px solid #c1c9d0;
+`;
 
 const GoogleMap = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "100%",
-        flex: 1,
-        width: "100%",
-        borderRadius: "25px",
-        overflow: "hidden",
-        border: "2px solid #C1C9D0",
-      }}
-    >
+    <GM>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyAQAxwZrSzKnN6VV40oIWWN_1KbSxiZpxE" }}
         defaultCenter={{
@@ -31,7 +32,7 @@ const GoogleMap = () => {
           lng={30.508363799999998}
         />
       </GoogleMapReact>
-    </div>
+    </GM>
   );
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Media from "react-media";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setActivePage } from "../redux/actions/app_action";
 import { Link } from "react-router-dom";
 
@@ -15,6 +14,11 @@ const FooterCont = styled.div`
   border-top: 1px solid #ccc;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.8);
+  position: relative;
+
+  @media (max-width: 600px) {
+    min-height: 240px;
+  }
 
   .footer {
     max-width: 1400px;
@@ -40,6 +44,10 @@ const FooterCont = styled.div`
       font-size: 24px;
       line-height: 29px;
       color: #fff;
+
+      @media (max-width: 1350px) {
+        font-size: 18px;
+      }
     }
 
     .link {
@@ -48,6 +56,18 @@ const FooterCont = styled.div`
       &:hover {
         transition: 0.4s;
         cursor: pointer;
+      }
+
+      @media (max-width: 1350px) {
+        font-size: 16px;
+      }
+
+      @media (max-width: 1000px) {
+        padding: 0 20px;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 14px;
       }
     }
     .footer-btn {
@@ -62,6 +82,15 @@ const FooterCont = styled.div`
       margin: 20px 0 0 0;
       transition: 0.3s;
 
+      @media (max-width: 1350px) {
+        font-size: 14px;
+        padding: 15px;
+      }
+
+      @media (max-width: 600px) {
+        padding: 15px 25px;
+      }
+
       &:hover {
         cursor: pointer;
         box-shadow: 0 0 20px rgba(81, 126, 173, 0.8);
@@ -73,134 +102,190 @@ const FooterCont = styled.div`
       }
     }
   }
+  .footer-cont {
+    display: flex;
+    width: 100%;
+    margin: 60px 0 0 0;
+    flex-wrap: wrap;
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-end;
+      margin: 30px 0 0 0;
+    }
+  }
+
+  .links-cont {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin: 0 0 0 10%;
+    font-size: 18px;
+    color: #fff;
+    @media (max-width: 1350px) {
+      margin: 0 0 0 40px;
+    }
+
+    @media (max-width: 1350px) {
+      margin: 0 20px;
+      width: calc(100% - 40px);
+    }
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  .right-box {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 0 0 0 100px;
+
+    @media (max-width: 1350px) {
+      margin: 0 40px;
+      flex: unset;
+    }
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 0;
+    }
+    @media (max-width: 600px) {
+      width: 240px;
+      text-align: center;
+      margin: 0 20px 0 0;
+    }
+
+    @media (max-width: 380px) {
+      margin: 0;
+    }
+  }
+
+  .links-wrapper {
+    @media (max-width: 1000px) {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .links-main-box {
+    display: flex;
+    margin: 0 0 20px 0;
+    @media (max-width: 1000px) {
+      width: 600px;
+    }
+  }
+
+  .sm-logo {
+    display: none;
+
+    @media (max-width: 600px) {
+      display: flex;
+      position: absolute;
+      top: 30px;
+      left: 20px;
+    }
+  }
 `;
 
 const Footer = ({}) => {
   const dispatch = useDispatch();
 
   return (
-    <Media
-      queries={{
-        small: "(max-width: 729px)",
-        large: "(min-width: 730px)",
-      }}
-    >
-      {(size) => (
-        <FooterCont size={size}>
-          <div className="footer">
-            <div
+    <FooterCont>
+      <div className="footer">
+        <div className="footer-cont">
+          <div className="links-cont">
+            <img
+              className="logo"
+              src={require("../images/logowhite.png")}
+              alt="vector"
               style={{
-                display: "flex",
-                width: "100%",
-                margin: "60px 0 0 0",
-                flexWrap: "wrap",
+                margin: "0 60px 0 0 ",
               }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flex: 1,
-                  alignItems: "center",
-                  margin: "0 0 0 10%",
-                  fontSize: "18px",
-                  color: "#fff",
-                }}
-              >
-                <img
-                  src={require("../images/logowhite.png")}
-                  alt="vector"
-                  style={{
-                    margin: "0 60px 0 0 ",
-                  }}
-                />
-                <div>
-                  <div
-                    style={{
-                      display: "flex",
-                      margin: "0 0 20px 0",
-                    }}
-                  >
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to="/"
-                      onClick={() => dispatch(setActivePage("/"))}
-                    >
-                      <div className="link">Головна</div>
-                    </Link>
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to="/CRMConsultant"
-                      onClick={() =>
-                        dispatch(setActivePage("/CRMConsultant"))
-                      }
-                    >
-                      <div className="link" style={{ margin: "0 40px" }}>
-                        CRM Consultant
-                      </div>
-                    </Link>
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to="/blog"
-                      onClick={() => dispatch(setActivePage("/blog"))}
-                    >
-                      <div className="link">Блог</div>
-                    </Link>
+            />
+            <div className="links-wrapper">
+              <div className="links-main-box">
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to="/"
+                  onClick={() => dispatch(setActivePage("/"))}
+                >
+                  <div className="link">Головна</div>
+                </Link>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to="/CRMConsultant"
+                  onClick={() => dispatch(setActivePage("/CRMConsultant"))}
+                >
+                  <div className="link" style={{ margin: "0 40px" }}>
+                    CRM Consultant
                   </div>
-                  <div style={{ display: "flex" }}>
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to="/gallery"
-                      onClick={() => dispatch(setActivePage("/gallery"))}
-                    >
-                      <div className="link">Галерея</div>
-                    </Link>
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to="/CRMDeveloper"
-                      onClick={() =>
-                        dispatch(setActivePage("/CRMDeveloper"))
-                      }
-                    >
-                      <div className="link" style={{ margin: "0 40px" }}>
-                        CRM Developer
-                      </div>
-                    </Link>
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to="/contacts"
-                      onClick={() => dispatch(setActivePage("/contacts"))}
-                    >
-                      <div className="link">Старт курсу</div>
-                    </Link>
-                  </div>
-                </div>
+                </Link>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to="/blog"
+                  onClick={() => dispatch(setActivePage("/blog"))}
+                >
+                  <div className="link">Блог</div>
+                </Link>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flex: 1,
-                  flexDirection: "column",
-                  margin: "0 0 0 100px",
-                }}
-              >
-                <div className="title-14">
-                  Хочеш дізнатися про початок курсів?
-                </div>
-                <Link to="/contacts">
-                  <button
-                    onClick={() => dispatch(setActivePage("/contacts"))}
-                    className="footer-btn"
-                  >
-                    НАТИСНИ СЮДИ
-                  </button>
+              <div className="links-main-box" style={{ margin: "0" }}>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to="/gallery"
+                  onClick={() => dispatch(setActivePage("/gallery"))}
+                >
+                  <div className="link">Галерея</div>
+                </Link>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to="/CRMDeveloper"
+                  onClick={() => dispatch(setActivePage("/CRMDeveloper"))}
+                >
+                  <div className="link" style={{ margin: "0 40px" }}>
+                    CRM Developer
+                  </div>
+                </Link>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to="/contacts"
+                  onClick={() => dispatch(setActivePage("/contacts"))}
+                >
+                  <div className="link">Старт курсу</div>
                 </Link>
               </div>
             </div>
-            <div className="text-13">Copyright © 2020 DYNAMICS Education</div>
           </div>
-        </FooterCont>
-      )}
-    </Media>
+          <div className="right-box">
+            <div className="title-14">Хочеш дізнатися про початок курсів?</div>
+            <Link to="/contacts">
+              <button
+                onClick={() => dispatch(setActivePage("/contacts"))}
+                className="footer-btn"
+              >
+                НАТИСНИ СЮДИ
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div className="text-13">Copyright © 2020 DYNAMICS Education</div>
+      </div>
+
+      <img
+        className="sm-logo"
+        src={require("../images/logowhite.png")}
+        alt="vector"
+      />
+    </FooterCont>
   );
 };
 

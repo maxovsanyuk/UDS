@@ -77,6 +77,16 @@ const HeaderBox = styled.div`
       transition: 0.2s;
       text-align: center;
 
+      @media (max-width: 1200px) {
+        font-size: 14px;
+        padding: 0 10px;
+      }
+
+      @media (max-width: 900px) {
+        font-size: 12px;
+        padding: 0 5px;
+      }
+
       &:hover {
         .border-line {
           display: flex;
@@ -100,6 +110,15 @@ const HeaderBox = styled.div`
     color: #4e7baa;
     border: 1px solid #4e7baa;
     transition: 0.2s;
+
+    @media (max-width: 1200px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
 
     &:hover {
       transition: 0.2s;
@@ -259,20 +278,19 @@ const Header = () => {
 
               {isMenuOpen && (
                 <div className="menu-items">
-                  {[
-                    ...pages,
-                    { name: "Старт курсу", patch: "/contacts" },
-                  ].map(({ name, patch, hideBorder }) => (
-                    <Link
-                      onClick={() => dispatch(setActivePage(patch))}
-                      className="page"
-                      key={name}
-                      to={patch}
-                      style={{ border: hideBorder && "none" }}
-                    >
-                      {name}
-                    </Link>
-                  ))}
+                  {[...pages, { name: "Старт курсу", patch: "/contacts" }].map(
+                    ({ name, patch, hideBorder }) => (
+                      <Link
+                        onClick={() => dispatch(setActivePage(patch))}
+                        className="page"
+                        key={name}
+                        to={patch}
+                        style={{ border: hideBorder && "none" }}
+                      >
+                        {name}
+                      </Link>
+                    )
+                  )}
                 </div>
               )}
             </Menu>

@@ -1,7 +1,7 @@
 import { SET_ACTIVE_PAGE } from "../types/types";
 
 const INITIAL_STATE = {
-  activePage: "/UDS",
+  activePage: "/",
 };
 
 export default function app_reducer(state = INITIAL_STATE, action) {

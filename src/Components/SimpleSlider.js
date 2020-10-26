@@ -7,6 +7,7 @@ const Slider = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 
   .dot {
     position: relative;
@@ -19,6 +20,12 @@ const Slider = styled.div`
     margin: 0 10px;
     &:hover {
       cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      height: 8px;
+      width: 8px;
+      margin: 0 5px;
     }
   }
 
@@ -39,6 +46,90 @@ const Slider = styled.div`
     &:focus {
       outline: none;
     }
+
+    @media (max-width: 768px) {
+      min-height: 40px;
+      min-width: 40px;
+    }
+
+    .btn-img {
+      @media (max-width: 768px) {
+        width: 10px !important;
+      }
+    }
+  }
+
+  .btn-1,
+  .btn-2 {
+    @media (max-width: 600px) {
+      position: absolute;
+      top: -40px;
+      z-index: 50;
+    }
+  }
+
+  .btn-1 {
+    right: 220px;
+    @media (max-width: 600px) {
+      right: 80px;
+    }
+  }
+
+  .btn-2 {
+    left: 220px;
+    @media (max-width: 600px) {
+      left: 80px;
+    }
+  }
+
+  .slider-box {
+    display: flex;
+    height: 100%;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .img-box {
+    width: 220px;
+    height: 220px;
+    margin: 0 0 0 50px;
+    border-radius: 50%;
+
+    @media (max-width: 1000px) {
+      width: 150px;
+      height: 150px;
+      margin: 0 0 0 50px;
+    }
+
+    @media (max-width: 768px) {
+      margin: 60px 0 30px 0;
+    }
+  }
+
+  .wrapper-box {
+    margin: 0 !important;
+    background-size: 60% !important;
+
+    @media (max-width: 1000px) {
+      background-size: 90% !important;
+    }
+
+    @media (max-width: 800px) {
+      width: 50% !important;
+    }
+
+    @media (max-width: 400px) {
+      width: 80% !important;
+      margin: 0 !important;
+    }
+  }
+
+  .box-7 {
+    @media (max-width: 600px) {
+      width: 90% !important;
+    }
   }
 `;
 
@@ -53,15 +144,33 @@ const SliderBox = styled.div`
   background: #fff;
   position: relative;
   z-index: 100;
+
+  @media (max-width: 1300px) {
+    width: 70%;
+    height: 450px;
+  }
 `;
 
 const TextComp = styled.div`
   margin: 0 40px 0 0;
 
+  @media (max-width: 600px) {
+    margin: 0 !important;
+  }
+
   .text-10 {
     font-weight: normal;
     font-size: 18px;
     color: #000;
+
+    @media (max-width: 1300px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 768px) {
+      margin: 0;
+      text-align: center;
+    }
   }
 
   .text-11 {
@@ -70,6 +179,11 @@ const TextComp = styled.div`
     line-height: 29px;
     color: #000;
     margin: 15px 0;
+
+    @media (max-width: 768px) {
+      margin: 20px 0;
+      text-align: center;
+    }
   }
 
   .text-12 {
@@ -77,6 +191,11 @@ const TextComp = styled.div`
     font-size: 16px;
     line-height: 20px;
     color: #4e7baa;
+
+    @media (max-width: 768px) {
+      text-align: center;
+      padding: 0 0 40px 0;
+    }
   }
 `;
 
@@ -137,7 +256,7 @@ const DefineCont = ({ currentImg }) => {
   }
 };
 
-const SimpleSlider = ({ arrOfImgs = [], style, reviewSlider }) => {
+const SimpleSlider = ({ arrOfImgs = [], style, className, reviewSlider }) => {
   const [currentImg, setCurrentImg] = useState(arrOfImgs[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -156,12 +275,13 @@ const SimpleSlider = ({ arrOfImgs = [], style, reviewSlider }) => {
         }}
       >
         <button
-          className="btn"
+          className="btn btn-2"
           style={{ opacity: currentIndex === 0 && "0.4" }}
           disabled={currentIndex === 0}
           onClick={() => setCurrentImg(arrOfImgs[currentIndex - 1])}
         >
           <img
+            className="btn-img"
             src={require(`../images/Vector8.png`)}
             style={{
               transform: "rotateY(180deg)",
@@ -170,10 +290,11 @@ const SimpleSlider = ({ arrOfImgs = [], style, reviewSlider }) => {
             alt="v"
           />
         </button>
-        <SliderBox style={style}>
+        <SliderBox style={style} className={className}>
           {reviewSlider ? (
-            <div style={{ display: "flex", height: "100%" }}>
+            <div className="slider-box">
               <div
+                className="wrapper-box"
                 style={{
                   width: "40%",
                   height: "100%",
@@ -185,12 +306,7 @@ const SimpleSlider = ({ arrOfImgs = [], style, reviewSlider }) => {
                 }}
               >
                 <img
-                  style={{
-                    width: "220px",
-                    height: "220px",
-                    margin: "0 0 0 50px",
-                    borderRadius: "50%",
-                  }}
+                  className="img-box"
                   src={
                     currentImg &&
                     require(`../images/sliderImgs/${currentImg}${
@@ -207,6 +323,7 @@ const SimpleSlider = ({ arrOfImgs = [], style, reviewSlider }) => {
                   alignItems: "center",
                   justifyContent: "center",
                 }}
+                className="box-7"
               >
                 <DefineCont currentImg={currentImg} />
               </div>
@@ -222,12 +339,13 @@ const SimpleSlider = ({ arrOfImgs = [], style, reviewSlider }) => {
           )}
         </SliderBox>
         <button
-          className="btn"
+          className="btn btn-1"
           style={{ opacity: currentIndex + 1 === arrOfImgs.length && "0.4" }}
           disabled={currentIndex + 1 === arrOfImgs.length}
           onClick={() => setCurrentImg(arrOfImgs[currentIndex + 1])}
         >
           <img
+            className="btn-img"
             src={require(`../images/Vector8.png`)}
             style={{
               margin: "0 0 0 5px",
