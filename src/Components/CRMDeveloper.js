@@ -197,7 +197,6 @@ const CRMDeveloper = ({}) => {
   return (
     <>
       <Header />
-
       <Educations>
         <div className="education-cont">
           <div

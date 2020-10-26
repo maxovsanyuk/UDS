@@ -4,7 +4,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import emailjs from "emailjs-com";
 import Form from "./Form";
-import Media from "react-media";
 
 const Educations = styled.div`
   display: flex;
@@ -195,233 +194,220 @@ const CRMConsultant = ({}) => {
   }
 
   return (
-    <Media
-      queries={{
-        small: "(max-width: 599px)",
-        medium: "(min-width: 600px) and (max-width: 1199px)",
-        large: "(min-width: 1200px)",
-      }}
-    >
-      {(size) => (
-        <>
-          {/*{size.small && <p>I am small!</p>}*/}
-          {/*{size.medium && <p>I am medium!</p>}*/}
-          {/*{size.large && <p>I am large!</p>}*/}
-          <Header />
+    <>
+      <Header />
 
-          <Educations>
-            <div className="education-cont">
-              <div
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  background: "#B9DBF4",
-                  margin: "40px 0 0 0",
-                }}
-              >
-                <img
-                  src={require("../images/goluboj-1100-na-300-1-1024x279.png")}
-                  alt="a"
-                />
+      <Educations>
+        <div className="education-cont">
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              background: "#B9DBF4",
+              margin: "40px 0 0 0",
+            }}
+          >
+            <img
+              src={require("../images/goluboj-1100-na-300-1-1024x279.png")}
+              alt="a"
+            />
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              width: "calc(100% - 40px)",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              background: "#f5f5f5",
+              margin: "40px 0 20px 0",
+              padding: "0 20px",
+            }}
+          >
+            <h2
+              className="title"
+              style={{ margin: "40px 0 60px 0", fontSize: "26px" }}
+            >
+              Курс MS Dynamics CRM Consultant
+            </h2>
+
+            <div
+              style={{
+                width: "calc(100% - 30px)",
+                padding: "0 15px",
+                lineHeight: 1.5,
+                fontSize: "16px",
+              }}
+            >
+              Якщо ти можеш вільно спілкуватися англійською, мрієш про те, щоб
+              керувати проектами та любиш спілкувати з людьми, у тебе є
+              можливість розпочати свою кар’єру в якості MS Dynamics CRM
+              Consultant
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ width: "50%", lineHeight: 1.5 }}>
+                <h3 className="title">Основні вимоги:</h3>
+
+                <div style={{ width: "100%", lineHeight: 1.5 }}>
+                  {[
+                    "Бажання розвиватися, навчатися та працювати",
+                    "Ступінь бакалавра з IT наук або економіки",
+                    "Круто, якщо ти маєш певний досвід роботи за фахом. Але це не є обов’язковим",
+                    "Навички спілкування англійською (рівень не нижче Intermediate)",
+                  ].map((r) => {
+                    return <div className="row">- {r}</div>;
+                  })}
+                </div>
               </div>
 
+              <div style={{ width: "50%", lineHeight: 1.5 }}>
+                <h3 className="title">
+                  Для того, щоб записатися на курс необхідно:
+                </h3>
+
+                <div className="row">
+                  - Зареєструватися на курс
+                  <button
+                    className="registration-btn"
+                    onClick={() => {
+                      setIsOpenModal(true);
+                      setTemplateId("registration_form");
+                      document.body.style.overflow = "hidden";
+                    }}
+                  >
+                    ЗАРЕЄСТРУВАТИСЯ
+                  </button>
+                </div>
+                <div className="row">
+                  - Протягом 5-ти днів з тобою зв'яжуться, чекай на дзвінок та
+                  не забувай перевіряти свій email.
+                </div>
+                <div className="row">
+                  - Програма навчання
+                  <a
+                    className="download-btn"
+                    href="https://drive.google.com/file/d/1g-3MiOJFtseB06NAcEIcn1hrT2TdEEla/view?usp=sharing"
+                    download
+                    style={{ margin: "0 0 0 65px", padding: "8px 0" }}
+                  >
+                    Click to download
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="registration-box">
               <div
                 style={{
                   display: "flex",
-                  width: "calc(100% - 40px)",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  background: "#f5f5f5",
-                  margin: "40px 0 20px 0",
-                  padding: "0 20px",
+                  width: "100%",
+                  justifyContent: "space-between",
+                  flexWrap: "wrap",
+                  margin: "30px 0 0 0",
+                  padding: "20px 0",
                 }}
               >
-                <h2
-                  className="title"
-                  style={{ margin: "40px 0 60px 0", fontSize: "26px" }}
-                >
-                  Курс MS Dynamics CRM Consultant
-                </h2>
-
-                <div
-                  style={{
-                    width: "calc(100% - 30px)",
-                    padding: "0 15px",
-                    lineHeight: 1.5,
-                    fontSize: "16px",
-                  }}
-                >
-                  Якщо ти можеш вільно спілкуватися англійською, мрієш про те,
-                  щоб керувати проектами та любиш спілкувати з людьми, у тебе є
-                  можливість розпочати свою кар’єру в якості MS Dynamics CRM
-                  Consultant
-                </div>
-
-                <div style={{ display: "flex" }}>
-                  <div style={{ width: "50%", lineHeight: 1.5 }}>
-                    <h3 className="title">Основні вимоги:</h3>
-
-                    <div style={{ width: "100%", lineHeight: 1.5 }}>
-                      {[
-                        "Бажання розвиватися, навчатися та працювати",
-                        "Ступінь бакалавра з IT наук або економіки",
-                        "Круто, якщо ти маєш певний досвід роботи за фахом. Але це не є обов’язковим",
-                        "Навички спілкування англійською (рівень не нижче Intermediate)",
-                      ].map((r) => {
-                        return <div className="row">- {r}</div>;
-                      })}
-                    </div>
+                <div style={{ margin: "0 20px" }} className="card-wrapper">
+                  <div className="card">
+                    <img
+                      width={300}
+                      height={200}
+                      src={require("../images/komp-300-na-220.jpg")}
+                      alt="distance"
+                    />
                   </div>
-
-                  <div style={{ width: "50%", lineHeight: 1.5 }}>
-                    <h3 className="title">
-                      Для того, щоб записатися на курс необхідно:
-                    </h3>
-
-                    <div className="row">
-                      - Зареєструватися на курс
-                      <button
-                        className="registration-btn"
-                        onClick={() => {
-                          setIsOpenModal(true);
-                          setTemplateId("registration_form");
-                          document.body.style.overflow = "hidden";
-                        }}
-                      >
-                        ЗАРЕЄСТРУВАТИСЯ
-                      </button>
-                    </div>
-                    <div className="row">
-                      - Протягом 5-ти днів з тобою зв'яжуться, чекай на дзвінок
-                      та не забувай перевіряти свій email.
-                    </div>
-                    <div className="row">
-                      - Програма навчання
-                      <a
-                        className="download-btn"
-                        href="https://drive.google.com/file/d/1g-3MiOJFtseB06NAcEIcn1hrT2TdEEla/view?usp=sharing"
-                        download
-                        style={{ margin: "0 0 0 65px", padding: "8px 0" }}
-                      >
-                        Click to download
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="registration-box">
                   <div
                     style={{
-                      display: "flex",
-                      width: "100%",
-                      justifyContent: "space-between",
-                      flexWrap: "wrap",
-                      margin: "30px 0 0 0",
-                      padding: "20px 0",
+                      margin: "20px 20px 0 20px",
+                      textAlign: "center",
                     }}
                   >
-                    <div style={{ margin: "0 20px" }} className="card-wrapper">
-                      <div className="card">
-                        <img
-                          width={300}
-                          height={200}
-                          src={require("../images/komp-300-na-220.jpg")}
-                          alt="distance"
-                        />
-                      </div>
-                      <div
-                        style={{
-                          margin: "20px 20px 0 20px",
-                          textAlign: "center",
-                        }}
-                      >
-                        <h3 style={{ margin: "10px 0", color: "#0067b8" }}>
-                          Навчальна група
-                        </h3>
-                        До 6 чоловік
-                      </div>
-                    </div>
-                    <div style={{ margin: "0 20px" }} className="card-wrapper">
-                      <div className="card">
-                        <img
-                          width={300}
-                          height={200}
-                          src={require("../images/time-300-na-220.jpg")}
-                          alt="distance"
-                        />
-                      </div>
+                    <h3 style={{ margin: "10px 0", color: "#0067b8" }}>
+                      Навчальна група
+                    </h3>
+                    До 6 чоловік
+                  </div>
+                </div>
+                <div style={{ margin: "0 20px" }} className="card-wrapper">
+                  <div className="card">
+                    <img
+                      width={300}
+                      height={200}
+                      src={require("../images/time-300-na-220.jpg")}
+                      alt="distance"
+                    />
+                  </div>
 
-                      <div
-                        style={{
-                          margin: "20px 20px 0 20px",
-                          textAlign: "center",
-                        }}
-                      >
-                        <h3 style={{ margin: "10px 0", color: "#0067b8" }}>
-                          {" "}
-                          Тривалість навчання
-                        </h3>
-                        2 тижні
-                      </div>
-                    </div>
+                  <div
+                    style={{
+                      margin: "20px 20px 0 20px",
+                      textAlign: "center",
+                    }}
+                  >
+                    <h3 style={{ margin: "10px 0", color: "#0067b8" }}>
+                      {" "}
+                      Тривалість навчання
+                    </h3>
+                    2 тижні
+                  </div>
+                </div>
 
-                    <div style={{ margin: "0 20px" }} className="card-wrapper">
-                      <div className="card">
-                        <img
-                          width={300}
-                          height={200}
-                          src={require("../images/oplata-300-na-220.jpg")}
-                          alt="distance"
-                        />
-                      </div>
-                      <div
-                        className="education-title"
-                        style={{
-                          margin: "20px 20px 0 20px",
-                          textAlign: "center",
-                        }}
-                      >
-                        <h3 style={{ margin: "10px 0", color: "#0067b8" }}>
-                          Вартість навчання
-                        </h3>
-                        Безкоштовно
-                      </div>
-                    </div>
+                <div style={{ margin: "0 20px" }} className="card-wrapper">
+                  <div className="card">
+                    <img
+                      width={300}
+                      height={200}
+                      src={require("../images/oplata-300-na-220.jpg")}
+                      alt="distance"
+                    />
+                  </div>
+                  <div
+                    className="education-title"
+                    style={{
+                      margin: "20px 20px 0 20px",
+                      textAlign: "center",
+                    }}
+                  >
+                    <h3 style={{ margin: "10px 0", color: "#0067b8" }}>
+                      Вартість навчання
+                    </h3>
+                    Безкоштовно
                   </div>
                 </div>
               </div>
             </div>
-          </Educations>
-          <Footer />
-          {isOpenModal && (
-            <Modal>
-              <div className="modal-content">
-                <span
-                  className="close-btn"
-                  onClick={() => {
-                    setIsOpenModal(false);
-                    document.body.style.overflow = "auto";
-                  }}
-                >
-                  X
-                </span>
+          </div>
+        </div>
+      </Educations>
+      <Footer />
+      {isOpenModal && (
+        <Modal>
+          <div className="modal-content">
+            <span
+              className="close-btn"
+              onClick={() => {
+                setIsOpenModal(false);
+                document.body.style.overflow = "auto";
+              }}
+            >
+              X
+            </span>
 
-                <Form
-                  title="Реєстраційна форма"
-                  disableText
-                  isSendingForm={isSendingForm}
-                  isFile
-                  sendEmail={(e) => sendEmail(e, templateId)}
-                  withLogo
-                />
-              </div>
-            </Modal>
-          )}
-        </>
+            <Form
+              title="Реєстраційна форма"
+              disableText
+              isSendingForm={isSendingForm}
+              isFile
+              sendEmail={(e) => sendEmail(e, templateId)}
+              withLogo
+            />
+          </div>
+        </Modal>
       )}
-    </Media>
+    </>
   );
 };
 

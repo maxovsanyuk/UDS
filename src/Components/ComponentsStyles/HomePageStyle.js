@@ -479,32 +479,6 @@ export const HomePageStales = styled.div`
     z-index: 15;
   }
 
-  .contact-cont {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    background: #fff;
-    padding: 240px 0 60px 0;
-
-    @media (max-width: 768px) {
-      padding: 140px 0 60px 0;
-    }
-
-    .info-box {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 20px 40px 20px 100px;
-
-      @media (max-width: 600px) {
-        padding: 10px 5%;
-      }
-    }
-  }
-
   .react-player {
     margin: 180px 0 0 50px;
     transform: scale(1.8);
@@ -690,50 +664,6 @@ export const HomePageStales = styled.div`
 
     @media (max-width: 600px) {
       width: 100%;
-    }
-  }
-
-  .google-map {
-    width: 670px;
-    height: 440px;
-    margin: 0 0 0 10%;
-
-    @media (max-width: 1350px) {
-      width: 600px;
-      height: 380px;
-      margin: 0 0 0 5%;
-    }
-
-    @media (max-width: 1180px) {
-      width: 100%;
-      height: 380px;
-      margin: 0 5%;
-    }
-
-    @media (max-width: 600px) {
-      width: 100%;
-      height: 220px;
-      margin: 0 5%;
-    }
-  }
-
-  .our-contact {
-    @media (max-width: 1180px) {
-      display: none;
-    }
-  }
-
-  .our-contact-sm {
-    display: none;
-    @media (max-width: 1180px) {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      padding: 0 0 20px 0;
-    }
-
-    @media (max-width: 600px) {
-      padding: 0 0 40px 0;
     }
   }
 
@@ -924,19 +854,6 @@ export const HomePageStales = styled.div`
     @media (max-width: 600px) {
       width: 50px !important;
     }
-  }
-  .img-contact {
-    height: 40px;
-  }
-
-  .soc-box {
-    @media (max-width: 600px) {
-      margin: 15px 0 0 0;
-    }
-  }
-
-  .social-img {
-    width: 35px;
   }
 
   .display-none {
