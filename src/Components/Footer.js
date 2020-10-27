@@ -204,14 +204,20 @@ const Footer = ({}) => {
       <div className="footer">
         <div className="footer-cont">
           <div className="links-cont">
-            <img
-              className="logo"
-              src={require("../images/logowhite.png")}
-              alt="vector"
-              style={{
-                margin: "0 60px 0 0 ",
-              }}
-            />
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/"
+              onClick={() => dispatch(setActivePage("/"))}
+            >
+              <img
+                className="logo"
+                src={require("../images/logowhite.png")}
+                alt="vector"
+                style={{
+                  margin: "0 60px 0 0 ",
+                }}
+              />
+            </Link>
             <div className="links-wrapper">
               <div className="links-main-box">
                 <Link

@@ -561,7 +561,7 @@ export const HomePageStales = styled.div`
   }
 
   .box-1 {
-    width: 450px;
+    width: 455px;
 
     @media (max-width: 1300px) {
       margin: 100px 0 0 0;
@@ -668,6 +668,7 @@ export const HomePageStales = styled.div`
   }
 
   .ilustration {
+    transform: scale(0.9);
     @media (max-width: 1100px) {
       transform: scale(0.8);
     }

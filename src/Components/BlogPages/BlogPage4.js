@@ -4,6 +4,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import Media from "react-media";
 
+
 const Blog = styled.div`
   display: flex;
   width: 100%;
